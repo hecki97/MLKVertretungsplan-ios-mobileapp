@@ -1,0 +1,26 @@
+<html>
+<head>
+    <meta name="viewport" content="height=device-height, initial-scale=0.75, maximum-scale=0.75, user-scalable=yes" />
+</head>
+<body>
+
+<?php
+  $datei = "textfile.txt";
+  $fp = fopen($datei, "r");
+?>
+
+ <div class="text">
+    <h3>Aktuelles Datum:
+        <?php
+                $datei = "textfile.txt";
+                $fp = fopen($datei, "r");
+                echo fgets($fp);
+        ?>
+    </h3>
+
+<form action="http://hecki97.de.ht/mlkvplan/index.phtml">
+    <input type="submit" value="Zum Plan">
+</form>
+
+</body>
+</html>
