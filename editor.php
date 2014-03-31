@@ -1,5 +1,5 @@
 <?php
-$datei = "textfile.txt";
+$datei = "datum.dat";
 
  $fp = fopen($datei, "w+");
 
@@ -9,7 +9,7 @@ if (isset($_REQUEST["fedit"]))
 
   fclose($fp); 
 
-  header("Location: http://hecki97.de.ht/mlkvplan/reader.phtml"); 
+  header("Location: http://hecki97.de.ht/mlkvplan/reader.php"); 
 }
 ?>
   

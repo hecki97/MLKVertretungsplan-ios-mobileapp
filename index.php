@@ -24,14 +24,14 @@
 <body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0">
   
 <?php
-  $datei = "textfile.txt";
+  $datei = "datum.dat";
   $fp = fopen($datei, "r");
 ?>
 
   <table border=0 bordercolor="#000000" cellpadding=0 cellspacing=0 width="1163" height="658">
 		<tr>
 			<td colspan="1" rowspan="1" width="581" height="657" style="border-right:1px solid black;">
-               <iframe src="https://dl.dropboxusercontent.com/u/107727443/MLKVertretungsplan-ios-mobileapp/html/modul1.html" name="Vertretungsplan-Modul" scrolling="no" noresize frameborder=0  width="581" height="657" style="overflow: hidden;">
+               <iframe src="html/modul1.html" name="Vertretungsplan-Modul" scrolling="no" noresize frameborder=0  width="581" height="657" style="overflow: hidden;">
                 </iframe>
                   <div class="text">
                     <!--<h3><p id="Daten">Stand: </p></h3>-->
@@ -39,7 +39,7 @@
                 </div>
 			</td>
 			<td colspan="1" rowspan="1" width="581" height="657" style="">
-    			<iframe src="https://dl.dropboxusercontent.com/u/107727443/MLKVertretungsplan-ios-mobileapp/html/modul2.html" name="Vertretungsplan-Modul 2" scrolling="no" noresize frameborder=0  width="581" height="657" style="overflow: hidden;">
+    			<iframe src="html/modul2.html" name="Vertretungsplan-Modul 2" scrolling="no" noresize frameborder=0  width="581" height="657" style="overflow: hidden;">
                 </iframe>
 			</td>
 		</tr>
