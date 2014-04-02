@@ -11,14 +11,21 @@
 </head>
 
 <style>
-.text { 
-   position: absolute;
-   text-align: center; 
-   font-size: 25;
-   top: 25px;
-   left: 100; 
-   width: 100%; 
-}
+  @font-face {
+      font-family: 'fonts';
+      src: url('Walkway Bold.ttf');
+      font-style: normal;
+  }
+
+  .text { 
+    position: absolute;
+    text-align: center; 
+    font-size: 35;
+    font-family: fonts;
+    text-shadow: 1px 1px 1px #555;
+    top: 25px;
+    width: 100%; 
+  }
 </style>
 
 <body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0">
@@ -35,7 +42,7 @@
                 </iframe>
                   <div class="text">
                     <!--<h3><p id="Daten">Stand: </p></h3>-->
-                    <h3>Stand: <?php echo fgets($fp); ?></h3>
+                    <h3> Stand: <?php echo fgets($fp); ?></h3>
                 </div>
 			</td>
 			<td colspan="1" rowspan="1" width="581" height="657" style="">
