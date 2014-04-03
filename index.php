@@ -31,8 +31,11 @@
 <body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0">
   
 <?php
-  $datei = "datum.dat";
-  $fp = fopen($datei, "r");
+  $datei_modul2 = "datum_modul2.dat";
+  $fp_modul2 = fopen($datei_modul2, "r");
+
+  $datei_modul1 = "datum_modul1.dat";
+  $fp_modul1 = fopen($datei_modul1, "r");
 ?>
 
   <table border=0 bordercolor="#000000" cellpadding=0 cellspacing=0 width="1163" height="658">
@@ -41,8 +44,8 @@
                <iframe src="html/modul1.html" name="Vertretungsplan-Modul" scrolling="no" noresize frameborder=0  width="581" height="657" style="overflow: hidden;">
                 </iframe>
                   <div class="text">
-                    <!--<h3><p id="Daten">Stand: </p></h3>-->
-                    <h3> Stand: <?php echo fgets($fp); ?></h3>
+                    <h3> Letztes Update (Modul1): <?php echo fgets($fp_modul1); ?></h3>
+                    <h3> Letztes Update (Modul2): <?php echo fgets($fp_modul2); ?></h3>
                 </div>
 			</td>
 			<td colspan="1" rowspan="1" width="581" height="657" style="">
