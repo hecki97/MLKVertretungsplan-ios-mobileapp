@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'fonts';
+    src: url('walkway.ttf');
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'notification';
+  src: url('Walkway Bold.ttf');
+  font-style: normal;
+}
+
+.notification {
+	position: absolute;
+  text-align: center; 
+  font-size: 25;
+  font-family: notification;
+  text-shadow: 3px 3px 3px #555;
+  width: 100%; 
+}
+
+.text { 
+  position: absolute;
+  text-align: center; 
+  font-size: 25;
+  font-family: fonts;
+  text-shadow: 1px 1px 1px #555;
+  top: 25px;
+  width: 95%; 
+}
+
+.pagewrapper {
+  text-align: center;
+}
+
+/* Angaben für alle standardkonformen Browser */
+
+body {
+    margin:0;
+    padding:0;
+}
+
+.content_container {
+    padding-bottom:3em;
+}
+
+.header {
+    margin: 0 0 0.7em;
+    background:#efefef;
+    text-align:center;
+    padding:10px;
+}
+
+.footer {
+    position:fixed;
+    bottom:0px;
+    background:#efefef;
+    text-align:center;
+    padding:10px;
+    width:100%;
+}
+
+/* Angaben nur für den Internet Explorer mittels Star-HTML-Hack */
+
+* html, * html body {
+    margin:0;
+    padding:0;
+    height:100%;
+    overflow:hidden;
+}
+
+* html .content_container {
+    padding:0;
+    height:95%;
+    overflow:auto;
+}
+
+* html .footer {
+    background:#efefef;
+    height:5%;
+    text-align:center;
+    padding-top:1%;
+}

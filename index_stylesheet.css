@@ -1,0 +1,105 @@
+@font-face {
+    font-family: 'fonts';
+    src: url('walkway.ttf');
+    font-style: normal;
+}
+
+.text { 
+  position: absolute;
+  text-align: center; 
+  font-size: 25;
+  font-family: fonts;
+  text-shadow: 1px 1px 1px #555;
+  top: 25px;
+  width: 95%; 
+}
+
+body { 
+    position:absolute;
+    background:#FFFFFF;
+}
+
+html, body { 
+    min-height: 100%;
+    margin-bottom: 1px;
+    margin-top: 20px;
+}
+
+.header_container {
+    position:fixed;
+    top:0; left:0; right:0;
+    text-align:center;
+    margin:0;
+    height:3em;
+    z-index:3;
+}
+
+.header {
+    position:absolute;
+    top:0; left:0; right:0; bottom:0;
+    height:100%;
+    background:#efefef;
+    z-index:3;
+    margin:0;
+    padding:0.2em;
+}
+
+.content {
+    margin:0;
+    padding-top:4em;
+    padding-left:12em;
+    padding-bottom:3em;
+    z-index:2;
+}
+
+.footer_container {
+    position:fixed;
+    bottom:0; left:0; right:0;
+    text-align:center;
+    margin:0;
+    height:2em;
+    z-index:3;
+}
+
+.footer {
+    position:absolute;
+    top:0; left:0; right:0; bottom:0;
+    background:#efefef;
+    z-index:3;
+}
+
+/* Nur für den MSIE */
+
+* html, * html body {
+    overflow:hidden;
+    bottom:0;
+    height:100%;
+}
+
+* html .header_container, * html .footer_container {
+    position:absolute;
+    width:100%;
+    padding-right:16px;
+}
+
+* html .header,* html .footer {
+    height:100%;
+    position:static;
+}
+
+* html .content {
+    position:absolute;
+    top:0; bottom:0; left:0; right:0;
+    height:100%;
+    width:100%;
+    overflow:auto;
+    margin:0;
+}
+
+/* Der IE soll das Element breiter darstellen, da margin
+   und padding hier von der Breite abgezogen werden! */
+
+* html .menu {
+    margin:0;
+    width:10.5em;
+}

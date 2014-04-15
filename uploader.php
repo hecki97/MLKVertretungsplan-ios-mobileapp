@@ -4,6 +4,12 @@
 	if(!file_exists("html"))
 		mkdir("html");
 
+	if(!file_exists("data"))
+		mkdir("data");
+
+	$versionFile = fopen("http://dl.dropboxusercontent.com/u/107727443/mlkvplaniosappVersion.txt/", "r");
+	$version = fgets($versionFile);
+
 	$hostname = $_SERVER['HTTP_HOST'];
     $path = dirname($_SERVER['PHP_SELF']);
 
@@ -30,7 +36,7 @@
 							move_uploaded_file($_FILES['modul1']['tmp_name'], "html/".$_FILES['modul1']['name']); 
 			      			$upload_1 = ("<span style ='color:#04B404'>Die Datei ".$_FILES['modul1'] ['name']." wurde Erfolgreich nach html/".$_FILES['modul1']['name']." hochgeladen</span>");
 
-			      			$datei_modul1 = "datum_modul1.dat";
+			      			$datei_modul1 = "data/datum_modul1.dat";
 	  						$fp_modul1 = fopen($datei_modul1, "w+");
     						fwrite($fp_modul1,date("d/m/y H:i:s."), filemtime("html/modul1.html"));
 	  						fclose($fp_modul1);
@@ -58,7 +64,7 @@
 							move_uploaded_file($_FILES['modul2']['tmp_name'], "html/".$_FILES['modul2']['name']);
 			      			$upload_2 = ("<br><span style ='color:#04B404'>Die Datei ".$_FILES['modul2'] ['name']." wurde Erfolgreich nach html/".$_FILES['modul2']['name']." hochgeladen</span>");
 
-			      			$datei_modul2 = "datum_modul2.dat";
+			      			$datei_modul2 = "data/datum_modul2.dat";
 	  						$fp_modul2 = fopen($datei_modul2, "w+");
     						fwrite($fp_modul2,date("d/m/y H:i:s."), filemtime("html/modul2.html"));
 	  						fclose($fp_modul2);
@@ -80,61 +86,45 @@
 <head>
 	<title> MLK-Vertretungsplan Modul1 HTML Upload </title>
 	<meta name="viewport" content="height=device-height, initial-scale=1.25, maximum-scale=1.5, user-scalable=yes" />
+	<link rel="stylesheet" type="text/css" href="default_stylesheet.css">
 </head>
-<style>
-  @font-face {
-      font-family: 'fonts';
-      src: url('walkway.ttf');
-      font-style: normal;
-  }
 
-  @font-face {
-  	font-family: 'notification';
-    src: url('Walkway Bold.ttf');
-    font-style: normal;
-  }
-  .notification {
-  	position: absolute;
-    text-align: center; 
-    font-size: 35;
-    font-family: notification;
-    text-shadow: 3px 3px 3px #555;
-    width: 100%; 
-  }
-  
-  .text { 
-     position: absolute;
-     text-align: center; 
-     font-size: 25;
-     font-family: fonts;
-     text-shadow: 1px 1px 1px #555;
-     top: 25px;
-     width: 95%; 
-  }
-</style>
 <body>
-	<div class="text">
-		<h1>'.html' Dateien hochladen</h1>
-		<form action="uploader.php" method="post" enctype="multipart/form-data"> 
-			<h3>Hier 'modul1.html' hochladen!</h3>
-			<input type="file" name="modul1">
-			<br><?php echo $lastUpdate_modul1; ?>
-			
-			<br><br><h3>Hier 'modul2.html' hochladen!</h3>
-			<input type="file" name="modul2">
-			<br><?php echo $lastUpdate_modul2; ?>
-			<br><br><input type="submit" value="Hochladen"> 
-		</form>
-		<form>
-	        <input type="submit" name="fback" value="Zur Auswahl">
-	    </form>
-	<div class="notification">
-	    <br><form action='uploader.php'>
-	        <?php
-	          echo $error_upload1_1,$error_upload1_2,$error_upload1_3,$error_upload1_4,$upload_1,$error_upload2_1,$error_upload2_2,$error_upload2_3,$error_upload2_4,$upload_2;
-	        ?>
-	      	</form>
-    </div>
-    </div>
-	</body>
+<div class="content_container">
+	<div class="content">
+		<div class="text">
+			<h1>'.html' Dateien hochladen</h1>
+			<form action="uploader.php" method="post" enctype="multipart/form-data"> 
+				<h3>Hier 'modul1.html' hochladen!</h3>
+				<input type="file" name="modul1">
+				<br><?php echo $lastUpdate_modul1; ?>
+				
+				<br><br><h3>Hier 'modul2.html' hochladen!</h3>
+				<input type="file" name="modul2">
+				<br><?php echo $lastUpdate_modul2; ?>
+				<br><br><input type="submit" value="Hochladen"> 
+			</form>
+			<form>
+		        <input type="submit" name="fback" value="Zur Auswahl">
+		    </form>
+		<div class="notification">
+		    <br><form action='uploader.php'>
+		        <?php
+		          echo $error_upload1_1,$error_upload1_2,$error_upload1_3,$error_upload1_4,$upload_1,$error_upload2_1,$error_upload2_2,$error_upload2_3,$error_upload2_4,$upload_2;
+		        ?>
+		      	</form>
+	    </div>
+	    </div>
+	</div>
+</div>
+
+<div class="footer_container">
+	<div class="footer">
+		<span style = "font-family:fonts;text-align:center;">
+			<b><? echo $version; ?></b>
+		</span>
+	</div>
+</div>
+
+</body>
 </html>
