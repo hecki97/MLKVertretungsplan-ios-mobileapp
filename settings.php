@@ -7,6 +7,8 @@
   if(!file_exists("data"))
     mkdir("data");
 
+  $datei = "data/key.dat";
+  
   $versionFile = fopen("http://dl.dropboxusercontent.com/u/107727443/mlkvplaniosappVersion.txt/", "r");
   $version = fgets($versionFile);
 
