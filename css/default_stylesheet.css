@@ -1,12 +1,12 @@
 @font-face {
     font-family: 'fonts';
-    src: url('walkway.ttf');
+    src: url('../font/walkway.ttf');
     font-style: normal;
 }
 
 @font-face {
   font-family: 'notification';
-  src: url('Walkway Bold.ttf');
+  src: url('../font/Walkway Bold.ttf');
   font-style: normal;
 }
 

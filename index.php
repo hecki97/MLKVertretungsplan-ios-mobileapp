@@ -28,7 +28,7 @@
     <link href="icons/apple-touch-icon@152x152.png" rel="apple-touch-icon" sizes="152x152" />
     <link rel="favicon" href="icons/favicon.ico">
     <meta name="viewport" content="height=device-height, initial-scale=0.75, maximum-scale=0.75, user-scalable=yes" />
-    <link rel="stylesheet" type="text/css" href="index_stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="css/index_stylesheet.css">
   </head>
 
   <body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0">
@@ -38,8 +38,7 @@
   </div>
 
     <div class="content">
-      <div class="text">
-        <table style="text-align: left; width:1200; height:800; margin-left: auto; margin-right: auto; margin-bottom: auto;" border="0" cellpadding="0" cellspacing="0">
+        <table style="text-align: left; width:1200; height:800; margin-left: auto; margin-right: auto; margin-bottom: auto; margin-top: 50;" border="0" cellpadding="0" cellspacing="0">
           <tr>
             <td colspan="1" rowspan="1" width="585" height="800" style="border-color:#000000;border-width:2px;border-style:solid;">
               <iframe src="html/modul1.html" name="Vertretungsplan-Modul" scrolling="no" noresize frameborder=0 width="100%" height="100%" style="overflow: hidden;"></iframe>
@@ -55,12 +54,11 @@
                 <span style="text-align:right; margin-left:100px; vertical-align:middle;">Letztes Update (Modul2): <?php echo fgets($fp_modul2); ?></span>
               </h3>
             </p>
-            <form style"text-align:center">
+            <form style"text-align:center;">
               <input type="submit" name="fflash" value="Flash Version">
-            </form>
+            </form><br>
           </caption>
         </table>
-      </div>
     </div>
 
 <div class="footer_container">

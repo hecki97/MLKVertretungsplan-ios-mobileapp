@@ -27,8 +27,8 @@
 <html>
   <head>
     <title>Startwert</title>
-    <meta name="viewport" content="height=device-height, initial-scale=1.25, maximum-scale=1.5, user-scalable=yes" />
-    <link rel="stylesheet" type="text/css" href="default_stylesheet.css">
+    <meta name="viewport" content="height=device-height, initial-scale=0.75, maximum-scale=1.5, user-scalable=yes" />
+    <link rel="stylesheet" type="text/css" href="css/default_stylesheet.css">
 </head>
 
 <body>

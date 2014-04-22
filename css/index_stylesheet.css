@@ -1,28 +1,7 @@
 @font-face {
     font-family: 'fonts';
-    src: url('walkway.ttf');
+    src: url('../font/walkway.ttf');
     font-style: normal;
-}
-
-.text { 
-  position: absolute;
-  text-align: center; 
-  font-size: 25;
-  font-family: fonts;
-  text-shadow: 1px 1px 1px #555;
-  top: 25px;
-  width: 95%; 
-}
-
-body { 
-    position:absolute;
-    background:#FFFFFF;
-}
-
-html, body { 
-    min-height: 100%;
-    margin-bottom: 1px;
-    margin-top: 20px;
 }
 
 .header_container {
@@ -45,11 +24,13 @@ html, body {
 }
 
 .content {
-    margin:0;
-    padding-top:4em;
-    padding-left:12em;
-    padding-bottom:3em;
-    z-index:2;
+    position: absolute;
+    text-align: center; 
+    font-size: 25;
+    font-family: fonts;
+    text-shadow: 1px 1px 1px #555;
+    top: 25px;
+    width: 95%; 
 }
 
 .footer_container {
@@ -69,12 +50,6 @@ html, body {
 }
 
 /* Nur für den MSIE */
-
-* html, * html body {
-    overflow:hidden;
-    bottom:0;
-    height:100%;
-}
 
 * html .header_container, * html .footer_container {
     position:absolute;

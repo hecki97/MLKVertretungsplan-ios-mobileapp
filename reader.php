@@ -21,16 +21,16 @@
 ?>
 <html>
 <head>
-    <title>Datum darstellen</title>
-    <meta name="viewport" content="height=device-height, initial-scale=1.25, maximum-scale=1.5, user-scalable=yes" />
-    <link rel="stylesheet" type="text/css" href="default_stylesheet.css">
+    <title>Datei-Version darstellen</title>
+    <meta name="viewport" content="height=device-height, initial-scale=0.75, maximum-scale=1.5, user-scalable=yes" />
+    <link rel="stylesheet" type="text/css" href="css/default_stylesheet.css">
 </head>
 
 <body>
 <div class="content_container">
     <div class="content">
         <div class="text">
-            <h1>Aktuelles Datum:</h1>
+            <h1>Aktuelles Datei-Version:</h1>
               <h3> Letztes Update (Modul1): <?php echo fgets($fp_modul1); ?></h3>
               <h3> Letztes Update (Modul2): <?php echo fgets($fp_modul2); ?></h3>
             <form>

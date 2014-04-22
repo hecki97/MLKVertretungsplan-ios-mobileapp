@@ -39,8 +39,8 @@
 <html>
 <head>
 	<title>MLK Vertretungsplan Online Editor</title>
-	<meta name="viewport" content="height=device-height, initial-scale=1, maximum-scale=1.5, user-scalable=yes" />
-	<link rel="stylesheet" type="text/css" href="default_stylesheet.css">
+	<meta name="viewport" content="height=device-height, initial-scale=0.5, maximum-scale=1.5, user-scalable=yes" />
+	<link rel="stylesheet" type="text/css" href="css/default_stylesheet.css">
 </head>
 
 <script type="text/javascript">
@@ -74,9 +74,9 @@ function showFilled(Value)
 				<form action='onlineEditor.php'>
 		    		<input type="submit" name="fupload" value="Daten hochladen">
 		    	</form><br>
-			Aktuelles Datum anzeigen:
+			Letztes Update anzeigen:
 				<form>
-		    		<input type="submit" name="fshow" value="Datum anzeigen">
+		    		<input type="submit" name="fshow" value="Version anzeigen">
 		    	</form><br>
 		    Einstellungen bearbeiten:
 				<form>

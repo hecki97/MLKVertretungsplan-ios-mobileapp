@@ -19,7 +19,7 @@
     <link href="icons/apple-touch-icon@120x120.png" rel="apple-touch-icon" sizes="120x120" />
     <link href="icons/apple-touch-icon@152x152.png" rel="apple-touch-icon" sizes="152x152" />
     <meta name="viewport" content="height=device-height, initial-scale=0.75, maximum-scale=0.75, user-scalable=yes" />
-    <link rel="stylesheet" type="text/css" href="index_stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="css/index_stylesheet.css">
 </head>
 
 <body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0">
@@ -28,8 +28,7 @@
   </div>
 
   <div class="content">
-    <div class="text">
-      <table style="text-align: left; width:1200; height:800; margin-left: auto; margin-right: auto; margin-bottom: auto;" border="0" cellpadding="0" cellspacing="0">
+      <table style="text-align: left; width:1200; height:800; margin-left: auto; margin-right: auto; margin-bottom: auto; margin-top: 50;" border="0" cellpadding="0" cellspacing="0">
         <tr>
     			<td colspan="1" rowspan="1" width="585" height="800" style="border-color:#000000;border-width:2px;border-style:solid;">
             <iframe src="https://light.dsbcontrol.de/DSBlightWebsite/(S(wns2f3dhy5w21zzxuzomq1ph))/Homepage/PreProgram.aspx?ID=a290d4b8-79f8-4afe-a676-d15b75233151&ID2=d24a5dd7-48c6-4b27-8f79-464a62af12bf" name="Vertretungsplan-Modul" scrolling="no" noresize frameborder=0  width="100%" height="100%" style="overflow: hidden;"></iframe> 
@@ -47,10 +46,9 @@
             </p>
               <form style"text-align:center">
                 <input type="submit" name="fflash" value="HTML Version"><br>
-              </form>
+              </form><br>
           </caption>
     	</table>
-    </div>
   </div>
 
 <div class="footer_container">
