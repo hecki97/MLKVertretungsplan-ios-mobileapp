@@ -1,14 +1,13 @@
 <?php
 	include('auth.php');
+	include('footerVersionHandler.php');
+	include('fileChecker.php');
 
 	$hostname = $_SERVER['HTTP_HOST'];
     $path = dirname($_SERVER['PHP_SELF']);
 
 		if(isset($_REQUEST["fupload"]))
 			header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/uploader.php');
-
-		if(isset($_REQUEST["fshow"]))
-			header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/reader.php');
 
 		if(isset($_REQUEST["logout"]))
 			header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/logout.php');
@@ -18,21 +17,6 @@
 
 		if(isset($_REQUEST["fsettings"]))
 			header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/settings.php');
-
-	if(!file_exists("data"))
-		mkdir("data");
-
-	$versionFile = fopen("http://dl.dropboxusercontent.com/u/107727443/mlkvplaniosappVersion.txt/", "r");
-	$version = fgets($versionFile);
-
-	$datei = "data/usrTMP.dat";
-	    if (file_exists($datei))
-	    {
-		    $fp = fopen($datei, "r");
-			$user = ("Willkommen, ".fgets($fp));
-		}
-		else
-			$error_user = "<span style ='color:#ff0000'>Die '".$datei."' fehlt. Bitte erneut einloggen!</span>";
 
 	$date = "<span style = 'font-size:50px'>".date('d F Y')."</span>";
 ?>
@@ -66,21 +50,20 @@ function showFilled(Value)
 		
 		<h2><form action='onlineEditor.php'>
 				<?php
-					echo $user,$error_user;
+					if(!empty($user))
+						echo $user;
+					else if (!empty($error_user))
+						echo $error_user;
 				?>
 		</form></h2>
 
-			'.html' dateien hochladen:
+			Vertretungsplan aktualisieren:
 				<form action='onlineEditor.php'>
-		    		<input type="submit" name="fupload" value="Daten hochladen">
+		    		<input type="submit" name="fupload" value="Klick hier!">
 		    	</form><br>
-			Letztes Update anzeigen:
+		    Einstellungen:
 				<form>
-		    		<input type="submit" name="fshow" value="Version anzeigen">
-		    	</form><br>
-		    Einstellungen bearbeiten:
-				<form>
-		    		<input type="submit" name="fsettings" value="Einstellungen">
+		    		<input type="submit" name="fsettings" value="Klick hier!">
 		    	</form><br>
 			<form action='logout.php'>
 					<input type="submit" name"logout" value="Ausloggen">

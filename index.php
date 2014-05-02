@@ -1,28 +1,20 @@
 <?php
+  include('footerVersionHandler.php');
+  include('fileChecker.php');
+
   $hostname = $_SERVER['HTTP_HOST'];
   $path = dirname($_SERVER['PHP_SELF']);
 
-  if(!file_exists("data"))
-    mkdir("data");
-
   if(isset($_REQUEST["fflash"]))
     header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/index_flash.php');
-
-  $versionFile = fopen("http://dl.dropboxusercontent.com/u/107727443/mlkvplaniosappVersion.txt/", "r");
-  $version = fgets($versionFile);
-
-  $datei_modul2 = "data/datum_modul2.dat";
-  $fp_modul2 = fopen($datei_modul2, "r");
-
-  $datei_modul1 = "data/datum_modul1.dat";
-  $fp_modul1 = fopen($datei_modul1, "r");
-
+  if(isset($_REQUEST["flogin"]))
+    header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/login.php');
 ?>
 
 <html>
   <head>
     <title>MLK-Vertretungsplan</title>
-    <link href="icons/apple-touch-icon@60x60.png" rel="apple-touch-icon" />
+    <link href="icons/apple-touch-icon@60x60.png" rel="apple-touch-icon" sizes="60x60" />
     <link href="icons/apple-touch-icon@76x76.png" rel="apple-touch-icon" sizes="76x76" />
     <link href="icons/apple-touch-icon@120x120.png" rel="apple-touch-icon" sizes="120x120" />
     <link href="icons/apple-touch-icon@152x152.png" rel="apple-touch-icon" sizes="152x152" />
@@ -34,7 +26,10 @@
   <body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0">
 
   <div class="header_container">
-    <span style="font-family:fonts;text-align:center;"><h2 class="header">MLK-Vertretungsplan Online<sup>html</sup></h2></span>
+    <form action='index.php'>
+      <span style="font-family:fonts;text-align:center; margin-right:100px; vertical-align:middle;"><h2 class="header">MLK-Vertretungsplan Online<sup>html</sup></span>
+      <div class="login"><input type="submit" name="flogin" value="Zum Login!"></h2></div></span>
+    </form>
   </div>
 
     <div class="content">
@@ -50,8 +45,24 @@
           <caption align="bottom">
             <p>
               <h3>
-                <span style="text-align:left; margin-right:100px; vertical-align:middle;">Letztes Update (Modul1): <?php echo fgets($fp_modul1); ?></span>
-                <span style="text-align:right; margin-left:100px; vertical-align:middle;">Letztes Update (Modul2): <?php echo fgets($fp_modul2); ?></span>
+                <span style="text-align:left; margin-right:50px; vertical-align:middle;">Letztes Update (Modul1):
+                    <?php
+                      $mlkvplan_array_modul1 = DecodeJSONToArray($date_config);
+
+                      if(!empty($mlkvplan_array_modul1->Datum_Modul1))
+                        echo "Letztes Update: ".$mlkvplan_array_modul1->Datum_Modul1;
+                      else
+                        echo "???";
+                    ?></span>
+                <span style="text-align:right; margin-left:50px; vertical-align:middle;">Letztes Update (Modul2):
+                   <?php
+                      $mlkvplan_array_modul2 = DecodeJSONToArray($date_config);
+
+                      if(!empty($mlkvplan_array_modul2->Datum_Modul2))
+                        echo "Letztes Update: ".$mlkvplan_array_modul2->Datum_Modul2;
+                      else
+                        echo "???";
+                    ?></span>
               </h3>
             </p>
             <form style"text-align:center;">

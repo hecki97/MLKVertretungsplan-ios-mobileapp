@@ -1,19 +1,16 @@
 <?php
+  include('footerVersionHandler.php');
+
   $hostname = $_SERVER['HTTP_HOST'];
   $path = dirname($_SERVER['PHP_SELF']);
 
   if(isset($_REQUEST["fflash"]))
     header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/index.php');
-
-  $versionFile = fopen("http://dl.dropboxusercontent.com/u/107727443/mlkvplaniosappVersion.txt/", "r");
-  $version = fgets($versionFile);
 ?>
 
 <html>
 <head>
     <title>MLK-Vertretungsplan</title>
-    <!--<meta http-equiv="refresh" content="310; URL=Blank.aspx" content=”width=570; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;”/>
-    <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1, user-scalable=yes" /> -->
     <link href="icons/apple-touch-icon@60x60.png" rel="apple-touch-icon" />
     <link href="icons/apple-touch-icon@76x76.png" rel="apple-touch-icon" sizes="76x76" />
     <link href="icons/apple-touch-icon@120x120.png" rel="apple-touch-icon" sizes="120x120" />

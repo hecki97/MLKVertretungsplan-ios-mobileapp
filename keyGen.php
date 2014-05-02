@@ -2,15 +2,23 @@
   include('auth.php');
   include('footerVersionHandler.php');
   include('fileChecker.php');
+  include_once('arrayJSONHandler.php');
 
   $hostname = $_SERVER['HTTP_HOST'];
   $path = dirname($_SERVER['PHP_SELF']);
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if(isset($_REQUEST["fback"]))
-      header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/onlineEditor.php');
+      header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/settings.php');
 
-  if(isset($_REQUEST["uarandom"]))
-      header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/keyGen.php');
+    if(isset($_REQUEST["uarandom"]))
+    {
+      $randKey = uniqid();
+      $key = substr($randKey, 0, -1);
+      $array['Key'] = md5($key);
+      EncodeArrayToJSON($key_config, $array);
+    }
+   }
 ?>
 <html>
 <head>
@@ -24,13 +32,17 @@
   <div class="content">
      <div class="text">
         <h1>Einstellungen:</h1>
-          <form action="settings.php" method="post">
-            <h3>Einladungscode generieren:</h3>
-            <input type="submit" name="uarandom" value="Automatisch generieren"><br />
-            <h2>Registrierung De/Aktivieren:</h2>
-            <input type="submit" name="uarandom" value="De/Aktivieren!"><br />
-            <h2>File Checker:</h2>
-            <h2>Daten komplett entfernen:</h2>     
+          <h2><span style="color:#FFBF00;">Achtung dieser Code verfaellt sobald die Seite verlassen wird!</span></h2>
+          <form action="keyGen.php" method="post">
+            <input type="submit" name="uarandom" value="Einladungscode generieren"><br />
+            <h2>Einladungscode:</h2>
+              <span style = 'font-style:italic;font-size:35px;'>
+              <?php 
+                if(!empty($key))
+                  echo $key;
+                else
+                  echo "???";
+              ?></span>
             <br><br><input type="submit" name="fback" value="Zur Auswahl">
         </form>
     </div>
@@ -44,6 +56,5 @@
     </span>
   </div>
 </div>
-
 </body>
 </html>

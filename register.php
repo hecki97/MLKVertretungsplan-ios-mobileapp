@@ -1,15 +1,6 @@
 <?php
-
-  $versionFile = fopen("http://dl.dropboxusercontent.com/u/107727443/mlkvplaniosappVersion.txt/", "r");
-  $version = fgets($versionFile);
-
-  $datei = "data/key.dat";
-  if (!file_exists($datei))
-  {
-    $fp = fopen($datei, "w+");
-    fwrite($fp, md5("0000-0000-0000-0000"));
-    fclose($fp);
-  }
+  include('footerVersionHandler.php');
+  include('fileChecker.php');
 
    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $username = $_POST["username"];
@@ -83,7 +74,14 @@
               </div>
              <br><input type="submit" name="uregister" value="Registrieren">
              <br><?php
-                echo $error_register_1,$error_register_2,$error_register_3,$register;
+                  if (!empty($error_register_1))
+                    echo $error_register_1;
+                  else if (!empty($error_register_2))
+                    echo $error_register_2;
+                  else if (!empty($error_register_3))
+                    echo $error_register_3;
+                  else if (!empty($register))
+                    echo $register;
              ?>
         </form>
     </div>

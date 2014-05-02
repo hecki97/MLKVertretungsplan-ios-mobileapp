@@ -1,24 +1,9 @@
 <?php
+  include('footerVersionHandler.php');
+  include('fileChecker.php');
+
   $hostname = $_SERVER['HTTP_HOST'];
   $path = dirname($_SERVER['PHP_SELF']);
-
-  if(!file_exists("data"))
-    mkdir("data");
-
-  $datei = "data/user.dat";
-  if (!file_exists($datei))
-  {
-    $fp = fopen($datei, "w+");
-    fclose($fp);
-    header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/register.php');
-  } 
-
-  $datei = 'data/usrTMP.dat';
-  if (file_exists($datei))
-    unlink($datei);
-
-  $versionFile = fopen("http://dl.dropboxusercontent.com/u/107727443/mlkvplaniosappVersion.txt/", "r");
-  $version = fgets($versionFile);
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     session_start();
@@ -39,9 +24,9 @@
         $log = 1;
         $_SESSION['angemeldet'] = true;
 
-        if (!file_exists($datei))
+        if (!file_exists($data_usrTMP_dat))
         {
-          $fp = fopen($datei, "w+");
+          $fp = fopen($data_usrTMP_dat, "w+");
           fwrite($fp, $username);
           fclose($fp);
         } 
@@ -77,7 +62,8 @@
          <br><input type="submit" value="Anmelden" />
          <form action='login.php'>
               <?php
-                echo $error_login;
+                if(!empty($error_login))
+                  echo $error_login;
               ?>
         </form>
       </div>

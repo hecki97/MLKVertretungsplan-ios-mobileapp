@@ -19,6 +19,16 @@
   width: 100%; 
 }
 
+.login { 
+  position: absolute;
+  text-align: right; 
+  font-size: 25;
+  font-family: fonts;
+  text-shadow: 1px 1px 1px #555;
+  top: 25px;
+  width: 95%; 
+}
+
 .text { 
   position: absolute;
   text-align: center; 
