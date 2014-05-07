@@ -3,66 +3,55 @@
 	include('footerVersionHandler.php');
 	include('fileChecker.php');
 	include_once('arrayJSONHandler.php');
-
+	include('forwardScript.php');
+	
 	$hostname = $_SERVER['HTTP_HOST'];
     $path = dirname($_SERVER['PHP_SELF']);
 
-	if(isset($_REQUEST["fback"]))
-		header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/onlineEditor.php');
+	//Zum OnlineEditor
+	forwardButton($hostname, $path, "fback", "onlineEditor.php");
+
+	function Upload($modul_name)
+	{
+		if (!empty($_FILES[$modul_name]['name']))
+		{
+			if ($_FILES[$modul_name] ['type'] == "text/html")
+			{
+				if ($_FILES[$modul_name] ['size'] < 256000)
+				{	
+					if ($_FILES[$modul_name] ['name'] == $modul_name.".html")
+					{
+						if (is_file($_FILES[$modul_name]['name'])) unlink($_FILES[$modul_name]['name']);
+							move_uploaded_file($_FILES[$modul_name]['tmp_name'], "html/".$_FILES[$modul_name]['name']); 
+			      			$upload_1 = ("<span style ='color:#04B404'>Die Datei ".$_FILES[$modul_name] ['name']." wurde Erfolgreich nach html/".$_FILES[$modul_name]['name']." hochgeladen</span>");
+					}
+					else
+						$error_upload1_4 = ("<span style ='color:#ff0000'>Bitte ".$_FILES[$modul_name]['name']."  'modul1.html' nennen!</span>");
+				}
+				else $error_upload1_3 = "<span style ='color:#ff0000'>Die Datei '".$_FILES[$modul_name]['name']."' darf maximal 250Kb groß sein!</span>";
+			}
+			else
+				$error_upload1_2 = ("<span style ='color:#ff0000'>".$_FILES[$modul_name]['name']." ist keine '.html' Datei!</span>");
+		}
+		else
+			$error_upload1_1 = ("<span style ='color:#ff0000'>Fehler beim Hochladen von '".$modul_name.".html'</span>");
+	}
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
 		if (!empty($_FILES['modul1']['name']))
 		{
-			if ($_FILES['modul1'] ['type'] == "text/html")
-			{
-				if ($_FILES['modul1'] ['size'] < 256000)
-				{	
-					if ($_FILES['modul1'] ['name'] == "modul1.html")
-					{
-						if (is_file($_FILES['modul1']['name'])) unlink($_FILES['modul1']['name']);
-							move_uploaded_file($_FILES['modul1']['tmp_name'], "html/".$_FILES['modul1']['name']); 
-			      			$upload_1 = ("<span style ='color:#04B404'>Die Datei ".$_FILES['modul1'] ['name']." wurde Erfolgreich nach html/".$_FILES['modul1']['name']." hochgeladen</span>");
-
-			      			$mlkVPlanArray['Datum_Modul1'] = date("d/m/y H:i:s.");
-					}
-					else
-						$error_upload1_4 = ("<span style ='color:#ff0000'>Bitte ".$_FILES['modul1']['name']."  'modul1.html' nennen!</span>");
-				}
-				else $error_upload1_3 = "<span style ='color:#ff0000'>Die Datei '".$_FILES['modul1']['name']."' darf maximal 250Kb groß sein!</span>";
-			}
-			else
-				$error_upload1_2 = ("<span style ='color:#ff0000'>".$_FILES['modul1']['name']." ist keine '.html' Datei!</span>");
+			Upload($modul_name = 'modul1');
+			$array['Datum_Modul1'] = date("d/m/y");
 		}
-		else
-			$error_upload1_1 = ("<span style ='color:#ff0000'>Fehler beim Hochladen von 'modul1.html'</span>");
-
 		if (!empty($_FILES['modul2']['name']))
 		{
-			if ($_FILES['modul2'] ['type'] == "text/html")
-			{
-				if ($_FILES['modul2'] ['size'] < 256000)
-				{
-					if ($_FILES['modul2'] ['name'] == "modul2.html")
-					{
-						if (is_file($_FILES['modul2']['name'])) unlink($_FILES['modul2']['name']);
-							move_uploaded_file($_FILES['modul2']['tmp_name'], "html/".$_FILES['modul2']['name']);
-			      			$upload_2 = ("<br><span style ='color:#04B404'>Die Datei ".$_FILES['modul2'] ['name']." wurde Erfolgreich nach html/".$_FILES['modul2']['name']." hochgeladen</span>");
-
-			      			$mlkVPlanArray['Datum_Modul2'] = date("d/m/y H:i:s.");
-					}
-					else
-						$error_upload2_4 = ("<br><span style ='color:#ff0000'>Bitte ".$_FILES['modul2']['name']." 'modul2.html' nennen!</span>");
-				}
-				else $error_upload2_3 = "<br><span style ='color:#ff0000'>Die Datei '".$_FILES['modul2']['name']."' darf maximal 250Kb groß sein!</span>";
-			}
-			else
-				$error_upload2_2 = ("<br><span style ='color:#ff0000'>".$_FILES['modul2']['name']." ist keine '.html' Datei!</span>");
+			Upload($modul_name = 'modul2');
+			$array['Datum_Modul2'] = date("d/m/y");
 		}
-		else
-			$error_upload2_1 = ("<br><span style ='color:#ff0000'>Fehler beim Hochladen von 'modul2.html'</span>");
 
-	EncodeArrayToJSON($date_config, $mlkVPlanArray);
+		if (!empty($_FILES['modul1']['name']) || !empty($_FILES['modul2']['name']))
+			EncodeArrayToJSON($date_config, $array);
 	}
 ?>
 

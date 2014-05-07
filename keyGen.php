@@ -3,14 +3,15 @@
   include('footerVersionHandler.php');
   include('fileChecker.php');
   include_once('arrayJSONHandler.php');
-
+  include('forwardScript.php');
+    
   $hostname = $_SERVER['HTTP_HOST'];
   $path = dirname($_SERVER['PHP_SELF']);
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  if(isset($_REQUEST["fback"]))
-      header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/settings.php');
+  //Upload
+  forwardButton($hostname, $path, "fback", "settings.php");
 
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(isset($_REQUEST["uarandom"]))
     {
       $randKey = uniqid();
@@ -18,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $array['Key'] = md5($key);
       EncodeArrayToJSON($key_config, $array);
     }
-   }
+  }
 ?>
 <html>
 <head>
@@ -43,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 else
                   echo "???";
               ?></span>
-            <br><br><input type="submit" name="fback" value="Zur Auswahl">
+            <br><br><input type="submit" name="fback" value="Zu den Einstellungen">
         </form>
     </div>
   </div>

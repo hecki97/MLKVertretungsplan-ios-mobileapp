@@ -1,14 +1,29 @@
 <?php
   include('footerVersionHandler.php');
   include('fileChecker.php');
+  include_once('arrayJSONHandler.php');
+  include('forwardScript.php');
 
   $hostname = $_SERVER['HTTP_HOST'];
   $path = dirname($_SERVER['PHP_SELF']);
 
-  if(isset($_REQUEST["fflash"]))
-    header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/index_flash.php');
-  if(isset($_REQUEST["flogin"]))
-    header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/login.php');
+  //Zum Login
+  forwardButton($hostname, $path, "flogin", "login.php");
+  //Zum Flash Plan
+  forwardButton($hostname, $path, "fflash", "index_flash.php");
+
+  $mlkvplan_array_modul = DecodeJSONToArray($date_config);
+
+  
+  
+
+  function CheckTimestamp($modulTimestamp_name, $modul_name)
+  {
+    if ($modulTimestamp_name != strtotime(date("d/m/y")))
+      echo ("<span style ='color:#B40404; font-size:25px'>".$modul_name." ist nicht aktuell!</span>");
+    else
+      echo ("<span style ='color:#007236; font-size:25px'>".$modul_name." ist aktuell!</span>");
+  }
 ?>
 
 <html>
@@ -42,24 +57,40 @@
               <iframe src="html/modul2.html" name="Vertretungsplan-Modul 2" scrolling="no" noresize frameborder=0 width="100%" height="100%" style="overflow: hidden;"></iframe>
             </td>
           </tr>
+          <caption align="head">
+          <p>
+            <h3>
+              <span style="text-align:left; margin-right:225px; vertical-align:left;">
+                <?php
+                  if(!empty($mlkvplan_array_modul->Datum_Modul1))
+                    CheckTimestamp(strtotime($mlkvplan_array_modul->Datum_Modul1),"modul1");
+                  else
+                    echo "Timestamp konnte nicht geprueft werden!";
+                ?></span>
+              <span style="text-align:right; margin-left:225px; vertical-align:right;">
+                <?php
+                  if(!empty($mlkvplan_array_modul->Datum_Modul1))
+                    CheckTimestamp(strtotime($mlkvplan_array_modul->Datum_Modul2),"modul2");
+                  else
+                    echo "Timestamp konnte nicht geprueft werden!";
+                ?></span>
+            </h3>
+          </p>
+          </caption>
           <caption align="bottom">
             <p>
               <h3>
                 <span style="text-align:left; margin-right:50px; vertical-align:middle;">Letztes Update (Modul1):
                     <?php
-                      $mlkvplan_array_modul1 = DecodeJSONToArray($date_config);
-
-                      if(!empty($mlkvplan_array_modul1->Datum_Modul1))
-                        echo "Letztes Update: ".$mlkvplan_array_modul1->Datum_Modul1;
+                      if(!empty($mlkvplan_array_modul->Datum_Modul1))
+                        echo "Letztes Update: ".$mlkvplan_array_modul->Datum_Modul1;
                       else
                         echo "???";
                     ?></span>
                 <span style="text-align:right; margin-left:50px; vertical-align:middle;">Letztes Update (Modul2):
                    <?php
-                      $mlkvplan_array_modul2 = DecodeJSONToArray($date_config);
-
-                      if(!empty($mlkvplan_array_modul2->Datum_Modul2))
-                        echo "Letztes Update: ".$mlkvplan_array_modul2->Datum_Modul2;
+                      if(!empty($mlkvplan_array_modul->Datum_Modul2))
+                        echo "Letztes Update: ".$mlkvplan_array_modul->Datum_Modul2;
                       else
                         echo "???";
                     ?></span>

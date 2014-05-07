@@ -5,9 +5,6 @@
      $hostname = $_SERVER['HTTP_HOST'];
      $path = dirname($_SERVER['PHP_SELF']);
 
-     if(!file_exists("data"))
-		mkdir("data");
-
      $datei = 'data/usrTMP.dat';
      if (file_exists($datei))
      	unlink($datei);

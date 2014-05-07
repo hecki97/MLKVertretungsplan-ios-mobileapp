@@ -1,11 +1,14 @@
 <?php
   include('footerVersionHandler.php');
-
+  include('forwardScript.php');
+  
   $hostname = $_SERVER['HTTP_HOST'];
   $path = dirname($_SERVER['PHP_SELF']);
 
-  if(isset($_REQUEST["fflash"]))
-    header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/index.php');
+  //Zum HTML Plan
+  forwardButton($hostname, $path, "fhtml", "index.php");
+  //Zum Login
+  forwardButton($hostname, $path, "flogin", "login.php");
 ?>
 
 <html>
@@ -21,7 +24,10 @@
 
 <body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0">
 <div class="header_container">
-    <span style="font-family:fonts;text-align:center;"><h2 class="header">MLK-Vertretungsplan Online<sup>flash</sup></h2></span>
+    <form action='index_flash.php'>
+      <span style="font-family:fonts;text-align:center; margin-right:100px; vertical-align:middle;"><h2 class="header">MLK-Vertretungsplan Online<sup>flash</sup></span>
+      <div class="login"><input type="submit" name="flogin" value="Zum Login!"></h2></div></span>
+    </form>
   </div>
 
   <div class="content">
@@ -42,7 +48,7 @@
               </h3>
             </p>
               <form style"text-align:center">
-                <input type="submit" name="fflash" value="HTML Version"><br>
+                <input type="submit" name="fhtml" value="HTML Version"><br>
               </form><br>
           </caption>
     	</table>

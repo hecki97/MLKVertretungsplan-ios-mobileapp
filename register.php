@@ -1,56 +1,67 @@
 <?php
   include('footerVersionHandler.php');
   include('fileChecker.php');
+  include_once('arrayJSONHandler.php');
+  include('forwardScript.php');
 
-   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $username = $_POST["username"];
-      $password = $_POST["password"];
-      $password2 = $_POST["password2"];
+  $verbindung = mysql_connect("localhost", "login" , "") or die("Verbindung zur Datenbank konnte nicht hergestellt werden"); 
+  mysql_select_db("test") or die ("Datenbank konnte nicht ausgewählt werden"); 
+  
+  $hostname = $_SERVER['HTTP_HOST'];
+  $path = dirname($_SERVER['PHP_SELF']);
 
-      $einladungscode = $_POST["einladungscode"];
+  //Zum Plan
+  forwardButton($hostname, $path, $buttonName = "plan", $fileName = "index.php");
 
-      if ($password == $password2)
+  $mlkvplan_array_settings = DecodeJSONToArray($settings_config);
+  if (!empty($mlkvplan_array_settings->Registrierung_aktiviert) && $mlkvplan_array_settings->Registrierung_aktiviert == "Deaktiviert")
+    header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/modulDisabled.html');
+
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $username = $_POST["username"]; 
+    $passwort = $_POST["passwort"]; 
+    $passwort2 = $_POST["passwort2"];
+    $einladungscode = $_POST["einladungscode"];
+
+    if($passwort != $passwort2 OR $username == "" OR $passwort == "" OR $einladungscode == "") 
+    { 
+      echo "Eingabefehler. Bitte alle Felder korekt ausfüllen. <a href=\"eintragen.html\">Zurück</a>"; 
+      exit; 
+    } 
+    $passwort = md5($passwort); 
+
+    $result = mysql_query("SELECT id FROM login WHERE username LIKE '$username'"); 
+    $menge = mysql_num_rows($result); 
+
+    if($menge == 0) 
+    { 
+      $einladungscode = trim($einladungscode);
+      $mlkvplan_array_key = DecodeJSONToArray($key_config);
+      if (md5($einladungscode)==$mlkvplan_array_key->Key)
       {
-         $user_vorhanden = array();
-         $passwort = md5($password);
-
-         $userdatei = fopen("data/user.dat","r+");
-         while(!feof($userdatei))
-         {
-            $zeile = fgets($userdatei,500);
-            $userdata = explode("|", $zeile);
-            array_push ($user_vorhanden,$userdata[0]);
-         }
-         fclose($userdatei);
-
-         if (in_array($username,$user_vorhanden))
-         {
-            $error_register_1 = "Username schon vorhanden";
-         }
-         else
-         {
-            $keycode = fopen("data/key.dat", "r");
-            $key = fgets($keycode);
-            if (trim($einladungscode)==$key)
-            {
-              $eintrag ="$username|$passwort";
-              $userdatei = fopen("data/user.dat","a");
-              fwrite($userdatei, "$eintrag\n");
-              fclose($userdatei);
-              $register = $username.", deine Registrierung war erfolgreich!
-              <br><a href=\"login.php\">zum Login!</a>";
-            }
-            else
-            {
-              $error_register_2 = "Der eingegebene Einladungscode ist nicht korrekt!";
-            }
-         }
+        $eintrag = "INSERT INTO login (username, passwort) VALUES ('$username', '$passwort')"; 
+        $eintragen = mysql_query($eintrag); 
       }
       else
       {
-         $error_register_3 = "Die Passwörter waren nicht identisch!";
+        $error_register_2 = "Der eingegebene Einladungscode ist nicht korrekt!";
       }
-   }
+
+      if($eintragen == true) 
+      { 
+        echo "Benutzername <b>$username</b> wurde erstellt. <a href=\"login.html\">Login</a>"; 
+      } 
+      else 
+      { 
+        echo "Fehler beim Speichern des Benutzernames. <a href=\"eintragen.html\">Zurück</a>"; 
+      }
+    } 
+    else 
+    { 
+      echo "Benutzername schon vorhanden. <a href=\"eintragen.html\">Zurück</a>"; 
+    }
+  } 
 ?>
 <html>
 <head>
@@ -68,11 +79,12 @@
             <h3> Anmeldeinformationen eingeben:</h3>
               
              Benutzername:<div class="pagewrapper"><input type="text" name="username" /><br /></div>
-             Passwort:<div class="pagewrapper"><input type="password" name="password"/><br /></div>
-             Passwort(wdh):<div class="pagewrapper"><input type="password" name="password2" /><br /></div>
+             Passwort:<div class="pagewrapper"><input type="password" name="passwort"/><br /></div>
+             Passwort(wdh):<div class="pagewrapper"><input type="password" name="passwort2" /><br /></div>
              Einladungscode:<div class="pagewrapper"><input type="text" name="einladungscode" /><br />
               </div>
              <br><input type="submit" name="uregister" value="Registrieren">
+             <br><br><input type="submit" name="plan" value="Zum Plan!">
              <br><?php
                   if (!empty($error_register_1))
                     echo $error_register_1;

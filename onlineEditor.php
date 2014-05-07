@@ -2,21 +2,19 @@
 	include('auth.php');
 	include('footerVersionHandler.php');
 	include('fileChecker.php');
-
+	include('forwardScript.php');
+	
 	$hostname = $_SERVER['HTTP_HOST'];
     $path = dirname($_SERVER['PHP_SELF']);
 
-		if(isset($_REQUEST["fupload"]))
-			header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/uploader.php');
-
-		if(isset($_REQUEST["logout"]))
-			header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/logout.php');
-
-		if(isset($_REQUEST["fopen"]))
-			header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/index.php');
-
-		if(isset($_REQUEST["fsettings"]))
-			header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/settings.php');
+	//Upload
+	forwardButton($hostname, $path, "fupload", "uploader.php");
+	//Settings
+	forwardButton($hostname, $path, "fsettings", "settings.php");
+	//ZumPlan
+	forwardButton($hostname, $path, "fopen", "index.php");
+	//Logout
+	forwardButton($hostname, $path, "logout", "logout.php");
 
 	$date = "<span style = 'font-size:50px'>".date('d F Y')."</span>";
 ?>
