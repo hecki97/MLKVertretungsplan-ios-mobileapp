@@ -63,7 +63,8 @@
                   echo $error_check;
               ?>
             <h2>File Checker:</h2>
-            <h2>Daten komplett entfernen:</h2>     
+              <iframe src="./fileChecker.php"></iframe>
+            <h2>Lokale Daten zuruecksetzen:</h2>     
             <br><br><input type="submit" name="fback" value="Zur Auswahl">
         </form>
     </div>

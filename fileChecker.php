@@ -3,15 +3,13 @@
 
 	print("<div style='text-align:left;'>_DebugLog!_<br>");
 
-	$data_user_dat = "data/user.dat";
-	CreateFile($data_user_dat);
 	#HTMLs
 	$html_modul1 = 'html/modul1.html';
 	CreateFile($html_modul1);
 	$html_modul2 = 'html/modul2.html';
 	CreateFile($html_modul2);
-	$data_usrTMP_dat = "data/usrTMP.dat";
-	CreateFile($data_usrTMP_dat);
+	$usrTMP_config = "config/usrTMP.config";
+	CreateFile($usrTMP_config);
 	#Configs
 	$key_config = "config/key.config";
 	CreateFile($key_config);
@@ -26,28 +24,18 @@
 	$folder_config = "config";
 	CreateFolder($folder_config);
 
-    if(empty($data_user_dat))
-    	header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/register.php');
+	$mlkvplan_array_settings = DecodeJSONToArray($settings_config);
+	if(empty($mlkvplan_array_settings->Registrierung_aktiviert))
+    {
+    	$array['Registrierung_aktiviert'] = "Aktiviert";
+        EncodeArrayToJSON($settings_config, $array);
+    }
 
-	if (file_exists($data_usrTMP_dat))
-	{
-		$fp = fopen($data_usrTMP_dat, "r");
-		$user = ("Willkommen, ".fgets($fp));
-		fclose($fp);
-	}
-	else
-		$error_user = '<span style ="color:#ff0000">Die "'.$data_usrTMP_dat.'" fehlt. Bitte erneut einloggen!</span>';
-
-	if(empty($key_config))
+    $mlkvplan_array_key = DecodeJSONToArray($key_config);
+    if(empty($mlkvplan_array_key->Key))
     {
     	$array['Key'] = md5('000');
     	EncodeArrayToJSON($key_config, $array);
-    }
-
-    if(empty($settings_config))
-    {
-    	$array['Registrierung'] = "true";
-    	EncodeArrayToJSON($settings_config, $array);
     }
 
 	function CreateFolder($folderName)

@@ -6,7 +6,7 @@
 
     if(!isset($_SESSION["username"])) 
    { 
-       echo "Bitte erst <a href=\"login.html\">einloggen</a>"; 
-       exit; 
+        header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/authFailed.html');
+        exit; 
    } 
 ?>

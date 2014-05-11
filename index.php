@@ -14,9 +14,6 @@
 
   $mlkvplan_array_modul = DecodeJSONToArray($date_config);
 
-  
-  
-
   function CheckTimestamp($modulTimestamp_name, $modul_name)
   {
     if ($modulTimestamp_name != strtotime(date("d/m/y")))
@@ -83,14 +80,14 @@
                 <span style="text-align:left; margin-right:50px; vertical-align:middle;">Letztes Update (Modul1):
                     <?php
                       if(!empty($mlkvplan_array_modul->Datum_Modul1))
-                        echo "Letztes Update: ".$mlkvplan_array_modul->Datum_Modul1;
+                        echo $mlkvplan_array_modul->Datum_Modul1;
                       else
                         echo "???";
                     ?></span>
                 <span style="text-align:right; margin-left:50px; vertical-align:middle;">Letztes Update (Modul2):
                    <?php
                       if(!empty($mlkvplan_array_modul->Datum_Modul2))
-                        echo "Letztes Update: ".$mlkvplan_array_modul->Datum_Modul2;
+                        echo $mlkvplan_array_modul->Datum_Modul2;
                       else
                         echo "???";
                     ?></span>

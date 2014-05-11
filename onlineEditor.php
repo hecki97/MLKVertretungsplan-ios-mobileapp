@@ -17,6 +17,19 @@
 	forwardButton($hostname, $path, "logout", "logout.php");
 
 	$date = "<span style = 'font-size:50px'>".date('d F Y')."</span>";
+
+	$mlkvplan_array_usrTMP = DecodeJSONToArray($usrTMP_config);
+	if (file_exists($data_usrTMP_dat))
+	{
+		$fp = fopen($data_usrTMP_dat, "r");
+		$user = ("Willkommen, ".fgets($fp));
+		fclose($fp);
+	}
+	
+
+	$mlkvplan_array_key = DecodeJSONToArray($key_config);
+	if($mlkvplan_array_key->Key == md5('000'))
+		$key_notification = "<br><span style = 'color:#FFBF00'>Bitte sofort den Standard-Einladungscode updaten!</span>";
 ?>
 <html>
 <head>
@@ -48,10 +61,10 @@ function showFilled(Value)
 		
 		<h2><form action='onlineEditor.php'>
 				<?php
-					if(!empty($user))
-						echo $user;
-					else if (!empty($error_user))
-						echo $error_user;
+					echo "Willkommen, ".$mlkvplan_array_usrTMP->user;
+
+					if(!empty($key_notification))
+						echo $key_notification;
 				?>
 		</form></h2>
 
