@@ -4,7 +4,9 @@
 	include('checkTimestamp.php');
 
 	$date_config = "../config/date.config";
+	$mobile_settings_config = "../config/mobile_settings.config";
 	$mlkvplan_array_modul = DecodeJSONToArray($date_config);
+	$mlkvplan_array_mobile_settings = DecodeJSONToArray($mobile_settings_config);
 ?>
 <html>
 <head>
@@ -33,46 +35,70 @@
 		<br><ul data-role="listview" data-theme="a" data-divider-theme="a" class="ui-listview ui-group-theme-a">
 			<li><a href="./modul1_mobile.php" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
 				<h3>Modul 1</h3>
-				<p><strong>Unnötiger Fülltext. Einfach nicht beachten!</strong></p>
+				<p><strong>...!</strong></p>
 				<p><strong>
 					<?php
-						if(!empty($mlkvplan_array_modul->Datum_Modul1))
-		                    CheckTimestamp(strtotime($mlkvplan_array_modul->Datum_Modul1),"modul1");
-		                else
-		                   	echo "Timestamp konnte nicht geprueft werden!";
+						if ($mlkvplan_array_mobile_settings->version != 'flash')
+						{
+							if(!empty($mlkvplan_array_modul->Datum_Modul1))
+			                    CheckTimestamp(strtotime($mlkvplan_array_modul->Datum_Modul1),"modul1");
+			                else
+			                   	echo "Timestamp konnte nicht geprueft werden!";
+			            }
+			            else
+			            	echo "modul1 ist immer aktuell!";
                 	?>
                 </strong></p>
 				<p class="ui-li-aside"><strong>Letztes Update: </strong>
 					<?php
-						if(!empty($mlkvplan_array_modul->Datum_Modul1))
-		                	echo $mlkvplan_array_modul->Datum_Modul1;
-		            	else
-		                	echo "???";
+						if ($mlkvplan_array_mobile_settings->version != 'flash')
+						{
+							if(!empty($mlkvplan_array_modul->Datum_Modul1))
+			                	echo $mlkvplan_array_modul->Datum_Modul1;
+			            	else
+			                	echo "???";
+			            }
+			           	else
+			           		echo "???";
                 	?>
                 </p>
 			</a></li>
 			
 			<li><a href="./modul2_mobile.php" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
 				<h3>Modul 2</h3>
-				<p><strong>Unnötiger Fülltext. Einfach nicht beachten!</strong></p>
+				<p><strong>...!</strong></p>
 				<p><strong>
 					<?php
-						if(!empty($mlkvplan_array_modul->Datum_Modul2))
-		                    CheckTimestamp(strtotime($mlkvplan_array_modul->Datum_Modul2),"modul2");
-		              	else
-		                    echo "Timestamp konnte nicht geprueft werden!";
+						if ($mlkvplan_array_mobile_settings->version != 'flash')
+						{
+							if(!empty($mlkvplan_array_modul->Datum_Modul2))
+			                    CheckTimestamp(strtotime($mlkvplan_array_modul->Datum_Modul2),"modul2");
+			              	else
+			                    echo "Timestamp konnte nicht geprueft werden!";
+			            }
+			            else
+			            	echo "modul2 ist immer aktuell!";
                 	?>
                 </strong></p>
 				<p class="ui-li-aside"><strong>Letztes Update: </strong>
 					<?php
-						if(!empty($mlkvplan_array_modul->Datum_Modul2))
-		                    echo $mlkvplan_array_modul->Datum_Modul2;
-		                else
-		                   	echo "???";
+						if ($mlkvplan_array_mobile_settings->version != 'flash')
+						{
+							if(!empty($mlkvplan_array_modul->Datum_Modul2))
+			                    echo $mlkvplan_array_modul->Datum_Modul2;
+			                else
+			                   	echo "???";
+			            }
+			            else
+			            	echo "???";
                 	?>
                 </p>
 			</a></li>
-		</ul><br>
+		</ul>
+		<?php
+			$mlkvplan_array_mobile_settings = DecodeJSONToArray($mobile_settings_config);
+		        echo "<br><div id='container'; style='font-size:15px;'><b>Aktuelle Version:</b> <i>".$mlkvplan_array_mobile_settings->version."</i></div>";
+		?>
 		
 		<div id="footer">
 			<div data-role="footer">

@@ -2,8 +2,7 @@
   include('auth.php');
   include('footerVersionHandler.php');
   include('fileChecker.php');
-  include_once('arrayJSONHandler.php');
-  include('forwardScript.php');
+  include('buttonScript.php');
     
   $hostname = $_SERVER['HTTP_HOST'];
   $path = dirname($_SERVER['PHP_SELF']);

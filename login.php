@@ -1,7 +1,7 @@
 <?php
   include('footerVersionHandler.php');
   include('fileChecker.php');
-  include('forwardScript.php');
+  include('buttonScript.php');
   
    $verbindung = mysql_connect("localhost", "login" , "") or die("Verbindung zur Datenbank konnte nicht hergestellt werden"); 
   mysql_select_db("test") or die ("Datenbank konnte nicht ausgewählt werden"); 

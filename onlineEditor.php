@@ -2,7 +2,7 @@
 	include('auth.php');
 	include('footerVersionHandler.php');
 	include('fileChecker.php');
-	include('forwardScript.php');
+	include('buttonScript.php');
 	
 	$hostname = $_SERVER['HTTP_HOST'];
     $path = dirname($_SERVER['PHP_SELF']);
@@ -17,15 +17,6 @@
 	forwardButton($hostname, $path, "logout", "logout.php");
 
 	$date = "<span style = 'font-size:50px'>".date('d F Y')."</span>";
-
-	$mlkvplan_array_usrTMP = DecodeJSONToArray($usrTMP_config);
-	if (file_exists($data_usrTMP_dat))
-	{
-		$fp = fopen($data_usrTMP_dat, "r");
-		$user = ("Willkommen, ".fgets($fp));
-		fclose($fp);
-	}
-	
 
 	$mlkvplan_array_key = DecodeJSONToArray($key_config);
 	if($mlkvplan_array_key->Key == md5('000'))
@@ -61,7 +52,7 @@ function showFilled(Value)
 		
 		<h2><form action='onlineEditor.php'>
 				<?php
-					echo "Willkommen, ".$mlkvplan_array_usrTMP->user;
+					echo "Willkommen, ".$_SESSION["username"];
 
 					if(!empty($key_notification))
 						echo $key_notification;

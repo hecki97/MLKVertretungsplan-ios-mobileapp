@@ -8,21 +8,28 @@
 	CreateFile($html_modul1);
 	$html_modul2 = 'html/modul2.html';
 	CreateFile($html_modul2);
-	$usrTMP_config = "config/usrTMP.config";
-	CreateFile($usrTMP_config);
 	#Configs
 	$key_config = "config/key.config";
 	CreateFile($key_config);
 	$date_config = "config/date.config";
 	CreateFile($date_config);
-	//test
 	$settings_config = "config/settings.config";
 	CreateFile($settings_config);
+
+	$mobile_settings_config = "config/mobile_settings.config";
+	CreateFile($mobile_settings_config);
 	#Folder
 	$folder_html = "html";
 	CreateFolder($folder_html);
 	$folder_config = "config";
 	CreateFolder($folder_config);
+
+	$mlkvplan_mobile_settings_config = DecodeJSONToArray($mobile_settings_config);
+	if(empty($mlkvplan_mobile_settings_config->flash_aktiviert))
+    {
+    	$array['version'] = "html";
+        EncodeArrayToJSON($mobile_settings_config, $array);
+    }
 
 	$mlkvplan_array_settings = DecodeJSONToArray($settings_config);
 	if(empty($mlkvplan_array_settings->Registrierung_aktiviert))

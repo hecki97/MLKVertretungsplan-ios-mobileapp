@@ -1,10 +1,19 @@
-<?php include('../footerVersionHandler.php'); ?>
+<?php
+	include('../footerVersionHandler.php');
+	include('../arrayJSONHandler.php');
+
+	$mobile_settings_config = "../config/mobile_settings.config";
+	$mlkvplan_array_mobile_settings = DecodeJSONToArray($mobile_settings_config);
+
+	if ($mlkvplan_array_mobile_settings->version != 'flash')
+		$path = '"../html/modul1.html"';
+	else
+		$path = '"https://light.dsbcontrol.de/DSBlightWebsite/(S(wns2f3dhy5w21zzxuzomq1ph))/Homepage/PreProgram.aspx?ID=9de26a53-1a27-40ed-9ee1-82b65a6bcb38&ID2=d24a5dd7-48c6-4b27-8f79-464a62af12bf"';
+?>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name=„apple-mobile-web-app-capable“ content=„yes“ />
- 	<meta name=„apple-mobile-web-app-status-bar-style“ content=„black“ />
 	<title>Modul 2</title>
 	<link rel="stylesheet" href="css/mobile_stylesheet.css" />
 	<link rel="stylesheet" href="style/ios7UI.min.css" />
@@ -24,7 +33,12 @@
 		</div>
 		<div data-role="body">
 		<div id="container" style="padding-top: 10px;">
-			<object data="../html/modul2.html" type="text/html" width="585px" scrolling="yes" height="800px"></object>
+			<object data=<?php echo $path ?> type="text/html" width="585px" scrolling="yes" height="800px">
+				<div>
+					<h1>Dieses Gerät unterstüzt kein Flash!</h1>
+					<p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
+				</div>
+			</object>
 		</div>	
 		</div>
 		<div id="footer">
