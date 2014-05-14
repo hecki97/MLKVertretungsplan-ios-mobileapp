@@ -1,11 +1,13 @@
 <?php
   include('auth.php');
   include('footerVersionHandler.php');
-  include('fileChecker.php');
   include('buttonScript.php');
+  include_once('arrayJSONHandler.php');
 
   $hostname = $_SERVER['HTTP_HOST'];
   $path = dirname($_SERVER['PHP_SELF']);
+
+  $settings_config = "config/settings.config";
 
   //Code Generieren
   forwardButton($hostname, $path, "uarandom", "keyGen.php");
@@ -62,8 +64,24 @@
                   echo $error_check;
               ?>
             <h2>File Checker:</h2>
-              <iframe src="./fileChecker.php"></iframe>
-            <h2>Lokale Daten zuruecksetzen:</h2>     
+              <div style="font-size: 15px;">
+             <?php
+              if(isset($_POST['checkFiles'])) {
+                include('fileChecker.php');
+              }
+            ?>
+            </div>
+            <input type="submit" name="checkFiles" value="Check Files!">
+            <h2>Lokale Daten zuruecksetzen:</h2>
+             <div style="font-size: 15px;">
+             <?php
+              if(isset($_POST['reset'])) {
+                include('unlinkScript.php');
+                include('fileChecker.php');
+              }
+            ?>
+            </div>
+            <input type="submit" name="reset" value="Reset">
             <br><br><input type="submit" name="fback" value="Zur Auswahl">
         </form>
     </div>

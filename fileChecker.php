@@ -1,8 +1,11 @@
 <?php
 	include_once('arrayJSONHandler.php');
 
-	print("<div style='text-align:left;'>_DebugLog!_<br>");
-
+	#Folder
+	$folder_html = "html";
+	CreateFolder($folder_html);
+	$folder_config = "config";
+	CreateFolder($folder_config);
 	#HTMLs
 	$html_modul1 = 'html/modul1.html';
 	CreateFile($html_modul1);
@@ -18,11 +21,6 @@
 
 	$mobile_settings_config = "config/mobile_settings.config";
 	CreateFile($mobile_settings_config);
-	#Folder
-	$folder_html = "html";
-	CreateFolder($folder_html);
-	$folder_config = "config";
-	CreateFolder($folder_config);
 
 	$mlkvplan_mobile_settings_config = DecodeJSONToArray($mobile_settings_config);
 	if(empty($mlkvplan_mobile_settings_config->flash_aktiviert))
@@ -50,7 +48,7 @@
 		if(!file_exists($folderName))
 		{
 			mkdir($folderName);
-			return print('<span style ="color:#660000">Der Ordner "<u>'.$folderName.'</u>" wurde erstellt!</span><br>');
+			return print('<span style ="color:#FFBF00">Der Ordner "<u>'.$folderName.'</u>" wurde erstellt!</span><br>');
     	}
     	else
     		return print('<span style ="color:#007236">Der Ordner "<u>'.$folderName.'</u>" existiert!</span><br>');
@@ -64,10 +62,8 @@
 		{
 			$file_open = fopen($varName, "w");
 			fclose($file_open);
-			return print('<span style ="color:#660000">Die Datei "<u>'.$varName.'</u>" wurde erstellt!</span><br>');
+			return print('<span style ="color:#FFBF00">Die Datei "<u>'.$varName.'</u>" wurde erstellt!</span><br>');
 		}
 
 	}
-
-	print("_End!_</div><br>");
 ?>
