@@ -1,3 +1,9 @@
+	@font-face {
+    	font-family: 'fonts';
+    	src: url('../font/walkway.ttf');
+    	font-style: normal;
+	}
+
 	#container {
 		vertical-align: middle;
 		text-align: center;
@@ -26,3 +32,9 @@
        pointer-events: none;
        cursor: default;
     }
+    #text { 
+		text-align: center; 
+		font-size: 25;
+		font-family: fonts;
+		text-shadow: 1px 1px 1px #555;
+	}

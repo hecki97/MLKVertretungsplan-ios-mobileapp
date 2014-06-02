@@ -1,60 +1,50 @@
-<?php
-  include('auth.php');
-  include('footerVersionHandler.php');
-  include('fileChecker.php');
-  include('buttonScript.php');
-    
-  $hostname = $_SERVER['HTTP_HOST'];
-  $path = dirname($_SERVER['PHP_SELF']);
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php include('./htmlHead.html'); ?>
+<?php include('./_keyGen.php'); ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <title>Einstellungen</title>
+  </head>
+  <body class="metro">
+  <header>
+    <nav class="navigation-bar dark fixed-top">
+      <nav class="navigation-bar-content">
+        <a href="./mlkVPlan.php" class="element"><span class="icon-arrow-left-5"></span> MLK-Vertretungsplan online</a>
+       
+        <span class="element-divider"></span>
+        <button class="element brand no-phone" onclick="window.location.reload();"><span class="icon-spin"></span></button>
+        <span class="element-divider"></span>
 
-  //Upload
-  forwardButton($hostname, $path, "fback", "settings.php");
+        <a href="./info.php" class="element brand place-right no-phone"><span class="icon-cog"></span></a>
+        <span class="element-divider place-right"></span>
+        <a class="element place-right no-phone">
+          <?php echo $version; ?>
+        </a>
+        <span class="element-divider place-right"></span>
+        <a class="element place-right no-phone">
+        <span class="icon-unlocked"></span> <?php echo $_SESSION["username"]; ?>
+        </a>
+        <span class="element-divider place-right"></span>
+      </nav>
+    </nav>
+  </header>
 
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if(isset($_REQUEST["uarandom"]))
-    {
-      $randKey = uniqid();
-      $key = substr($randKey, 0, -1);
-      $array['Key'] = md5($key);
-      EncodeArrayToJSON($key_config, $array);
-    }
-  }
-?>
-<html>
-<head>
-    <title>Einstellungen</title>
-    <meta name="viewport" content="height=device-height, initial-scale=0.75, maximum-scale=1.5, user-scalable=yes" />
-    <link rel="stylesheet" type="text/css" href="css/default_stylesheet.css">
-</head>
-
-<body>
-<div class="content_container">
-  <div class="content">
-     <div class="text">
-        <h1>Einstellungen:</h1>
-          <h2><span style="color:#FFBF00;">Achtung dieser Code verfaellt sobald die Seite verlassen wird!</span></h2>
-          <form action="keyGen.php" method="post">
-            <input type="submit" name="uarandom" value="Einladungscode generieren"><br />
-            <h2>Einladungscode:</h2>
-              <span style = 'font-style:italic;font-size:35px;'>
-              <?php 
-                if(!empty($key))
-                  echo $key;
-                else
-                  echo "???";
-              ?></span>
-            <br><br><input type="submit" name="fback" value="Zu den Einstellungen">
-        </form>
-    </div>
+  <div class="container" style="margin: 0 auto; text-align: center;">
+    <h1>Einstellungen:</h1>
+      <h2><span style="color:#F99E34;">Achtung dieser Code verfaellt sobald die Seite verlassen wird!</span></h2>
+      <form action="keyGen.php" method="post">
+        <input type="submit" name="uarandom" value="Einladungscode generieren">
+        <br />
+        <h2>Einladungscode:</h2>
+        <span style = 'font-style:italic; font-size:35px;'>
+          <?php if(!empty($key)) : ?>
+            <?php echo $key; ?>
+          <?php else : ?>
+            <?php echo "???"; ?>
+          <?php endif; ?>
+        </span>
+        <br><br><input type="submit" name="fback" value="Zu den Einstellungen">
+      </form>
   </div>
-</div>
-
-<div class="footer_container">
-  <div class="footer">
-    <span style = "font-family:fonts;text-align:center;">
-      <b><? echo $version; ?></b>
-    </span>
-  </div>
-</div>
-</body>
+  </body>
 </html>

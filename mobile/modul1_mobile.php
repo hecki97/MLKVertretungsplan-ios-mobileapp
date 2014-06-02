@@ -1,4 +1,4 @@
-<?php include('./include_mobile.php'); ?>
+<?php include('./_includeMobile.php'); ?>
 <html>
 <head>
 	<!-- Wichtig für iOS -->

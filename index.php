@@ -1,111 +1,92 @@
-<?php
-  include('footerVersionHandler.php');
-  include('fileChecker.php');
-  include('buttonScript.php');
-
-  $hostname = $_SERVER['HTTP_HOST'];
-  $path = dirname($_SERVER['PHP_SELF']);
-
-  //Zum Login
-  forwardButton($hostname, $path, "flogin", "login.php");
-  //Zum Flash Plan
-  forwardButton($hostname, $path, "fflash", "index_flash.php");
-
-  $mlkvplan_array_modul = DecodeJSONToArray($date_config);
-
-  function CheckTimestamp($modulTimestamp_name, $modul_name)
-  {
-    if ($modulTimestamp_name != strtotime(date("d/m/y")))
-      echo ("<span style ='color:#B40404; font-size:25px'>".$modul_name." ist nicht aktuell!</span>");
-    else
-      echo ("<span style ='color:#007236; font-size:25px'>".$modul_name." ist aktuell!</span>");
-  }
-?>
-
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php include('./htmlHead.html'); ?>
+<?php include('./_getVersionScript.php'); ?>
+<?php $hostname = $_SERVER['HTTP_HOST']; ?>
+<?php $path = dirname($_SERVER['PHP_SELF']); ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>MLK-Vertretungsplan</title>
-    <link href="icons/apple-touch-icon@60x60.png" rel="apple-touch-icon" sizes="60x60" />
-    <link href="icons/apple-touch-icon@76x76.png" rel="apple-touch-icon" sizes="76x76" />
-    <link href="icons/apple-touch-icon@120x120.png" rel="apple-touch-icon" sizes="120x120" />
-    <link href="icons/apple-touch-icon@152x152.png" rel="apple-touch-icon" sizes="152x152" />
-    <link rel="favicon" href="icons/favicon.ico">
-    <meta name="viewport" content="height=device-height, initial-scale=0.75, maximum-scale=0.75, user-scalable=yes" />
-    <link rel="stylesheet" type="text/css" href="css/index_stylesheet.css">
   </head>
+  <body class="metro">
+    <header>
+      <nav class="navigation-bar dark fixed-top">
+        <nav class="navigation-bar-content">
+            <button href="#" class="element"><span class="icon-locked"></span> MLK-Vertretungsplan online</button>
+     
+            <span class="element-divider"></span>
+            <button class="element brand no-phone" onclick="window.location.reload();"><span class="icon-spin"></span></button>
+            <span class="element-divider"></span>
 
-  <body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0">
+            <a href="./info.php" class="element brand place-right no-phone"><span class="icon-cog"></span></a>
+            <span class="element-divider place-right"></span>
+            <a class="element place-right no-phone">
+              <?php echo $version; ?>
+            </a>
+            <span class="element-divider place-right"></span>
+            <a href="#" class="element place-right no-phone">
+              <span class="icon-locked"></span> Zum Login!
+            </a>
+            <span class="element-divider place-right"></span>
+        </nav>
+      </nav>
+    </header>
 
-  <div class="header_container">
-    <form action='index.php'>
-      <span style="font-family:fonts;text-align:center; margin-right:100px; vertical-align:middle;"><h2 class="header">MLK-Vertretungsplan Online<sup>html</sup></span>
-      <div class="login"><input type="submit" name="flogin" value="Zum Login!"></h2></div></span>
-    </form>
-  </div>
+    <div class="container" style="margin: 0 auto; text-align: center;">
+      <h1>Version auswählen:</h1>
+        <form action="index.php" method="post">
+        
+          <?php if(!isset($_COOKIE["vPlan_version"])) : ?>
+          <ul>
+            <?php if(isset($_POST['auswahl'])) : ?>
+            <ul>
+              <?php if($_POST['lifetime'] > 0 && $_POST['auswahl'] <= 999) : ?>
+              <ul>
+                <?php $time = $_POST['lifetime']; ?>
+                <?php if($_POST['check'] == "html") : ?>
+                <ul>
+                  <?php setcookie("vPlan_version", "html", time()+(3600*$time)); ?>
+                  <?php header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/mlkVPlan.php'); ?>
+                </ul>
+                <?php elseif($_POST['check'] == "flash") : ?>
+                <ul>
+                  <?php setcookie("vPlan_version", "flash", time()+(3600*$time)); ?>
+                  <?php header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/mlkVPlan.php'); ?>
+                </ul>
+                <?php else : ?>
+                  <script type="text/javascript">alert("Bitte eine Auswahl treffen!");</script>
+                <?php endif; ?>
+              </ul>
+              <?php else : ?>
+                <script type="text/javascript">alert("Bitte eine Zahl > 0 und <= 999 eingeben!");</script>
+              <?php endif; ?>
+            </ul>
+            <?php endif; ?>
+          </ul>
+          <?php else : ?>
+            <?php header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/mlkVPlan.php'); ?>
+          <?php endif; ?>
 
-    <div class="content">
-        <table style="text-align: left; width:1200; height:800; margin-left: auto; margin-right: auto; margin-bottom: auto; margin-top: 50;" border="0" cellpadding="0" cellspacing="0">
+        <table cellpadding="25" align="center">
           <tr>
-            <td colspan="1" rowspan="1" width="585" height="800" style="border-color:#000000;border-width:2px;border-style:solid;">
-              <iframe src="html/modul1.html" name="Vertretungsplan-Modul" scrolling="no" noresize frameborder=0 width="100%" height="100%" style="overflow: hidden;"></iframe>
+            <td>
+              <p><h3><input type="radio" name="check" value="html" />HTML</h3></p>
             </td>
-            <td colspan="1" rowspan="1" width="585" height="800" style="border-color:#000000;border-width:2px;border-style:solid;border-left-style:none;">
-              <iframe src="html/modul2.html" name="Vertretungsplan-Modul 2" scrolling="no" noresize frameborder=0 width="100%" height="100%" style="overflow: hidden;"></iframe>
+            <td>
+              <p><h3><input type="radio" name="check" value="flash" />flash</h3></p>
             </td>
           </tr>
-          <caption align="head">
-          <p>
-            <h3>
-              <span style="text-align:left; margin-right:225px; vertical-align:left;">
-                <?php
-                  if(!empty($mlkvplan_array_modul->Datum_Modul1))
-                    CheckTimestamp(strtotime($mlkvplan_array_modul->Datum_Modul1),"modul1");
-                  else
-                    echo "Timestamp konnte nicht geprueft werden!";
-                ?></span>
-              <span style="text-align:right; margin-left:225px; vertical-align:right;">
-                <?php
-                  if(!empty($mlkvplan_array_modul->Datum_Modul1))
-                    CheckTimestamp(strtotime($mlkvplan_array_modul->Datum_Modul2),"modul2");
-                  else
-                    echo "Timestamp konnte nicht geprueft werden!";
-                ?></span>
-            </h3>
-          </p>
-          </caption>
-          <caption align="bottom">
-            <p>
-              <h3>
-                <span style="text-align:left; margin-right:50px; vertical-align:middle;">Letztes Update (Modul1):
-                    <?php
-                      if(!empty($mlkvplan_array_modul->Datum_Modul1))
-                        echo $mlkvplan_array_modul->Datum_Modul1;
-                      else
-                        echo "???";
-                    ?></span>
-                <span style="text-align:right; margin-left:50px; vertical-align:middle;">Letztes Update (Modul2):
-                   <?php
-                      if(!empty($mlkvplan_array_modul->Datum_Modul2))
-                        echo $mlkvplan_array_modul->Datum_Modul2;
-                      else
-                        echo "???";
-                    ?></span>
-              </h3>
-            </p>
-            <form style"text-align:center;">
-              <input type="submit" name="fflash" value="Flash Version">
-            </form><br>
-          </caption>
         </table>
-    </div>
 
-<div class="footer_container">
-  <div class="footer">
-    <span style = "font-family:fonts;text-align:center;">
-      <b><? echo $version; ?></b>
-    </span>
-  </div>
-</div>
+      <h2><b>Lebensdauer des Cookies:</b></h2>
+          <p>
+            <h3><span style='color:#F99E34; font-size: 25px;'>Achtung! Diese Webseite nutzt Cookies, um die von Ihnen getroffene Wahl zu speichern!</span></h3>
+            <br />
+            <h2>Lebensdauer:</h2>
+            <input name="lifetime" type="number" maxlength="3" /> Stunde(n)<br/><br/>
+            <input type="submit" name="auswahl" value="Zum Plan!" />
+          </p>
+        </form>
+      </div>
 
   </body>
 </html>

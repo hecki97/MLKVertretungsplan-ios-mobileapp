@@ -1,4 +1,4 @@
-<?php include('./include_mobile.php'); ?>
+<?php include('./_includeMobile.php'); ?>
 <?php session_start(); ?>
 <html>
 	<head>
@@ -35,15 +35,21 @@
 				<!-- Modul1 Datum -->
 					<?php if (!isset($_COOKIE["version"])) : ?>
 					<ul>
-						<?php if(!empty($mlkvplan_array_modul->Datum_Modul1)) : ?>
-				            <p><strong><?php CheckTimestamp(strtotime($mlkvplan_array_modul->Datum_Modul1),"modul1"); ?></strong></p>
-				        <?php else : ?>
-				            <p><strong>Timestamp konnte nicht geprüft werden!</strong></p>
-				        <?php endif; ?>
-				    </ul>
-				    <?php else : ?>
-				        <p><strong>Modul1 ist immer aktuell!</strong></p>
-				    <?php endif; ?>
+			            <?php if(!empty($mlkvplan_array_modul->Datum_Modul1)) : ?>
+			            <ul>
+			              <?php if(strtotime($mlkvplan_array_modul->Datum_Modul1) != strtotime(date("d/m/y"))) : ?>
+			                <span style ='color:#B40404; font-size:15px'>Modul1 ist nicht aktuell!</span>
+			              <?php else : ?>
+			                <span style ='color:#007236; font-size:15px'>Modul1 ist aktuell!</span>
+			              <?php endif; ?>
+			            </ul>
+			            <?php else : ?>
+			              Timestamp konnte nicht geprueft werden!
+			            <?php endif; ?>
+			        </ul>
+			        <?php else : ?>
+			        	<span style ='font-size:15px'>Modul1 ist immer aktuell!</span>
+			        <?php endif; ?>
 				<!-- Modul1 flash/HTML -->
 					<?php if (!isset($_COOKIE["version"])) : ?>
 					<ul>
@@ -65,15 +71,21 @@
 				<!-- Modul2 Datum -->
 					<?php if (!isset($_COOKIE["version"])) : ?>
 					<ul>
-						<?php if(!empty($mlkvplan_array_modul->Datum_Modul2)) : ?>
-				            <p><strong><?php CheckTimestamp(strtotime($mlkvplan_array_modul->Datum_Modul2),"modul2"); ?></strong></p>
-				        <?php else : ?>
-				            <p><strong>Timestamp konnte nicht geprüft werden!</strong></p>
-				        <?php endif; ?>
-				    </ul>
-				    <?php else : ?>
-				        <p><strong>Modul1 ist immer aktuell!</strong></p>
-				    <?php endif; ?>
+			            <?php if(!empty($mlkvplan_array_modul->Datum_Modul2)) : ?>
+			            <ul>
+			            	<?php if(strtotime($mlkvplan_array_modul->Datum_Modul2) != strtotime(date("d/m/y"))) : ?>
+			            		<span style ='color:#B40404; font-size:15px'>Modul2 ist nicht aktuell!</span>
+			              	<?php else : ?>
+			                	<span style ='color:#007236; font-size:15px'>Modul2 ist aktuell!</span>
+			              	<?php endif; ?>
+			            </ul>
+			            <?php else : ?>
+			            	Timestamp konnte nicht geprueft werden!
+			            <?php endif; ?>
+			        </ul>
+			        <?php else : ?>
+			        	<span style ='font-size:15px'>Modul2 ist immer aktuell!</span>
+			        <?php endif; ?>
 				<!-- Modul2 flash/HTML -->
 					<?php if (!isset($_COOKIE["version"])) : ?>
 					<ul>
@@ -90,11 +102,13 @@
 			</ul>
 
 		<!-- flash/HTML -->
-			<?php if(isset($_COOKIE["version"])) : ?>
-				<b>Aktuelle Version:</b><i>flash</i>
-			<?php else : ?>
-				<b>Aktuelle Version:</b><i>html</i>
-			<?php endif; ?>
+			<div id="text">
+				<?php if(isset($_COOKIE["version"])) : ?>
+					<b>Aktuelle Version:</b><i>flash</i>
+				<?php else : ?>
+					<b>Aktuelle Version:</b><i>html</i>
+				<?php endif; ?>
+			</div>
 
 			<div id="footer">
 				<div data-role="footer">

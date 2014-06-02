@@ -1,111 +1,128 @@
-<?php
-  include('footerVersionHandler.php');
-  include('fileChecker.php');
-  include('buttonScript.php');
-
-  $verbindung = mysql_connect("localhost", "login" , "") or die("Verbindung zur Datenbank konnte nicht hergestellt werden"); 
-  mysql_select_db("test") or die ("Datenbank konnte nicht ausgewählt werden"); 
-  
-  $hostname = $_SERVER['HTTP_HOST'];
-  $path = dirname($_SERVER['PHP_SELF']);
-
-  //Zum Plan
-  forwardButton($hostname, $path, $buttonName = "plan", $fileName = "index.php");
-
-  $mlkvplan_array_settings = DecodeJSONToArray($settings_config);
-  if (!empty($mlkvplan_array_settings->Registrierung_aktiviert) && $mlkvplan_array_settings->Registrierung_aktiviert == "Deaktiviert")
-    header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/modulDisabled.html');
-
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    $username = $_POST["username"]; 
-    $passwort = $_POST["passwort"]; 
-    $passwort2 = $_POST["passwort2"];
-    $einladungscode = $_POST["einladungscode"];
-
-    if($passwort != $passwort2 OR $username == "" OR $passwort == "" OR $einladungscode == "") 
-    { 
-      echo "Eingabefehler. Bitte alle Felder korekt ausfüllen. <a href=\"eintragen.html\">Zurück</a>"; 
-      exit; 
-    } 
-    $passwort = md5($passwort); 
-
-    $result = mysql_query("SELECT id FROM login WHERE username LIKE '$username'"); 
-    $menge = mysql_num_rows($result); 
-
-    if($menge == 0) 
-    { 
-      $einladungscode = trim($einladungscode);
-      $mlkvplan_array_key = DecodeJSONToArray($key_config);
-      if (md5($einladungscode)==$mlkvplan_array_key->Key)
-      {
-        $eintrag = "INSERT INTO login (username, passwort) VALUES ('$username', '$passwort')"; 
-        $eintragen = mysql_query($eintrag); 
-      }
-      else
-      {
-        $error_register_2 = "Der eingegebene Einladungscode ist nicht korrekt!";
-      }
-
-      if($eintragen == true) 
-      { 
-        echo "Benutzername <b>$username</b> wurde erstellt. <a href=\"login.html\">Login</a>"; 
-      } 
-      else 
-      { 
-        echo "Fehler beim Speichern des Benutzernames. <a href=\"eintragen.html\">Zurück</a>"; 
-      }
-    } 
-    else 
-    { 
-      echo "Benutzername schon vorhanden. <a href=\"eintragen.html\">Zurück</a>"; 
-    }
-  } 
-?>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php include('./htmlHead.html'); ?>
+<?php include('./_register.php'); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
 <head>
     <title>Account erstellen</title>
-    <meta name="viewport" content="height=device-height, initial-scale=1.25, maximum-scale=1.5, user-scalable=yes" />
-    <link rel="stylesheet" type="text/css" href="css/default_stylesheet.css">
 </head>
+<body class="metro">
+  <header>
+    <nav class="navigation-bar dark fixed-top">
+      <nav class="navigation-bar-content">
+          <button href="./mlkVPlan.php" class="element"><span class="icon-arrow-left-5"></span> MLK-Vertretungsplan online</button>
+   
+          <span class="element-divider"></span>
+          <button class="element brand" onclick="window.location.reload();"><span class="icon-spin"></span></button>
+          <span class="element-divider"></span>
 
-<body>
-<div class="content_container">
-  <div class="content">
-     <div class="text">
-        <h1>Account erstellen:</h1>
-          <form action="register.php" method="post">
-            <h3> Anmeldeinformationen eingeben:</h3>
-              
-             Benutzername:<div class="pagewrapper"><input type="text" name="username" /><br /></div>
-             Passwort:<div class="pagewrapper"><input type="password" name="passwort"/><br /></div>
-             Passwort(wdh):<div class="pagewrapper"><input type="password" name="passwort2" /><br /></div>
-             Einladungscode:<div class="pagewrapper"><input type="text" name="einladungscode" /><br />
-              </div>
-             <br><input type="submit" name="uregister" value="Registrieren">
-             <br><br><input type="submit" name="plan" value="Zum Plan!">
-             <br><?php
-                  if (!empty($error_register_1))
-                    echo $error_register_1;
-                  else if (!empty($error_register_2))
-                    echo $error_register_2;
-                  else if (!empty($error_register_3))
-                    echo $error_register_3;
-                  else if (!empty($register))
-                    echo $register;
-             ?>
-        </form>
-    </div>
+          <a href="./info.php" class="element brand place-right"><span class="icon-cog"></span></a>
+          <span class="element-divider place-right"></span>
+          <a class="element place-right">
+            <?php echo $version; ?>
+          </a>
+          <span class="element-divider place-right"></span>
+          <a href="./login.php" class="element place-right">
+            <span class="icon-key"></span> Zum Login!
+          </a>
+          <span class="element-divider place-right"></span>
+      </nav>
+    </nav>
+  </header>
+
+<div class="container" style="text-align: center;">
+  <h1>Account erstellen:</h1>
+    <form action="register.php" method="post">
+      <h3> Anmeldeinformationen eingeben:</h3>
+      
+      <table cellpadding="2" align="center">
+        <tr>
+          <th>
+            <span style ='font-size:15px'>Benutzername:</span>
+          </th>
+          <th>
+            <span style ='font-size:15px'><input type="text" name="username" /></span>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <span style ='font-size:15px'>Passwort:</span>
+          </th>
+          <th>
+            <span style ='font-size:15px'><input type="password" name="password" /></span>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <span style ='font-size:15px'>Passwort(wdh):</span>
+          </th>
+          <th>
+            <span style ='font-size:15px'><input type="password" name="passwort2" /></span>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <span style ='font-size:15px'>Einladungscode:</span>
+          </th>
+          <th>
+            <span style ='font-size:15px'><input type="text" name="einladungscode" /></span>
+          </th>
+        </tr>
+      </table>
+      <br><input type="submit" name="uregister" value="Registrieren">
+             
+      <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') : ?>
+      <ul>
+        <?php $username = $_POST["username"]; ?>
+        <?php $passwort = $_POST["passwort"]; ?>
+        <?php $passwort2 = $_POST["passwort2"]; ?>
+        <?php $einladungscode = $_POST["einladungscode"]; ?>
+
+        <?php if($passwort != $passwort2 || $username == "" || $passwort == "" || $einladungscode == "") : ?>
+        <ul>
+          Eingabefehler. Bitte alle Felder korekt ausfüllen.
+          <?php exit; ?>
+        </ul>
+        <?php endif; ?> 
+        <?php $passwort = md5($passwort); ?>
+
+        <?php $result = mysql_query("SELECT id FROM login WHERE username LIKE '$username'"); ?>
+        <?php $menge = mysql_num_rows($result); ?>
+
+        <?php if($menge == 0) : ?> 
+        <ul>
+          <?php $einladungscode = trim($einladungscode); ?>
+          <?php $mlkvplan_array_key = DecodeJSONToArray($key_config); ?>
+
+          <?php if (md5($einladungscode)==$mlkvplan_array_key->Key) : ?>
+          <ul>
+            <?php $eintrag = "INSERT INTO login (username, passwort) VALUES ('$username', '$passwort')"; ?>
+            <?php $eintragen = mysql_query($eintrag); ?>
+          </ul>
+          <?php else : ?>
+          <ul>
+            Der eingegebene Einladungscode ist nicht korrekt!
+          </ul>
+          <?php endif; ?>
+
+          <?php if($eintragen == true) : ?>
+          <ul>
+            Benutzername <b><?php echo $username; ?></b> wurde erstellt. <a href="./login.php">Login</a> 
+          </ul>
+          <?php else : ?> 
+          <ul>
+            Fehler beim Speichern des Benutzernames. Bitte erneut versuchen! 
+          </ul>
+          <?php endif; ?>
+        </ul>
+        <?php else : ?> 
+        <ul> 
+          Benutzername schon vorhanden. Bitte erneut versuchen! 
+        </ul>
+        <?php endif; ?>
+      </ul>
+      <?php endif; ?>
+      <br><br><input type="submit" name="plan" value="Zum Plan!">
+    </form>
   </div>
-</div>
-
-<div class="footer_container">
-  <div class="footer">
-    <span style = "font-family:fonts;text-align:center;">
-      <b><? echo $version; ?></b>
-    </span>
-  </div>
-</div>
-
 </body>
 </html>

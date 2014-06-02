@@ -1,4 +1,4 @@
-<?php include './include_mobile.php'; ?>
+<?php include './_includeMobile.php'; ?>
 <html>
 	<head>
 		<!-- Wichtig für iOS -->
@@ -31,17 +31,11 @@
 				<!-- flash/HTML Switch -->
 					<form action="about_mobile.php" method="post">
 						<h2>MLK Vplan Version:</h2>
-			            <div id="container">
-			            	<div data-role="fieldcontain">
-	    						<fieldset data-role="controlgroup">
-							        <input type="radio" name="check" id="radio-choice-1" value="html" />
-							        <label for="radio-choice-1">HTML <i>(empfohlen)</i></label>
+							<p>
+							    <input type="radio" name="check" value="html">HTML <i>(empfohlen)</i><br>
+							    <input type="radio" name="check" value="flash">flash<br>
+							</p>
 
-							        <input type="radio" name="check" id="radio-choice-2" value="flash" />
-							        <label for="radio-choice-2">flash</label><br>
-							    </fieldset>
-							</div>
-						</div>
 			            <?php if(isset($_POST['auswahl'])) : ?>
 			            <ul>
 			                <?php if($_POST['check'] == "html") : ?>

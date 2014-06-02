@@ -1,135 +1,127 @@
-<?php
-	include('auth.php');
-	include('footerVersionHandler.php');
-	include('fileChecker.php');
-	include('buttonScript.php');
-	
-	$hostname = $_SERVER['HTTP_HOST'];
-    $path = dirname($_SERVER['PHP_SELF']);
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php include('./htmlHead.html'); ?>
+<?php include('./_uploader.php'); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+	<head>
+		<title> MLK-Vertretungsplan HTML Upload </title>
+	</head>
+	<body class="metro">
+	<header>
+	    <nav class="navigation-bar dark fixed-top">
+	      <nav class="navigation-bar-content">
+	        <a href="./mlkVPlan.php" class="element"><span class="icon-arrow-left-5"></span> MLK-Vertretungsplan online</a>
+	       
+	        <span class="element-divider"></span>
+	        <button class="element brand" onclick="window.location.reload();"><span class="icon-spin"></span></button>
+	        <span class="element-divider"></span>
 
-	//Zum OnlineEditor
-	forwardButton($hostname, $path, "fback", "onlineEditor.php");
+	        <a href="./info.php" class="element brand place-right"><span class="icon-cog"></span></a>
+	        <span class="element-divider place-right"></span>
+	        <a class="element place-right">
+	          <?php echo $version; ?>
+	        </a>
+	        <span class="element-divider place-right"></span>
+	        <a class="element place-right">
+	        <span class="icon-unlocked"></span> <?php echo $_SESSION["username"]; ?>
+	        </a>
+	        <span class="element-divider place-right"></span>
+	      </nav>
+	    </nav>
+	  </header>
 
-	function Upload($modul_name)
-	{
-		if (!empty($_FILES[$modul_name]['name']))
-		{
-			if ($_FILES[$modul_name] ['type'] == "text/html")
-			{
-				if ($_FILES[$modul_name] ['size'] < 256000)
-				{	
-					if ($_FILES[$modul_name] ['name'] == $modul_name.".html")
-					{
-						if (is_file($_FILES[$modul_name]['name'])) unlink($_FILES[$modul_name]['name']);
-							move_uploaded_file($_FILES[$modul_name]['tmp_name'], "html/".$_FILES[$modul_name]['name']); 
-			      			$upload_1 = ("<span style ='color:#04B404'>Die Datei ".$_FILES[$modul_name] ['name']." wurde Erfolgreich nach html/".$_FILES[$modul_name]['name']." hochgeladen</span>");
-					}
-					else
-						$error_upload1_4 = ("<span style ='color:#ff0000'>Bitte ".$_FILES[$modul_name]['name']."  'modul1.html' nennen!</span>");
-				}
-				else $error_upload1_3 = "<span style ='color:#ff0000'>Die Datei '".$_FILES[$modul_name]['name']."' darf maximal 250Kb groß sein!</span>";
-			}
-			else
-				$error_upload1_2 = ("<span style ='color:#ff0000'>".$_FILES[$modul_name]['name']." ist keine '.html' Datei!</span>");
-		}
-		else
-			$error_upload1_1 = ("<span style ='color:#ff0000'>Fehler beim Hochladen von '".$modul_name.".html'</span>");
-	}
-
-	if ($_SERVER['REQUEST_METHOD'] == 'POST')
-	{
-		if (!empty($_FILES['modul1']['name']))
-		{
-			Upload($modul_name = 'modul1');
-			$array['Datum_Modul1'] = date("d/m/y");
-		}
-		if (!empty($_FILES['modul2']['name']))
-		{
-			Upload($modul_name = 'modul2');
-			$array['Datum_Modul2'] = date("d/m/y");
-		}
-
-		if (!empty($_FILES['modul1']['name']) || !empty($_FILES['modul2']['name']))
-			EncodeArrayToJSON($date_config, $array);
-	}
-?>
-
-<html>
-<head>
-	<title> MLK-Vertretungsplan HTML Upload </title>
-	<meta name="viewport" content="height=device-height, initial-scale=0.75, maximum-scale=1.5, user-scalable=yes" />
-	<link rel="stylesheet" type="text/css" href="css/default_stylesheet.css">
-</head>
-
-<body>
-<div class="content_container">
-	<div class="content">
-		<div class="text">
-			<h1>'.html' Dateien hochladen</h1>
-			<form action="uploader.php" method="post" enctype="multipart/form-data"> 
-				<h3>Hier 'modul1.html' hochladen!</h3>
-				<input type="file" name="modul1">
-				<br><?php
-						$mlkvplan_array_modul1 = DecodeJSONToArray($date_config);
-
-						if(!empty($mlkvplan_array_modul1->Datum_Modul1))
-							echo "Letztes Update: ".$mlkvplan_array_modul1->Datum_Modul1;
-						else
-							echo "???";
-					?>
+	<div class="container" style="text-align: center;">
+		<h1>'.html' Dateien hochladen</h1>
+		<form action="uploader.php" method="post" enctype="multipart/form-data"> 
+			<h3>Hier 'modul1.html' hochladen!</h3>
+			<input type="file" name="modul1">
+			<br>
+			<?php if(!empty($mlkvplan_array_modul1->Datum_Modul1)) : ?>
+				Letztes Update: <?php echo $mlkvplan_array_modul1->Datum_Modul1; ?>
+			<?php else : ?>
+				???
+			<?php endif; ?>
 				
-				<br><br><h3>Hier 'modul2.html' hochladen!</h3>
-				<input type="file" name="modul2">
-				<br><?php
-						$mlkvplan_array_modul2=DecodeJSONToArray($date_config);
+			<br><br><h3>Hier 'modul2.html' hochladen!</h3>
+			<input type="file" name="modul2">
+			<br>
+			<?php if(!empty($mlkvplan_array_modul2->Datum_Modul2)) : ?>
+				Letztes Update: <?php echo $mlkvplan_array_modul2->Datum_Modul2; ?>
+			<?php else : ?>
+				???
+			<?php endif; ?>
+			<br><br><input type="submit" value="Hochladen">			
 
-						if(!empty($mlkvplan_array_modul2->Datum_Modul2))
-							echo "Letztes Update: ".$mlkvplan_array_modul2->Datum_Modul2;
-						else
-							echo "???";
-					?>
-				<br><br><input type="submit" value="Hochladen"> 
-			</form>
-			<form>
-		        <input type="submit" name="fback" value="Zur Auswahl">
-		    </form>
-		<div class="notification">
-		    <br><form action='uploader.php'>
-		        <?php
-		          if (!empty($error_upload1_1))
-		          	echo $error_upload1_1;
-		          else if (!empty($error_upload1_2))
-		          	echo $error_upload1_2;
-		          else if (!empty($error_upload1_3))
-		          	echo $error_upload1_3;
-		          else if (!empty($error_upload1_4))
-		          	echo $error_upload1_4;
-		          else if (!empty($upload_1))
-		          	echo $upload_1;
-		          else if (!empty($error_upload2_1))
-		          	echo $error_upload2_1;
-		          else if (!empty($error_upload2_2))
-		          	echo $error_upload2_2;
-		          else if (!empty($error_upload2_3))
-		          	echo $error_upload2_3;
-		          else if (!empty($error_upload2_4))
-		          	echo $error_upload2_4;
-		          else if (!empty($upload_2))
-		          	echo $upload_2;
-		        ?>
-		      	</form>
-	    </div>
-	    </div>
+			<?php if ($_SERVER['REQUEST_METHOD'] == 'POST') : ?>
+			<ul>
+				<?php if (!empty($_FILES['modul1']['name'])) : ?>
+				<ul>
+					<?php if ($_FILES['modul1'] ['type'] == "text/html") : ?>
+					<ul>
+						<?php if ($_FILES['modul1'] ['size'] < 256000) : ?>
+						<ul>
+							<?php if ($_FILES['modul1'] ['name'] == 'modul1'.".html") : ?>
+							<ul>
+								<?php if (is_file($_FILES['modul1']['name'])) : unlink($_FILES['modul1']['name']); ?>
+								<?php endif; ?>
+								<?php move_uploaded_file($_FILES['modul1']['tmp_name'], "html/".$_FILES['modul1']['name']); ?>
+								<?php $array['Datum_Modul1'] = date("d/m/y"); ?>
+				      			<span style ='color:#04B404'>Die Datei <?php echo $_FILES['modul1'] ['name']; ?> wurde Erfolgreich nach html/<?php echo $_FILES['modul1']['name']; ?> hochgeladen</span>
+							</ul>
+							<?php else : ?>
+								<span style ='color:#ff0000'>Bitte <?php echo $_FILES['modul1']['name']; ?>  'modul1.html' nennen!</span>
+							<?php endif; ?>
+						</ul>
+						<?php else : ?>
+							<span style ='color:#ff0000'>Die Datei '<?php echo $_FILES['modul1']['name']; ?>' darf maximal 250Kb groß sein!</span>
+						<?php endif; ?>
+						</ul>
+					<?php else : ?>
+						<span style ='color:#ff0000'><?php echo $_FILES['modul1']['name']; ?> ist keine '.html' Datei!</span>
+					<?php endif; ?>
+				</ul>
+				<?php else : ?>
+					<span style ='color:#ff0000'>Fehler beim Hochladen von modul1.html'</span>
+				<?php endif; ?>
+			
+			<?php if (!empty($_FILES['modul2']['name'])) : ?>
+			<ul>
+				<?php if ($_FILES['modul2'] ['type'] == "text/html") : ?>
+				<ul>
+					<?php if ($_FILES['modul2'] ['size'] < 256000) : ?>
+					<ul>
+						<?php if ($_FILES['modul2'] ['name'] == 'modul2'.".html") : ?>
+						<ul>
+							<?php if (is_file($_FILES['modul2']['name'])) : unlink($_FILES['modul2']['name']); ?>
+							<?php endif; ?>
+							<?php move_uploaded_file($_FILES['modul2']['tmp_name'], "html/".$_FILES['modul2']['name']); ?>
+							<?php $array['Datum_Modul2'] = date("d/m/y"); ?>
+			      			<span style ='color:#04B404'>Die Datei <?php echo $_FILES['modul2'] ['name']; ?> wurde Erfolgreich nach html/<?php echo $_FILES['modul2']['name']; ?> hochgeladen</span>
+						</ul>
+						<?php else : ?>
+							<span style ='color:#ff0000'>Bitte <?php echo $_FILES['modul2']['name']; ?>  'modul1.html' nennen!</span>
+						<?php endif; ?>
+					</ul>
+					<?php else : ?>
+						<span style ='color:#ff0000'>Die Datei '<?php echo $_FILES['modul2']['name']; ?>' darf maximal 250Kb groß sein!</span>
+					<?php endif; ?>
+				</ul>
+				<?php else : ?>
+					<span style ='color:#ff0000'><?php echo $_FILES['modul2']['name']; ?> ist keine '.html' Datei!</span>
+				<?php endif; ?>
+			</ul>
+			<?php else : ?>
+				<span style ='color:#ff0000'>Fehler beim Hochladen von modul2.html'</span>
+			<?php endif; ?>
+		</ul>
+		<?php endif; ?>
+
+		<?php if (!empty($_FILES['modul1']['name']) || !empty($_FILES['modul2']['name'])) : ?>
+			<?php EncodeArrayToJSON($date_config, $array); ?>
+		<?php endif; ?>
+		</form>
+		<form>
+		    <input type="submit" name="fback" value="Zur Auswahl">
+		</form>
 	</div>
-</div>
-
-<div class="footer_container">
-	<div class="footer">
-		<span style = "font-family:fonts;text-align:center;">
-			<b><? echo $version; ?></b>
-		</span>
-	</div>
-</div>
-
 </body>
 </html>
