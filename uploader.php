@@ -65,22 +65,22 @@
 								<?php endif; ?>
 								<?php move_uploaded_file($_FILES['modul1']['tmp_name'], "html/".$_FILES['modul1']['name']); ?>
 								<?php $array['Datum_Modul1'] = date("d/m/y"); ?>
-				      			<span style ='color:#04B404'>Die Datei <?php echo $_FILES['modul1'] ['name']; ?> wurde Erfolgreich nach html/<?php echo $_FILES['modul1']['name']; ?> hochgeladen</span>
+				      			<span style ='color:#04B404'>Die Datei <?php echo $_FILES['modul1'] ['name']; ?> wurde Erfolgreich nach html/<?php echo $_FILES['modul1']['name']; ?> hochgeladen</span><br/>
 							</ul>
 							<?php else : ?>
-								<span style ='color:#ff0000'>Bitte <?php echo $_FILES['modul1']['name']; ?>  'modul1.html' nennen!</span>
+								<span style ='color:#ff0000'>Bitte <?php echo $_FILES['modul1']['name']; ?>  'modul1.html' nennen!</span><br/>
 							<?php endif; ?>
 						</ul>
 						<?php else : ?>
-							<span style ='color:#ff0000'>Die Datei '<?php echo $_FILES['modul1']['name']; ?>' darf maximal 250Kb groß sein!</span>
+							<span style ='color:#ff0000'>Die Datei '<?php echo $_FILES['modul1']['name']; ?>' darf maximal 250Kb groß sein!</span><br/>
 						<?php endif; ?>
 						</ul>
 					<?php else : ?>
-						<span style ='color:#ff0000'><?php echo $_FILES['modul1']['name']; ?> ist keine '.html' Datei!</span>
+						<span style ='color:#ff0000'><?php echo $_FILES['modul1']['name']; ?> ist keine '.html' Datei!</span><br/>
 					<?php endif; ?>
 				</ul>
 				<?php else : ?>
-					<span style ='color:#ff0000'>Fehler beim Hochladen von modul1.html'</span>
+					<span style ='color:#ff0000'>Fehler beim Hochladen von modul1.html'</span><br/>
 				<?php endif; ?>
 			
 			<?php if (!empty($_FILES['modul2']['name'])) : ?>
@@ -115,7 +115,8 @@
 		</ul>
 		<?php endif; ?>
 
-		<?php if (!empty($_FILES['modul1']['name']) || !empty($_FILES['modul2']['name'])) : ?>
+	<!-- Beste Lösung ever! :D -->
+		<?php if (!empty($_FILES['modul1']['name']) && ($_FILES['modul1'] ['type'] == "text/html") && ($_FILES['modul1'] ['size'] < 256000) && ($_FILES['modul1'] ['name'] == 'modul1'.".html") || (!empty($_FILES['modul2']['name'])) && ($_FILES['modul2'] ['type']) == "text/html" && ($_FILES['modul2'] ['size'] < 256000) && ($_FILES['modul2'] ['name'] == 'modul2'.".html")) : ?>
 			<?php EncodeArrayToJSON($date_config, $array); ?>
 		<?php endif; ?>
 		</form>
