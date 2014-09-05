@@ -1,29 +1,37 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<?php include('./htmlHead.html'); ?>
-<?php include('./_mlkVPlan.php'); ?>
+<?php $root = realpath($_SERVER["DOCUMENT_ROOT"]); ?>
+<?php include("$root/mlkvplan/res/html/htmlHead.html"); ?>
+<?php include("$root/mlkvplan/res/php/_mlkVPlan.php"); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>MLK-Vertretungsplan</title>
+    <script type="text/javascript"><!--
+
+    if (screen.width < 480) {
+      if (confirm('Wollen sie zu der mobilen Seite weitergeleitet werden?') == true)
+        window.location.href = "./mobile/index.php";
+    }  
+    //-->
+    </script>
   </head>
-  <script type="text/javascript"><?php include('./checkDeviceWidth.js'); ?></script>
   <body class="metro">
   <header>
     <nav class="navigation-bar dark fixed-top">
       <nav class="navigation-bar-content">
-          <button href="./mlkVPlan.php" class="element"><span class="icon-home"></span> MLK-Vertretungsplan online</button>
+          <button href="./mlkVPlan.php" class="element"><span class="icon-home"></span> MLK-Vertretungsplan online<sup><?php echo $lang; ?></sup></button>
    
           <span class="element-divider"></span>
-          <button class="element brand" onclick="window.location.reload();"><span class="icon-spin"></span></button>
+          <button class="element brand no-phone no-tablet" onclick="window.location.reload();"><span class="icon-spin"></span></button>
           <span class="element-divider"></span>
 
-          <a href="./info.php" class="element brand place-right"><span class="icon-cog"></span></a>
+          <a href="./info.php" class="element brand place-right no-phone no-tablet"><span class="icon-cog"></span></a>
           <span class="element-divider place-right"></span>
-          <a class="element place-right">
+          <a class="element place-right no-phone no-tablet">
             <?php echo $version; ?>
           </a>
           <span class="element-divider place-right"></span>
-          <a href="./login.php" class="element place-right">
-            <span class="icon-key"></span> Zum Login!
+          <a href="./login.php" class="element place-right no-phone no-tablet">
+            <span class="icon-key"></span> <?php echo $string['global']['menu.login']; ?>
           </a>
           <span class="element-divider place-right"></span>
       </nav>
@@ -38,7 +46,7 @@
         <?php $version_sup = "html"; ?>
       <?php endif; ?>
 
-      <h1 style="text-align: center;">MLK-Vertretungsplan Online<sup><?php echo $version_sup; ?></sup></h1>
+      <h1 style="text-align: center;"><?php echo $string['mlkvplan']['ueberschrift']; ?><sup><?php echo $version_sup; ?></sup></h1>
     </form>
 
     <table width="100%">
@@ -48,48 +56,38 @@
         <th>
           <?php if($_COOKIE["vPlan_version"] == "html") : ?>
           <ul>
-            <?php if(!empty($mlkvplan_array_modul->Datum_Modul1)) : ?>
-            <ul>
-              <?php if(strtotime($mlkvplan_array_modul->Datum_Modul1) != strtotime(date("d/m/y"))) : ?>
+              <?php if(strtotime($row->modul1) != strtotime(date("d/m/y"))) : ?>
               <ul>
-                <span style ='color:#B40404; font-size:25px'>Modul1 ist nicht aktuell!</span>
+                <span style ='color:#B40404; font-size:25px'><?php echo $string['mlkvplan']['modul1.nicht.aktuell']; ?></span>
               </ul>
               <?php else : ?>
               <ul>
-                <span style ='color:#007236; font-size:25px'>Modul1 ist aktuell!</span>
+                <span style ='color:#007236; font-size:25px'><?php echo $string['mlkvplan']['modul1.aktuell']; ?></span>
               </ul>
               <?php endif; ?>
-            </ul>
-            <?php else : ?>
-              Timestamp konnte nicht geprueft werden!
-            <?php endif; ?>
+            </ul>     
           </ul>
           <?php else : ?>
-            <span style ='font-size:25px'>Modul1 ist immer aktuell!</span>
+            <span style ='font-size:25px'><?php echo $string['mlkvplan']['modul1.flash']; ?></span>
           <?php endif; ?>
         </th>
       <!-- Check Datum Modul2 -->
         <th>
           <?php if($_COOKIE["vPlan_version"] == "html") : ?>
           <ul>
-            <?php if(!empty($mlkvplan_array_modul->Datum_Modul2)) : ?>
-            <ul>
-              <?php if(strtotime($mlkvplan_array_modul->Datum_Modul2) != strtotime(date("d/m/y"))) : ?>
+              <?php if(strtotime($row->modul2) != strtotime(date("d/m/y"))) : ?>
               <ul>
-                <span style ='color:#B40404; font-size:25px'>Modul2 ist nicht aktuell!</span>
+                <span style ='color:#B40404; font-size:25px'><?php echo $string['mlkvplan']['modul2.nicht.aktuell']; ?></span>
               </ul>
               <?php else : ?>
               <ul>
-                <span style ='color:#007236; font-size:25px'>Modul2 ist aktuell!</span>
+                <span style ='color:#007236; font-size:25px'><?php echo $string['mlkvplan']['modul2.aktuell']; ?></span>
               </ul>
               <?php endif; ?>
             </ul>
-            <?php else : ?>
-              Timestamp konnte nicht geprueft werden!
-            <?php endif; ?>
           </ul>
           <?php else : ?>
-            <span style ='font-size:25px'>Modul2 ist immer aktuell!</span>
+            <span style ='font-size:25px'><?php echo $string['mlkvplan']['modul2.flash']; ?></span>
           <?php endif; ?>
         </th>
       </tr>
@@ -112,11 +110,7 @@
         <th>
           <?php if($_COOKIE["vPlan_version"] == "html") : ?>
           <ul> 
-            <?php if(!empty($mlkvplan_array_modul->Datum_Modul1)) : ?>
-              <h3>Letztes Update (Modul1): <?php echo $mlkvplan_array_modul->Datum_Modul1; ?></h3>
-            <?php else : ?>
-              <h3>???</h3>
-            <?php endif; ?>
+              <h3>Letztes Update (Modul1): <?php echo $row->modul1; ?></h3>
           </ul>
           <?php else : ?>
             <h3>???</h3>
@@ -126,11 +120,7 @@
         <th>
           <?php if($_COOKIE["vPlan_version"] == "html") : ?>
           <ul> 
-            <?php if(!empty($mlkvplan_array_modul->Datum_Modul2)) : ?>
-              <h3>Letztes Update (Modul2): <?php echo $mlkvplan_array_modul->Datum_Modul2; ?></h3>
-            <?php else : ?>
-              <h3>???</h3>
-            <?php endif; ?>
+              <h3>Letztes Update (Modul2): <?php echo $row->modul2; ?></h3>
           </ul>
           <?php else : ?>
             <h3>???</h3>
@@ -142,12 +132,12 @@
     <div style="margin: 0 auto; text-align: center;">
       <form>
         <?php if($_COOKIE["vPlan_version"] == "flash") : ?>
-          <span style="font-size: 20px;"><b>Aktuelle Version:</b><i>flash</i></span>
+          <span style="font-size: 20px;"><b><?php echo $string['mlkvplan']['version']; ?></b><i>flash</i></span>
         <?php else : ?>
-          <span style="font-size: 20px;"><b>Aktuelle Version:</b><i>html</i></span>
+          <span style="font-size: 20px;"><b><?php echo $string['mlkvplan']['version']; ?></b><i>html</i></span>
         <?php endif; ?>
         <br> 
-        <input type="submit" name="destroyCookie" value="Zur Auswahl!">
+        <input type="submit" name="destroyCookie" value="<?php echo $string['global']['button.submit.auswahl']; ?>">
       </form>
     </div>
   </body>

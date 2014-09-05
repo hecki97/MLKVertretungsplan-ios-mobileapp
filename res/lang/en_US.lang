@@ -1,0 +1,89 @@
+{
+	"global": {
+		"mysql.connect.error": "???",
+		"mysql.select.db.error": "???",
+		"menu.login": "Login!",
+		"button.submit.plan": "???",
+		"button.submit.auswahl": "???"
+	},
+	"index": {
+		"ueberschrift": "Select version:",
+		"cookie.ueberschrift": "Lifetime of the cookie:",
+		"warnung": "Caution! This website uses cookies to store the choice you've made!",
+		"lifetime": "lifetime",
+		"stunden": "Hour(s)",
+		"button.submit": "Save!",
+		"alert.auswahl": "Please make a selection!",
+		"alert.lifetime": "Please enter a number > 0 and <= 999!"
+	},
+	"mlkvplan": {
+		"ueberschrift": "???",
+		"timestamp": "???",
+		"modul1.aktuell": "???",
+		"modul1.nicht.aktuell": "???",
+		"modul1.flash": "???",
+		"modul2.aktuell": "???",
+		"modul2.nicht.aktuell": "???",
+		"modul2.flash": "???",
+		"version": "???"
+	},
+	"login": {
+		"ueberschrift": "???",
+		"username": "???",
+		"password": "???",
+		"button.submit.anmelden": "???",
+		"button.submit.registrieren": "???"
+	},
+	"register": {
+		"registrierung": "???",
+		"daten": "???",
+		"username": "???",
+		"password": "???",
+		"password.wdh": "???",
+		"einladungscode": "???",
+		"alert.succes": "???",
+		"alert.succes.2": "???",
+		"javascript.alert.einladungscode": "???",
+		"javascript.alert.speicherfehler": "???",
+		"javascript.alert.bereits.vorhanden": "???"
+	},
+	"onlineeditor": {
+		"welcome": "???",
+		"alert.key": "???",
+		"upload": "???",
+		"settings": "???",
+		"javascript.confirm.logout": "???",
+		"button.submit.click": "???",
+		"button.submit.logout": "???"
+	},
+	"moduldisabled": {
+		"modul.deaktiviert": "???",
+		"sorry": "???"
+	},
+	"authfailed": {
+		"auth.failed": "???",
+		"please.relogin": "???"
+	},
+	"remoteApp": {
+		"index": {
+			"ueberschrift": "???",
+			"unterueberschrift": "???",
+			"appname": "???",
+			"button.submit.download": "???",
+			"benoetigt": "???"
+		},
+		"remoteauthfailed": {
+			"ueberschrift": "???",
+			"unterueberschrift": "???"
+		},
+		"login": {
+			"alert.login.failed": "???",
+			"alert.felder": "???"
+		}
+	},
+	"mobileApp": {
+		"index": {
+
+		}
+	}
+}

@@ -1,28 +1,30 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<?php include('./htmlHead.html'); ?>
-<?php include('./_login.php'); ?>
+<?php $root = realpath($_SERVER["DOCUMENT_ROOT"]); ?>
+<?php $host = $_SERVER['SERVER_NAME']; ?>
+<?php include("$root/mlkvplan/res/html/htmlHead.html"); ?>
+<?php include("$root/mlkvplan/res/php/_login.php"); ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
  <head>
-    <title>Sicherer Bereich</title>
+    <title>Login</title>
  </head>
   <body class="metro">
   <header>
     <nav class="navigation-bar dark fixed-top">
       <nav class="navigation-bar-content">
-          <a href="./mlkVPlan.php" class="element"><span class="icon-arrow-left-5"></span> MLK-Vertretungsplan online</a>
+          <a href="http://<?php echo $host; ?>/mlkvplan/mlkVPlan.php" class="element"><span class="icon-arrow-left-5"></span> MLK-Vertretungsplan online<sup><?php echo $lang; ?></sup></a>
    
           <span class="element-divider"></span>
-          <button class="element brand" onclick="window.location.reload();"><span class="icon-spin"></span></button>
+          <button class="element brand no-phone no-tablet" onclick="window.location.reload();"><span class="icon-spin"></span></button>
           <span class="element-divider"></span>
 
-          <a href="./info.php" class="element brand place-right"><span class="icon-cog"></span></a>
+          <a href="./info.php" class="element brand place-right no-phone no-tablet"><span class="icon-cog"></span></a>
           <span class="element-divider place-right"></span>
-          <a class="element place-right">
+          <a class="element place-right no-phone no-tablet">
             <?php echo $version; ?>
           </a>
           <span class="element-divider place-right"></span>
-          <a href="#" class="element place-right">
-            <span class="icon-key"></span> Zum Login!
+          <a href="#" class="element place-right no-phone no-tablet">
+            <span class="icon-key"></span> <?php echo $string['global']['menu.login']; ?>
           </a>
           <span class="element-divider place-right"></span>
       </nav>
@@ -30,12 +32,12 @@
   </header>
 
   <div class="container" style="text-align: center;">
-    <h1>Login Informationen eingeben:</h1>
+    <h1><?php echo $string['login']['ueberschrift']; ?></h1>
     <form action="login.php" method="post">
       <table cellpadding="2" align="center">
         <tr>
           <th>
-            <span style ='font-size:15px'>Benutzername:</span>
+            <span style ='font-size:15px'><?php echo $string['login']['username']; ?></span>
           </th>
           <th>
             <span style ='font-size:15px'><input type="text" name="username" /></span>
@@ -43,16 +45,16 @@
         </tr>
         <tr>
           <th>
-            <span style ='font-size:15px'>Passwort:</span>
+            <span style ='font-size:15px'><?php echo $string['login']['password']; ?></span>
           </th>
           <th>
             <span style ='font-size:15px'><input type="password" name="password" /></span>
           </th>
         </tr>
       </table>
-      <br/><input type="submit" value="Anmelden" />
-      <br/><input type="submit" name="register" value="Account erstellen" />
-      <br/><br/><br/><input type="submit" name="fback" value="Zum Plan!" />
+      <br/><input type="submit" value="<?php echo $string['login']['button.submit.anmelden']; ?>" />
+      <br/><input type="submit" name="register" value="<?php echo $string['login']['button.submit.registrieren']; ?>" />
+      <br/><br/><br/><input type="submit" name="fback" value="<?php echo $string['global']['button.submit.plan']; ?>" />
     </form>
   </div>
 

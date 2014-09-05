@@ -1,5 +1,9 @@
-<?php
-	$hostname = $_SERVER['HTTP_HOST'];
-	$path = dirname($_SERVER['PHP_SELF']);
-	header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/mobile/about_mobile.php');
-?>
+<html>
+	<head>
+		<title>Info</title>
+	</head>
+	<body>
+		Diese Seite enthält keine nützlichen Information<br>
+		Und ist dazu noch nicht fertig!
+	</body>
+</html>

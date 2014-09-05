@@ -1,28 +1,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<?php include('./htmlHead.html'); ?>
-<?php include('./_register.php'); ?>
+<?php $root = realpath($_SERVER["DOCUMENT_ROOT"]); ?>
+<?php include("$root/mlkvplan/res/html/htmlHead.html"); ?>
+<?php include("$root/mlkvplan/res/php/_register.php"); ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
 <head>
-    <title>Account erstellen</title>
+    <title>Registrierung</title>
 </head>
 <body class="metro">
   <header>
     <nav class="navigation-bar dark fixed-top">
       <nav class="navigation-bar-content">
-          <button href="./mlkVPlan.php" class="element"><span class="icon-arrow-left-5"></span> MLK-Vertretungsplan online</button>
+          <a href="http://<?php echo $host; ?>/mlkvplan/mlkVPlan.php" class="element"><span class="icon-arrow-left-5"></span> MLK-Vertretungsplan online<sup><?php echo $lang; ?></sup></a>
    
           <span class="element-divider"></span>
-          <button class="element brand" onclick="window.location.reload();"><span class="icon-spin"></span></button>
+          <button class="element brand no-phone no-tablet" onclick="window.location.reload();"><span class="icon-spin"></span></button>
           <span class="element-divider"></span>
 
-          <a href="./info.php" class="element brand place-right"><span class="icon-cog"></span></a>
+          <a href="./info.php" class="element brand place-right no-phone no-tablet"><span class="icon-cog"></span></a>
           <span class="element-divider place-right"></span>
-          <a class="element place-right">
+          <a class="element place-right no-phone no-tablet">
             <?php echo $version; ?>
           </a>
           <span class="element-divider place-right"></span>
-          <a href="./login.php" class="element place-right">
-            <span class="icon-key"></span> Zum Login!
+          <a href="./login.php" class="element place-right no-phone no-tablet">
+            <span class="icon-key"></span> <?php echo $string['global']['menu.login']; ?>
           </a>
           <span class="element-divider place-right"></span>
       </nav>
@@ -30,14 +31,14 @@
   </header>
 
 <div class="container" style="text-align: center;">
-  <h1>Account erstellen:</h1>
+  <h1><?php echo $string['register']['registrierung']; ?></h1>
     <form action="register.php" method="post">
-      <h3> Anmeldeinformationen eingeben:</h3>
+      <h3><?php echo $string['register']['daten']; ?></h3>
       
       <table cellpadding="2" align="center">
         <tr>
           <th>
-            <span style ='font-size:15px'>Benutzername:</span>
+            <span style ='font-size:15px'><?php echo $string['register']['username']; ?></span>
           </th>
           <th>
             <span style ='font-size:15px'><input type="text" name="username" /></span>
@@ -45,15 +46,15 @@
         </tr>
         <tr>
           <th>
-            <span style ='font-size:15px'>Passwort:</span>
+            <span style ='font-size:15px'><?php echo $string['register']['password']; ?></span>
           </th>
           <th>
-            <span style ='font-size:15px'><input type="password" name="password" /></span>
+            <span style ='font-size:15px'><input type="password" name="passwort" /></span>
           </th>
         </tr>
         <tr>
           <th>
-            <span style ='font-size:15px'>Passwort(wdh):</span>
+            <span style ='font-size:15px'><?php echo $string['register']['password.wdh']; ?></span>
           </th>
           <th>
             <span style ='font-size:15px'><input type="password" name="passwort2" /></span>
@@ -61,7 +62,7 @@
         </tr>
         <tr>
           <th>
-            <span style ='font-size:15px'>Einladungscode:</span>
+            <span style ='font-size:15px'><?php echo $string['register']['einladungscode']; ?></span>
           </th>
           <th>
             <span style ='font-size:15px'><input type="text" name="einladungscode" /></span>
@@ -69,6 +70,7 @@
         </tr>
       </table>
       <br><input type="submit" name="uregister" value="Registrieren">
+      <br><br><input type="submit" name="plan" value="Zum Plan!">
              
       <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') : ?>
       <ul>
@@ -79,7 +81,7 @@
 
         <?php if($passwort != $passwort2 || $username == "" || $passwort == "" || $einladungscode == "") : ?>
         <ul>
-          Eingabefehler. Bitte alle Felder korekt ausfüllen.
+          <script type="text/javascript">alert("<?php echo $string['register']['javascript.alert.felder']; ?>");</script> 
           <?php exit; ?>
         </ul>
         <?php endif; ?> 
@@ -91,37 +93,36 @@
         <?php if($menge == 0) : ?> 
         <ul>
           <?php $einladungscode = trim($einladungscode); ?>
-          <?php $mlkvplan_array_key = DecodeJSONToArray($key_config); ?>
-
-          <?php if (md5($einladungscode)==$mlkvplan_array_key->Key) : ?>
+          <?php $abfrage_key = "SELECT * FROM `key`"; ?>
+          <?php $ergebnis_key = mysql_query($abfrage_key); ?>
+          <?php $row_key = mysql_fetch_object($ergebnis_key); ?>
+          <?php if (md5($einladungscode)==$row_key->md5) : ?>
           <ul>
             <?php $eintrag = "INSERT INTO login (username, passwort) VALUES ('$username', '$passwort')"; ?>
             <?php $eintragen = mysql_query($eintrag); ?>
           </ul>
           <?php else : ?>
           <ul>
-            Der eingegebene Einladungscode ist nicht korrekt!
+            <script type="text/javascript">alert("<?php echo $string['register']['javascript.alert.einladungscode']; ?>");</script>
           </ul>
           <?php endif; ?>
-
-          <?php if($eintragen == true) : ?>
+          <?php if(@$eintragen == true) : ?>
           <ul>
-            Benutzername <b><?php echo $username; ?></b> wurde erstellt. <a href="./login.php">Login</a> 
+            <?php echo $string['register']['alert.succes']; ?><b><?php echo $username; ?></b><?php echo $string['register']['alert.succes.2']; ?> <a href="./login.php"><?php echo $string['global']['menu.login']; ?></a> 
           </ul>
           <?php else : ?> 
           <ul>
-            Fehler beim Speichern des Benutzernames. Bitte erneut versuchen! 
+            <script type="text/javascript">alert("<?php echo $string['register']['javascript.alert.speicherfehler']; ?>");</script>
           </ul>
           <?php endif; ?>
         </ul>
         <?php else : ?> 
         <ul> 
-          Benutzername schon vorhanden. Bitte erneut versuchen! 
+          <script type="text/javascript">alert("<?php echo $string['register']['javascript.alert.bereits.vorhanden']; ?>");</script>
         </ul>
         <?php endif; ?>
       </ul>
       <?php endif; ?>
-      <br><br><input type="submit" name="plan" value="Zum Plan!">
     </form>
   </div>
 </body>

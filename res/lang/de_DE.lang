@@ -1,0 +1,88 @@
+{
+	"global": {
+		"mysql.connect.error": "Verbindung zur Datenbank konnte nicht hergestellt werden",
+		"mysql.select.db.error": "Datenbank konnte nicht ausgewählt werden",
+		"javascript.alert.login.failed": "Bitte Benutzername und/oder Passwort überprüfen!",
+		"javascript.alert.felder": "Bitte alle Felder ausfüllen!",
+		"menu.login": "Zum Login!",
+		"button.submit.plan": "Zum Plan!",
+		"button.submit.auswahl": "Zur Auswahl!"
+	},
+	"index": {
+		"ueberschrift": "Version auswählen:",
+		"cookie.ueberschrift": "Lebensdauer des Cookies:",
+		"warnung": "Achtung! Diese Webseite nutzt Cookies, um die von Ihnen getroffene Wahl zu speichern!",
+		"lifetime": "Lebensdauer:",
+		"stunden": "Stunde(n)",
+		"button.submit": "Speichern!",
+		"javascript.alert.auswahl": "Bitte eine Auswahl treffen!",
+		"javascript.alert.lifetime": "Bitte eine Zahl > 0 und <= 999 eingeben!"
+	},
+	"mlkvplan": {
+		"ueberschrift": "MLK-Vertretungsplan Online",
+		"timestamp": "Timestamp konnte nicht geprueft werden!",
+		"modul1.aktuell": "Modul1 ist aktuell!",
+		"modul1.nicht.aktuell": "Modul1 ist nicht aktuell!",
+		"modul1.flash": "Modul1 ist immer aktuell!",
+		"modul2.aktuell": "Modul2 ist aktuell!",
+		"modul2.nicht.aktuell": "Modul2 ist nicht aktuell!",
+		"modul2.flash": "Modul2 ist immer aktuell!",
+		"version": "Aktuelle Version:"	
+	},
+	"login": {
+		"ueberschrift": "Login Informationen eingeben:",
+		"username": "Benutzername:",
+		"password": "Passwort:",
+		"button.submit.anmelden": "Anmelden!",
+		"button.submit.registrieren": "Account erstellen!"
+	},
+	"register": {
+		"registrierung": "Account erstellen:",
+		"daten": "Anmeldeinformationen eingeben:",
+		"username": "Benutzername:",
+		"password": "Passwort:",
+		"password.wdh": "Passwort(wdh):",
+		"einladungscode": "Einladungscode:",
+		"alert.succes": "Benutzername ",
+		"alert.succes.2": " wurde erstellt.",
+		"javascript.alert.felder": "Eingabefehler. Bitte alle Felder korekt ausfüllen.",
+		"javascript.alert.einladungscode": "Der eingegebene Einladungscode ist nicht korrekt!",
+		"javascript.alert.speicherfehler": "Fehler beim Speichern des Benutzernames. Bitte erneut versuchen!",
+		"javascript.alert.bereits.vorhanden": "Benutzername schon vorhanden. Bitte erneut versuchen!"
+	},
+	"onlineeditor": {
+		"welcome": "Willkommen, ",
+		"alert.key": "Bitte sofort den Standard-Einladungscode updaten!",
+		"upload": "Vertretungsplan aktualisieren:",
+		"settings": "Einstellungen:",
+		"javascript.confirm.logout": "Wollen Sie sich wirklich ausloggen?",
+		"button.submit.click": "Klick hier!",
+		"button.submit.logout": "Ausloggen!"
+	},
+	"moduldisabled": {
+		"modul.deaktiviert": "Dieses Modul wurde deaktiviert!",
+		"sorry": "Das tut uns leid"
+	},
+	"authfailed": {
+		"auth.failed": "Sie besitzen derzeit keine Rechte auf diese Seite zuzugreifen!",
+		"please.relogin": "Bitte loggen Sie sich erneut ein!"
+	},
+	"remoteApp": {
+		"index": {
+			"ueberschrift": "Für mobilen Zugriff!",
+			"unterueberschrift": "Immer und überall!",
+			"appname": "MLK Vertretungsplan RemoteApp",
+			"button.submit.download": "Download!",
+			"benoetigt": "Benötigt"
+		},
+		"remoteauthfailed": {
+			"ueberschrift": "Sie besitzen derzeit keine Rechte auf diese Seite zuzugreifen!",
+			"unterueberschrift": "Bitte loggen Sie sich erneut ein!"
+		}
+	},
+	"mobileApp": {
+		"index": {
+
+		}
+	}
+}

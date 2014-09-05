@@ -1,9 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<?php include('./htmlHead.html'); ?>
-<?php include('./_onlineEditor.php'); ?>
+<?php $root = realpath($_SERVER["DOCUMENT_ROOT"]); ?>
+<?php include("$root/mlkvplan/res/html/htmlHead.html"); ?>
+<?php include("$root/mlkvplan/res/php/_onlineEditor.php"); ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
 	<head>
-		<title>MLK Vertretungsplan Online Editor</title>
+		<title>Online-Editor</title>
 	</head>
 
 	<script type="text/javascript">
@@ -25,19 +26,19 @@
 		<header>
 		    <nav class="navigation-bar dark fixed-top">
 		      <nav class="navigation-bar-content">
-		          <a href="./mlkVPlan.php" class="element"><span class="icon-arrow-left-5"></span> MLK-Vertretungsplan online</a>
+		          <button class="element"><span class="icon-home"></span> Online-Editor<sup><?php echo $lang; ?></sup></button>
 		   
 		          <span class="element-divider"></span>
-		          <button class="element brand" onclick="window.location.reload();"><span class="icon-spin"></span></button>
+		          <button class="element brand no-phone no-tablet" onclick="window.location.reload();"><span class="icon-spin"></span></button>
 		          <span class="element-divider"></span>
 
-		          <a href="./info.php" class="element brand place-right"><span class="icon-cog"></span></a>
+		          <a href="./info.php" class="element brand place-right no-phone no-tablet"><span class="icon-cog"></span></a>
 		          <span class="element-divider place-right"></span>
-		          <a class="element place-right">
+		          <a class="element place-right no-phone no-tablet">
 		            <?php echo $version; ?>
 		          </a>
 		          <span class="element-divider place-right"></span>
-		          <a class="element place-right">
+		          <a class="element place-right no-phone no-tablet">
 		            <span class="icon-unlocked"></span> <?php echo $_SESSION["username"]; ?>
 		          </a>
 		          <span class="element-divider place-right"></span>
@@ -46,42 +47,42 @@
 		 </header>
 
 		<div class="container" style="text-align: center;">
-			<h1>MLK VK Vertretungsplan Online Editor</h1>
+			<h1>MLK Vertretungsplan Online-Editor</h1>
 					
+				<form action='onlineEditor.php'>
+					<h2>
+						<?php echo $string['onlineeditor']['welcome'].$_SESSION["username"]; ?>
+
+						<?php if($row->md5 == md5('000')) : ?>
+							<br><span style = 'color:#FFBF00'><?php echo $string['onlineeditor']['alert.key']; ?></span>
+						<?php endif; ?>
+					</h2>
+				</form>
+
+				<?php echo $string['onlineeditor']['upload']; ?>
 					<form action='onlineEditor.php'>
-						<h2>
-							<?php echo "Willkommen, ".$_SESSION["username"]; ?>
+				    	<input type="submit" name="fupload" value="<?php echo $string['onlineeditor']['button.submit.click']; ?>">
+				    </form><br>
+				<?php echo $string['onlineeditor']['settings']; ?>
+					<form>
+				    	<input type="submit" name="fsettings" value="<?php echo $string['onlineeditor']['button.submit.click']; ?>">
+				    </form><br>
 
-							<?php if($mlkvplan_array_key->Key == md5('000')) : ?>
-								<br><span style = 'color:#FFBF00'>Bitte sofort den Standard-Einladungscode updaten!</span>
-							<?php endif; ?>
-						</h2>
-					</form>
+				<form action=<?php echo "http://$host/mlkvplan/res/php/_logout.php"; ?> method="post">
+					<script>
+						function show_confirm_logout()
+						{
+						    return confirm("<?php echo $string['onlineeditor']['javascript.confirm.logout']; ?>");
+						}
+					</script>
+					<input type="submit" onclick="return show_confirm_logout();" value="<?php echo $string['onlineeditor']['button.submit.logout']; ?>">
+				</form>
 
-					Vertretungsplan aktualisieren:
-						<form action='onlineEditor.php'>
-				    		<input type="submit" name="fupload" value="Klick hier!">
-				    	</form><br>
-				    Einstellungen:
-						<form>
-				    		<input type="submit" name="fsettings" value="Klick hier!">
-				    	</form><br>
-
-					<form action="./_logout.php" method="post">
-						<script>
-						    function show_confirm_logout()
-						    {
-						        return confirm("Wollen Sie sich wirklich ausloggen?");
-						    }
-						</script>
-						<input type="submit" onclick="return show_confirm_logout();" value="Ausloggen!">
-					</form>
-
-				<!-- Datum + Uhrzeit -->
-					<p>
-						<br/><h2><font id="ur" size="30"></font></h2>
-						<h2><?php echo date('d F Y'); ?></h2>
-					</p>
+			<!-- Datum + Uhrzeit -->
+				<p>
+					<br/><h2><font id="ur" size="30"></font></h2>
+					<h2><?php echo date('d F Y'); ?></h2>
+				</p>
 
 		</div>
 	</body>

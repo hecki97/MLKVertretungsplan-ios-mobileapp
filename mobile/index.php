@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<?php include('./mobileHtmlHead.html'); ?>
-<?php include('./_index.php'); ?>
-<?php include('./_mobile_checkCookie.php'); ?>
+<?php $root = realpath($_SERVER["DOCUMENT_ROOT"]); ?>
+<?php include("$root/mlkvplan/mobile/res/html/mobileHtmlHead.html"); ?>
+<?php include("$root/mlkvplan/mobile/res/php/_index.php"); ?>
+<?php include("$root/mlkvplan/mobile/res/php/_mobile_checkCookie.php"); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>MLK-Vertretungsplan mobile</title>
@@ -11,6 +12,14 @@
         body, html { 
             overflow-x: hidden; 
             overflow-y: auto;
+            background-color: #f1f1f1;
+        }
+
+        .box {
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
         }
     </style>
     <body class="metro" style="text-align: center;">
@@ -21,40 +30,35 @@
             </nav>
           </nav>
         </header>
-        <ul class="menu">
-            <li id="modul1">
-                <a href="./mobile_modul1.php">
-                    <div class="tile double bg-gray">
-                        <div class="tile-content icon">
+        <nav class="vertical-menu">
+        <ul>
+            <li>
+                <a href="./mobile_modul.php?do=modul1">
+                    <div class="tile double <?php echo $modul2_bg; ?> box">
+                        <div class="tile-content icon box">
                             <i class="icon-file"></i>
                         </div>
                         <div class="tile-status">
-                            <span class="name"><?php echo $modul1_tileStatus; ?></span>
-                        </div>
-                        <div class="brand">
-                            <div class="<?php echo $modul1_badge; ?>"></div>
+                            <span class="name" style="text-align: center;"><?php echo $modul1_tileStatus; ?></span>
                         </div>
                     </div>
                 </a>
             </li>
-            <li id="modul2">
-                <a href="./mobile_modul2.php">
-                    <div class="tile double bg-gray">
+            <li>
+                <a href="./mobile_modul.php">
+                    <div class="tile double <?php echo $modul2_bg; ?> box">
                         <div class="tile-content icon">
                             <i class="icon-file"></i>
                         </div>
                         <div class="tile-status">
-                            <span class="name"><?php echo $modul2_tileStatus; ?></span>
-                        </div>
-                        <div class="brand">
-                            <div class="<?php echo $modul2_badge; ?>"></div>
+                            <span class="name" style="text-align: center;"><?php echo $modul2_tileStatus; ?></span>
                         </div>
                     </div>
                 </a>
             </li>
-            <li id="info">
+            <li>
                 <a href="./mobile_info.php">
-                    <div class="tile double bg-gray">
+                    <div class="tile double bg-gray box">
                         <div class="tile-content icon">
                             <i class="icon-info"></i>
                         </div>
@@ -64,5 +68,6 @@
                     </div>
                 </a>
             </li>
-        </ul>    
+        </ul>
+        </nav>    
     </body>

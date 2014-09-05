@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<?php include('./mobileHtmlHead.html'); ?>
-<?php include('./_mobile_info.php'); ?>
-<?php include('./_mobile_checkCookie.php'); ?>
+<?php $root = realpath($_SERVER["DOCUMENT_ROOT"]); ?>
+<?php include("$root/mlkvplan/mobile/res/html/mobileHtmlHead.html"); ?>
+<?php include("$root/mlkvplan/mobile/res/php/_mobile_info.php"); ?>
+<?php include("$root/mlkvplan/mobile/res/php/_mobile_checkCookie.php"); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>MLK-Vertretungsplan mobile</title>
@@ -25,6 +26,6 @@
 		    </ul>
 		</nav>
 
-		<br/><form><input type="submit" name="mobileCookie" value="Version ändern!" /></form><br/>
+		<br/><form><input type="submit" name="destroyCookie" value="Version ändern!" /></form><br/>
     </body>
 </html>

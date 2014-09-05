@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://ns.adobe.com/air/application/3.0">
+    <id>com.hecki97.mlkvplanremoteapp</id>
+    <versionNumber>1.0</versionNumber>
+    <filename>MLKVertretungsplanRemoteApp</filename>
+    <description>RemoteApp für den MLK Vertretungsplan-online. SourceCode: https://github.com/hecki97/MLKVertretungsplan-ios-mobileapp/</description>
+    <copyright>2014 by hecki97.</copyright>
+    <initialWindow>
+        <content>index.html</content>
+        <visible>true</visible>
+        <width>960</width>
+        <height>540</height>
+        <systemChrome>standard</systemChrome>
+        <resizable>true</resizable>
+        <maximizable>true</maximizable>
+    </initialWindow>
+</application>
