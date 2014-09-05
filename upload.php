@@ -7,7 +7,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Upload</title>
-		<link type="text/css" href="http://<?php echo $host; ?>/mlkvplan/res/css/stylesheet.css" rel="stylesheet" />
+		<link type="text/css" href="http://<?=$host; ?>/mlkvplan/res/css/stylesheet.css" rel="stylesheet" />
 		<script src="jquery-1.7.2.min.js" type="text/javascript"></script>
 		<style type="text/css">
 			#content {
@@ -56,7 +56,7 @@
 		<header>
 	    <nav class="navigation-bar dark fixed-top">
 	      <nav class="navigation-bar-content">
-	        <a href="http://<?php echo $host; ?>/mlkvplan/onlineEditor.php" class="element"><span class="icon-arrow-left-5"></span> Online-Editor<sup><?php echo $lang; ?></sup></a>
+	        <a href="http://<?=$host; ?>/mlkvplan/onlineEditor.php" class="element"><span class="icon-arrow-left-5"></span> Online-Editor<sup><?=$lang; ?></sup></a>
 	       
 	        <span class="element-divider"></span>
 	        <button class="element brand no-phone no-tablet" onclick="window.location.reload();"><span class="icon-spin"></span></button>
@@ -65,11 +65,11 @@
 	        <a href="./info.php" class="element brand place-right no-phone no-tablet"><span class="icon-cog"></span></a>
 	        <span class="element-divider place-right"></span>
 	        <a class="element place-right no-phone no-tablet">
-	          <?php echo $version; ?>
+	          <?=$version; ?>
 	        </a>
 	        <span class="element-divider place-right"></span>
 	        <a class="element place-right no-phone no-tablet">
-	        <span class="icon-unlocked"></span> <?php echo $_SESSION["username"]; ?>
+	        <span class="icon-unlocked"></span> <?=$_SESSION["username"]; ?>
 	        </a>
 	        <span class="element-divider place-right"></span>
 	      </nav>
@@ -77,18 +77,18 @@
 	  </header>
 		<div class="head">
 		<form action="./upload.php" method="post" enctype="multipart/form-data" name="upload_files_form">
-			<h1>MLKVPlan-html-Uploader:</h1>
+			<h1><?=$string['upload']['ueberschrift']; ?></h1>
 			<table cellpadding="25" align="center">
 				<tr>
 					<td>
-						<h1>Modul1:</h1>
-						<h3>Hier 'modul1.html' hochladen!</h3>
-                  		<p>Max. Dateigröße 250KB!</p>
+						<h1><?=$string['upload']['modul1']; ?></h1>
+						<h3><?=$string['upload']['modul1.upload']; ?></h3>
+                  		<p><?=$string['upload']['max.filesize']; ?></p>
 						<div id="upload_files">
 							<div class="upload_file" id="upload_file_1">
 					    		<div class="select_upload_type">
-					        		<button id="1_computer_button" name="upload_type_computer" type="button" onclick="hideElement('1_upload_url'); showElement('1_upload_computer')">Upload From Computer</button>
-					            	<button id="1_url_button" name="upload_type_url" type="button" onclick="hideElement('1_upload_computer'); showElement('1_upload_url')">Upload From URL</button>
+					        		<button id="1_computer_button" name="upload_type_computer" type="button" onclick="hideElement('1_upload_url'); showElement('1_upload_computer')"><?=$string['upload']['button.upload.computer']; ?></button>
+					            	<button id="1_url_button" name="upload_type_url" type="button" onclick="hideElement('1_upload_computer'); showElement('1_upload_url')"><?=$string['upload']['button.upload.url']; ?></button>
 					        	</div>
 					        <div class="upload">
 					        	<div id="1_upload_computer">
@@ -101,13 +101,13 @@
 					    </div>
 					</td>
 					<td>
-						<h1>Modul2:</h1>
-						<h3>Hier 'modul2.html' hochladen!</h3>
-                  		<p>Max. Dateigröße 250KB!</p>
+						<h1><?=$string['upload']['modul2']; ?></h1>
+						<h3><?=$string['upload']['modul2.upload']; ?></h3>
+                  		<p><?=$string['upload']['max.filesize']; ?></p>
 						<div class="upload_file" id="upload_file_2">
 					    	<div class="select_upload_type">
-					        	<button id="2_computer_button" name="upload_type_computer" type="button" onclick="hideElement('2_upload_url'); showElement('2_upload_computer')">Upload From Computer</button>
-					            <button id="2_url_button" name="upload_type_url" type="button" onclick="hideElement('2_upload_computer'); showElement('2_upload_url')">Upload From URL</button>
+					        	<button id="2_computer_button" name="upload_type_computer" type="button" onclick="hideElement('2_upload_url'); showElement('2_upload_computer')"><?=$string['upload']['button.upload.computer']; ?></button>
+					            <button id="2_url_button" name="upload_type_url" type="button" onclick="hideElement('2_upload_computer'); showElement('2_upload_url')"><?=$string['upload']['button.upload.url']; ?></button>
 					        </div>
 					        <div class="upload">
 					        	<div id="2_upload_computer">
@@ -121,20 +121,20 @@
 					</td>
 				</tr>
 				</table>
-				<p style="font-size:11px"><strong>Only 2 files are uploaded at a time.</strong><br/>
-				    Files from your computer have precedence over URL files.</p>
+				<p style="font-size:11px"><strong><?=$string['upload']['warnung1']; ?></strong><br/>
+				    <?=$string['upload']['warnung2']; ?></p>
 				<table align="center">
 				<tr>
 					<td>
-						<input type="submit" name="submit" value="Upload Files Now" class="upload_submit" onclick="showUploadDiv()" />					</td>
+						<input type="submit" name="submit" value="<?=$string['upload']['button.submit.upload']; ?>" class="upload_submit" onclick="showUploadDiv()" />
+					</td>
 					<td>
-						<input type="reset" name="reset" value="Reset Fields" class="upload_reset" />
+						<input type="reset" name="reset" value="<?=$string['upload']['button.submit.reset']; ?>" class="upload_reset" />
 					</td>
 				</tr>
 				</table>
 
-				<div id="uploading" style="display:none">
-				</div>
+				<div id="uploading" style="display:none"></div>
 			</form>
 			</p>
 				<?=$upload_result;?>

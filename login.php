@@ -11,7 +11,7 @@
   <header>
     <nav class="navigation-bar dark fixed-top">
       <nav class="navigation-bar-content">
-          <a href="http://<?php echo $host; ?>/mlkvplan/mlkVPlan.php" class="element"><span class="icon-arrow-left-5"></span> MLK-Vertretungsplan online<sup><?php echo $lang; ?></sup></a>
+          <a href="http://<?=$host; ?>/mlkvplan/mlkVPlan.php" class="element"><span class="icon-arrow-left-5"></span> MLK-Vertretungsplan online<sup><?=$lang; ?></sup></a>
    
           <span class="element-divider"></span>
           <button class="element brand no-phone no-tablet" onclick="window.location.reload();"><span class="icon-spin"></span></button>
@@ -20,11 +20,11 @@
           <a href="./info.php" class="element brand place-right no-phone no-tablet"><span class="icon-cog"></span></a>
           <span class="element-divider place-right"></span>
           <a class="element place-right no-phone no-tablet">
-            <?php echo $version; ?>
+            <?=$version; ?>
           </a>
           <span class="element-divider place-right"></span>
           <a href="#" class="element place-right no-phone no-tablet">
-            <span class="icon-key"></span> <?php echo $string['global']['menu.login']; ?>
+            <span class="icon-key"></span> <?=$string['global']['menu.login']; ?>
           </a>
           <span class="element-divider place-right"></span>
       </nav>
@@ -32,12 +32,12 @@
   </header>
 
   <div class="container" style="text-align: center;">
-    <h1><?php echo $string['login']['ueberschrift']; ?></h1>
+    <h1><?=$string['login']['ueberschrift']; ?></h1>
     <form action="login.php" method="post">
       <table cellpadding="2" align="center">
         <tr>
           <th>
-            <span style ='font-size:15px'><?php echo $string['login']['username']; ?></span>
+            <span style ='font-size:15px'><?=$string['login']['username']; ?></span>
           </th>
           <th>
             <span style ='font-size:15px'><input type="text" name="username" /></span>
@@ -45,16 +45,16 @@
         </tr>
         <tr>
           <th>
-            <span style ='font-size:15px'><?php echo $string['login']['password']; ?></span>
+            <span style ='font-size:15px'><?=$string['login']['password']; ?></span>
           </th>
           <th>
             <span style ='font-size:15px'><input type="password" name="password" /></span>
           </th>
         </tr>
       </table>
-      <br/><input type="submit" value="<?php echo $string['login']['button.submit.anmelden']; ?>" />
-      <br/><input type="submit" name="register" value="<?php echo $string['login']['button.submit.registrieren']; ?>" />
-      <br/><br/><br/><input type="submit" name="fback" value="<?php echo $string['global']['button.submit.plan']; ?>" />
+      <br/><input type="submit" value="<?=$string['login']['button.submit.anmelden']; ?>" />
+      <br/><input type="submit" name="register" value="<?=$string['login']['button.submit.registrieren']; ?>" />
+      <br/><br/><br/><input type="submit" name="fback" value="<?=$string['global']['button.submit.plan']; ?>" />
     </form>
   </div>
 

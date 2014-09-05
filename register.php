@@ -10,7 +10,7 @@
   <header>
     <nav class="navigation-bar dark fixed-top">
       <nav class="navigation-bar-content">
-          <a href="http://<?php echo $host; ?>/mlkvplan/mlkVPlan.php" class="element"><span class="icon-arrow-left-5"></span> MLK-Vertretungsplan online<sup><?php echo $lang; ?></sup></a>
+          <a href="http://<?=$host; ?>/mlkvplan/mlkVPlan.php" class="element"><span class="icon-arrow-left-5"></span> MLK-Vertretungsplan online<sup><?=$lang; ?></sup></a>
    
           <span class="element-divider"></span>
           <button class="element brand no-phone no-tablet" onclick="window.location.reload();"><span class="icon-spin"></span></button>
@@ -19,11 +19,11 @@
           <a href="./info.php" class="element brand place-right no-phone no-tablet"><span class="icon-cog"></span></a>
           <span class="element-divider place-right"></span>
           <a class="element place-right no-phone no-tablet">
-            <?php echo $version; ?>
+            <?=$version; ?>
           </a>
           <span class="element-divider place-right"></span>
           <a href="./login.php" class="element place-right no-phone no-tablet">
-            <span class="icon-key"></span> <?php echo $string['global']['menu.login']; ?>
+            <span class="icon-key"></span> <?=$string['global']['menu.login']; ?>
           </a>
           <span class="element-divider place-right"></span>
       </nav>
@@ -31,14 +31,14 @@
   </header>
 
 <div class="container" style="text-align: center;">
-  <h1><?php echo $string['register']['registrierung']; ?></h1>
+  <h1><?=$string['register']['registrierung']; ?></h1>
     <form action="register.php" method="post">
-      <h3><?php echo $string['register']['daten']; ?></h3>
+      <h3><?=$string['register']['daten']; ?></h3>
       
       <table cellpadding="2" align="center">
         <tr>
           <th>
-            <span style ='font-size:15px'><?php echo $string['register']['username']; ?></span>
+            <span style ='font-size:15px'><?=$string['register']['username']; ?></span>
           </th>
           <th>
             <span style ='font-size:15px'><input type="text" name="username" /></span>
@@ -46,7 +46,7 @@
         </tr>
         <tr>
           <th>
-            <span style ='font-size:15px'><?php echo $string['register']['password']; ?></span>
+            <span style ='font-size:15px'><?=$string['register']['password']; ?></span>
           </th>
           <th>
             <span style ='font-size:15px'><input type="password" name="passwort" /></span>
@@ -54,7 +54,7 @@
         </tr>
         <tr>
           <th>
-            <span style ='font-size:15px'><?php echo $string['register']['password.wdh']; ?></span>
+            <span style ='font-size:15px'><?=$string['register']['password.wdh']; ?></span>
           </th>
           <th>
             <span style ='font-size:15px'><input type="password" name="passwort2" /></span>
@@ -62,7 +62,7 @@
         </tr>
         <tr>
           <th>
-            <span style ='font-size:15px'><?php echo $string['register']['einladungscode']; ?></span>
+            <span style ='font-size:15px'><?=$string['register']['einladungscode']; ?></span>
           </th>
           <th>
             <span style ='font-size:15px'><input type="text" name="einladungscode" /></span>
@@ -81,7 +81,7 @@
 
         <?php if($passwort != $passwort2 || $username == "" || $passwort == "" || $einladungscode == "") : ?>
         <ul>
-          <script type="text/javascript">alert("<?php echo $string['register']['javascript.alert.felder']; ?>");</script> 
+          <script type="text/javascript">alert("<?=$string['register']['javascript.alert.felder']; ?>");</script> 
           <?php exit; ?>
         </ul>
         <?php endif; ?> 
@@ -103,22 +103,22 @@
           </ul>
           <?php else : ?>
           <ul>
-            <script type="text/javascript">alert("<?php echo $string['register']['javascript.alert.einladungscode']; ?>");</script>
+            <script type="text/javascript">alert("<?=$string['register']['javascript.alert.einladungscode']; ?>");</script>
           </ul>
           <?php endif; ?>
           <?php if(@$eintragen == true) : ?>
           <ul>
-            <?php echo $string['register']['alert.succes']; ?><b><?php echo $username; ?></b><?php echo $string['register']['alert.succes.2']; ?> <a href="./login.php"><?php echo $string['global']['menu.login']; ?></a> 
+            <?=$string['register']['alert.succes']; ?><b><?=$username; ?></b><?=$string['register']['alert.succes.2']; ?> <a href="./login.php"><?=$string['global']['menu.login']; ?></a> 
           </ul>
           <?php else : ?> 
           <ul>
-            <script type="text/javascript">alert("<?php echo $string['register']['javascript.alert.speicherfehler']; ?>");</script>
+            <script type="text/javascript">alert("<?=$string['register']['javascript.alert.speicherfehler']; ?>");</script>
           </ul>
           <?php endif; ?>
         </ul>
         <?php else : ?> 
         <ul> 
-          <script type="text/javascript">alert("<?php echo $string['register']['javascript.alert.bereits.vorhanden']; ?>");</script>
+          <script type="text/javascript">alert("<?=$string['register']['javascript.alert.bereits.vorhanden']; ?>");</script>
         </ul>
         <?php endif; ?>
       </ul>

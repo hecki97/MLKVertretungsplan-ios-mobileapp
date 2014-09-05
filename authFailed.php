@@ -12,7 +12,7 @@
         <header>
           <nav class="navigation-bar dark fixed-top">
             <nav class="navigation-bar-content">
-                <button href="./mlkVPlan.php" class="element"><span class="icon-home"></span> MLK-Vertretungsplan online<sup><?php echo $lang; ?></sup></button>
+                <button href="./mlkVPlan.php" class="element"><span class="icon-home"></span> MLK-Vertretungsplan online<sup><?=$lang; ?></sup></button>
          
                 <span class="element-divider"></span>
                 <button class="element brand no-phone no-tablet" onclick="window.location.reload();"><span class="icon-spin"></span></button>
@@ -21,11 +21,11 @@
                 <a href="./info.php" class="element brand place-right no-phone no-tablet"><span class="icon-cog"></span></a>
                 <span class="element-divider place-right"></span>
                 <a class="element place-right no-phone no-tablet">
-                  <?php echo $version; ?>
+                  <?=$version; ?>
                 </a>
                 <span class="element-divider place-right"></span>
                 <a href="./login.php" class="element place-right no-phone">
-                  <span class="icon-locked"></span> <?php echo $string['global']['menu.login']; ?>
+                  <span class="icon-locked"></span> <?=$string['global']['menu.login']; ?>
                 </a>
                 <span class="element-divider place-right"></span>
             </nav>
@@ -33,10 +33,10 @@
         </header>
 
         <div class="container" style="text-align: center;">
-            <h1><?php echo $string['authfailed']['auth.failed']; ?></h1>
-            <h2><?php echo $string['authfailed']['please.relogin']; ?></h2>
+            <h1><?=$string['authfailed']['auth.failed']; ?></h1>
+            <h2><?=$string['authfailed']['relogin']; ?></h2>
             <form action="login.php">
-                <input type="submit" name="zumLogin" value="<?php echo $string['global']['menu.login']; ?>"><br />
+                <input type="submit" name="zumLogin" value="<?=$string['global']['menu.login']; ?>"><br />
             </form>
         </div>
     </body>

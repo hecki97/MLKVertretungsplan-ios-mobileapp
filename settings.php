@@ -10,7 +10,7 @@
   <header>
     <nav class="navigation-bar dark fixed-top">
       <nav class="navigation-bar-content">
-        <a href="http://<?php echo $host; ?>/mlkvplan/onlineEditor.php" class="element"><span class="icon-arrow-left-5"></span> Online-Editor<sup><?php echo $lang; ?></sup></a>
+        <a href="http://<?=$host; ?>/mlkvplan/onlineEditor.php" class="element"><span class="icon-arrow-left-5"></span> Online-Editor<sup><?=$lang; ?></sup></a>
        
         <span class="element-divider"></span>
         <button class="element brand no-phone no-tablet" onclick="window.location.reload();"><span class="icon-spin"></span></button>
@@ -19,11 +19,11 @@
         <a href="./info.php" class="element brand place-right no-phone no-tablet"><span class="icon-cog"></span></a>
         <span class="element-divider place-right"></span>
         <a class="element place-right no-phone no-tablet">
-          <?php echo $version; ?>
+          <?=$version; ?>
         </a>
         <span class="element-divider place-right"></span>
         <a class="element place-right no-phone no-tablet">
-        <span class="icon-unlocked"></span> <?php echo $_SESSION["username"]; ?>
+        <span class="icon-unlocked"></span> <?=$_SESSION["username"]; ?>
         </a>
         <span class="element-divider place-right"></span>
       </nav>
@@ -31,17 +31,17 @@
   </header>
 
   <div class="container" style="text-align: center;">
-    <h1>Einstellungen:</h1>
+    <h1><?=$string['einstellungen']['ueberschrift']; ?></h1>
             
       <!-- Einladungscode -->
-        <h2>Einladungscode:</h2>
-        <h3><span style="color:#F99E34;">Achtung dieser Code wird nicht mehr angezeigt, wenn die Seite verlassen wird!</span></h3>
+        <h2><?=$string['einstellungen']['einladungscode.ueberschrift']; ?></h2>
+        <h3><span style="color:#F99E34;"><?=$string['einstellungen']['warnung']; ?></span></h3>
       <form action="settings.php" method="post">
         <span style = 'font-style:italic; font-size:35px;'>
           <?php if(!empty($gen_key)) : ?>
-            <?php echo $gen_key; ?>
+            <?=$gen_key; ?>
           <?php else : ?>
-            <?php echo "???"; ?>
+            <?="???"; ?>
           <?php endif; ?>
         </span>
       </form>
@@ -55,17 +55,17 @@
           <script>
             function show_confirm_genKey()
             {
-                return confirm("Achtung! Die Registrierung ist nicht aktiviert!");
+                return confirm("<?=$string['einstellungen']['javascript.alert.registrierung.nicht.aktiviert']; ?>");
             }
           </script>
-          <input type="submit" <?php echo $show_confirm_genKey; ?> name="uarandom" value="Einladungscode generieren!">
+          <input type="submit" <?=$show_confirm_genKey; ?> name="uarandom" value="Einladungscode generieren!">
         </form><br><br>
 
           <!-- Registrierung -->
             <form action="settings.php" method="post">
-              <h2>Registrierung De/Aktivieren:</h2>
-                <span style="text-align:left; margin-right:25px; vertical-align:middle;"><input type="radio" name="check" value="True"> Aktivieren</span>
-                <span style="text-align:right; margin-left:25px; vertical-align:middle;"><input type="radio" name="check" value="False"> Deaktivieren<br></span>
+              <h2><?=$string['einstellungen']['registrierung.de/aktivieren']; ?></h2>
+                <span style="text-align:left; margin-right:25px; vertical-align:middle;"><input type="radio" name="check" value="True"> <?=$string['einstellungen']['button.aktivieren']; ?></span>
+                <span style="text-align:right; margin-left:25px; vertical-align:middle;"><input type="radio" name="check" value="False"> <?=$string['einstellungen']['button.deaktivieren']; ?><br></span>
                 <?php if(isset($_POST['auswahl'])) : ?>
                 <ul>
                     <?php if(@$_POST['check'] == "True") : ?>
@@ -79,20 +79,20 @@
                         <script type="text/javascript">window.location.reload();</script>
                     </ul>
                     <?php else : ?>
-                        <script type="text/javascript">alert("Bitte eine Auswahl treffen!");</script>
+                        <script type="text/javascript">alert("<?=$string['einstellungen']['javascript.alert.auswahl']; ?>");</script>
                     <?php endif; ?>
                 </ul>
                 <?php endif; ?>
-                  <h3><b>Aktuell:</b> <i><?php echo $echo_registrierung; ?></i></h3>
+                  <h3><b><?=$string['einstellungen']['aktuell']; ?></b> <i><?=$echo_registrierung; ?></i></h3>
                 <br>
-                <input type="submit" name="auswahl" value="Speichern">
+                <input type="submit" name="auswahl" value="<?=$string['einstellungen']['button.submit.speichern']; ?>">
             </form>
                 
             </form>
             <br>
             <br>
             <form>
-              <input type="submit" name="fback" value="Zur Übersicht!">
+              <input type="submit" name="fback" value="<?=$string['einstellungen']['button.submit.zurueck']; ?>">
             </form>
       </div>
   </body>

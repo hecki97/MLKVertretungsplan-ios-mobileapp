@@ -1,8 +1,9 @@
 <?php
 	$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+	include_once("$root/mlkvplan/res/php/_loadLangFiles.php");
 
-	@$verbindung = mysql_connect("localhost", "login" , "") or die("Verbindung zur Datenbank konnte nicht hergestellt werden"); 
-	@mysql_select_db("mlkvplan", $verbindung) or die ("Datenbank konnte nicht ausgewählt werden");
+	@$verbindung = mysql_connect("localhost", "login" , "") or die($string['global']['mysql.connect.error']); 
+	@mysql_select_db("mlkvplan", $verbindung) or die ($string['global']['mysql.select.db.error']);
 
 	$key = md5("000");
 

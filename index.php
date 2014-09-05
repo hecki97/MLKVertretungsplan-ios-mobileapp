@@ -20,7 +20,7 @@
     <header>
       <nav class="navigation-bar dark fixed-top">
         <nav class="navigation-bar-content">
-            <button href="#" class="element"><span class="icon-locked"></span> MLK-Vertretungsplan online<sup><?php echo $lang; ?></sup></button>
+            <button href="#" class="element"><span class="icon-locked"></span> MLK-Vertretungsplan online<sup><?=$lang; ?></sup></button>
      
             <span class="element-divider"></span>
             <button class="element brand no-phone no-tablet" onclick="window.location.reload();"><span class="icon-spin"></span></button>
@@ -29,11 +29,11 @@
             <a href="./info.php" class="element brand place-right no-phone no-tablet"><span class="icon-cog"></span></a>
             <span class="element-divider place-right"></span>
             <a class="element place-right no-phone no-tablet">
-              <?php echo $version; ?>
+              <?=$version; ?>
             </a>
             <span class="element-divider place-right"></span>
             <a href="#" class="element place-right no-phone no-tablet">
-              <span class="icon-locked"></span> <?php echo $string['global']['menu.login']; ?>
+              <span class="icon-locked"></span> <?=$string['global']['menu.login']; ?>
             </a>
             <span class="element-divider place-right"></span>
         </nav>
@@ -41,7 +41,7 @@
     </header>
 
     <div class="container" style="margin: 0 auto; text-align: center;">
-      <h1><?php echo $string['index']['ueberschrift']; ?></h1>
+      <h1><?=$string['index']['ueberschrift']; ?></h1>
         <form action="index.php" method="post">
         
           <?php if(!isset($_COOKIE["vPlan_version"])) : ?>
@@ -62,11 +62,11 @@
                   <?php header("Location: http://$host/mlkvplan/mlkvplan.php"); ?>
                 </ul>
                 <?php else : ?>
-                  <script type="text/javascript">alert("<?php echo $string['index']['javascript.alert.auswahl']; ?>");</script>
+                  <script type="text/javascript">alert("<?=$string['index']['javascript.alert.auswahl']; ?>");</script>
                 <?php endif; ?>
               </ul>
               <?php else : ?>
-                <script type="text/javascript">alert("<?php echo $string['index']['javascript.alert.lifetime']; ?>");</script>
+                <script type="text/javascript">alert("<?=$string['index']['javascript.alert.lebendszeit']; ?>");</script>
               <?php endif; ?>
             </ul>
             <?php endif; ?>
@@ -78,21 +78,21 @@
         <table cellpadding="25" align="center">
           <tr>
             <td>
-              <p><h3><input type="radio" name="check" value="html" />HTML</h3></p>
+              <p><h3><input type="radio" name="check" value="html"/>HTML</h3></p>
             </td>
             <td>
-              <p><h3><input type="radio" name="check" value="flash" />flash</h3></p>
+              <p><h3><input type="radio" name="check" value="flash"/>flash</h3></p>
             </td>
           </tr>
         </table>
 
-      <h2><b><?php echo $string['index']['cookie.ueberschrift']; ?></b></h2>
+      <h2><b><?=$string['index']['lebendsdauer.cookie']; ?></b></h2>
           <p>
-            <h3><span style='color:#F99E34; font-size: 25px;'><?php echo $string['index']['warnung']; ?></span></h3>
+            <h3><span style='color:#F99E34; font-size: 25px;'><?=$string['index']['warnung']; ?></span></h3>
             <br />
-            <h2><?php echo $string['index']['lifetime']; ?></h2>
-            <input name="lifetime" type="number" maxlength="3" /> <?php echo $string['index']['stunden']; ?><br/><br/>
-            <input type="submit" name="auswahl" value="<?php echo $string['index']['button.submit']; ?>" />
+            <h2><?=$string['index']['lebendsdauer']; ?></h2>
+            <input name="lifetime" type="number" maxlength="3"/> <?=$string['index']['stunden']; ?><br/><br/>
+            <input type="submit" name="auswahl" value="<?=$string['index']['button.submit.speichern']; ?>" />
           </p>
         </form>
       </div>
