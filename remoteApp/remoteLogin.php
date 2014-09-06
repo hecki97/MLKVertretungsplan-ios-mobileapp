@@ -10,7 +10,7 @@
 	<header>
     	<nav class="navigation-bar dark fixed-top">
       		<nav class="navigation-bar-content">
-	          	<a class="element"><span class="icon-home"></span> RemoteApp<sup><?php echo $lang; ?></sup></a>
+	          	<a class="element"><span class="icon-home"></span> RemoteApp<sup><?=$lang; ?></sup></a>
 	   
 		        <span class="element-divider"></span>
 		        <button class="element brand" onclick="window.location.reload();"><span class="icon-spin"></span></button>
@@ -19,7 +19,7 @@
 		        <a href="./remoteInfo.php" class="element brand place-right"><span class="icon-cog"></span></a>
 		        <span class="element-divider place-right"></span>
 		        <a class="element place-right">
-		            <?php echo $version; ?>
+		            <?=$version; ?>
 		        </a>
 		        <span class="element-divider place-right"></span>
       		</nav>
@@ -27,12 +27,12 @@
 	</header>
 
 	<div class="container" style="text-align: center;">
-	    <h1><?php echo $string['login']['ueberschrift']; ?></h1>
+	    <h1><?=$string['login']['ueberschrift']; ?></h1>
 	    <form action="remoteLogin.php" method="post">
 	      <table cellpadding="2" align="center">
 	        <tr>
 	          <th>
-	            <span style ='font-size:15px'><?php echo $string['login']['username']; ?></span>
+	            <span style ='font-size:15px'><?=$string['login']['username']; ?></span>
 	          </th>
 	          <th>
 	            <span style ='font-size:15px'><input type="text" name="username" /></span>
@@ -40,14 +40,14 @@
 	        </tr>
 	        <tr>
 	          <th>
-	            <span style ='font-size:15px'><?php echo $string['login']['password']; ?></span>
+	            <span style ='font-size:15px'><?=$string['login']['password']; ?></span>
 	          </th>
 	          <th>
 	            <span style ='font-size:15px'><input type="password" name="password" /></span>
 	          </th>
 	        </tr>
 	      </table>
-	      <br/><input type="submit" value="<?php echo $string['login']['button.submit.anmelden']; ?>" />
+	      <br/><input type="submit" value="<?=$string['login']['button.submit.anmelden']; ?>" />
 	    </form>
   	</div>
 

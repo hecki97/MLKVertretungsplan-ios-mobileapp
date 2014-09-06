@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <?php $root = realpath($_SERVER["DOCUMENT_ROOT"]); ?>
-<?php include("$root/mlkvplan/mobile/res/html/mobileHtmlHead.html"); ?>
 <?php include("$root/mlkvplan/mobile/res/php/_mobile_cookie.php"); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
+        <?php include("$root/mlkvplan/mobile/res/html/mobileHtmlHead.html"); ?>
         <title>MLK-Vertretungsplan mobile</title>
         <link rel="stylesheet" href="../css/mobile_stylesheet.css" />
     </head>
@@ -16,7 +16,7 @@
           </nav>
         </header>
 
-        <h1>Version auswählen:</h1>
+        <h1><?=$string['index']['ueberschrift']; ?></h1>
         <form action="mobile_cookie.php" method="post">
           <table cellpadding="25" align="center">
             <tr>
@@ -29,7 +29,7 @@
             </tr>
           </table>
             
-            <input type="submit" name="auswahl" value="Speichern!" />
+            <input type="submit" name="auswahl" value="<?=$string['index']['button.submit.speichern']; ?>" />
           </p>
         </form>
     </body>

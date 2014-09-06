@@ -6,20 +6,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>MLK-Vertretungsplan RemoteApp</title>
-		<link rel="stylesheet" type="text/css" href="http://<?php echo $host; ?>/mlkvplan/remoteApp/res/css/stylesheet.css"/>
+		<link rel="stylesheet" type="text/css" href="http://<?=$host; ?>/mlkvplan/remoteApp/res/css/stylesheet.css"/>
 	</head>
 	<body class="metro">	
     	<div id="head">
-    		<h1><?php echo $string['remoteApp']['index']['ueberschrift']; ?></h1>
-    		<h2><?php echo $string['remoteApp']['index']['unterueberschrift']; ?></h2>
+    		<h1><?=$string['remote.app']['index']['ueberschrift']; ?></h1>
+    		<h2><?=$string['remote.app']['index']['unterueberschrift']; ?></h2>
     	</div>
     	<div id="content">
-    		<h3><?php echo $string['remoteApp']['index']['appname']; ?></h3>
-    		<input type="submit" name="auswahl" value="<?php echo $string['remoteApp']['index']['button.submit.download']; ?> [1.0]" /><br>
-    		<h6>[<?php echo $string['remoteApp']['index']['benoetigt']; ?> <a href="http://get.adobe.com/de/air/" target="_blank">AdobeAir</a>]</h6>
+    		<h3><?=$string['remote.app']['index']['appname']; ?></h3>
+    		<input type="submit" name="auswahl" value="<?=$string['remote.app']['index']['button.submit.download']; ?> [1.0]" /><br>
+    		<h6>[<?=$string['remote.app']['index']['benoetigt']; ?> <a href="http://get.adobe.com/de/air/" target="_blank">AdobeAir</a>]</h6>
     	</div>
 		<div>
-        	<iframe class="remoteLogin" name="remoteLogin" src="http://<?php echo $host; ?>/mlkvplan/remoteApp/remoteLogin.php"></iframe>
+        	<iframe class="remoteLogin" name="remoteLogin" src="http://<?=$host; ?>/mlkvplan/remoteApp/remoteLogin.php"></iframe>
     	</div>
 	</body>
 </html>

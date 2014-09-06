@@ -1,15 +1,13 @@
 <?php
 	$root = realpath($_SERVER["DOCUMENT_ROOT"]);
-
+	$host = $_SERVER['SERVER_NAME'];
 	include("$root/mlkvplan/res/php/_checkDataBase.php");
 	include("$root/mlkvplan/res/php/_loadLangFiles.php");
 	include("$root/mlkvplan/res/php/_getVersionScript.php");
 	include("$root/mlkvplan/res/php/_buttonScript.php");
 
-	$host = $_SERVER['SERVER_NAME'];
-
 	//Registrieren
-	Button("register", "mlkvplan/register.php");
+	Button("register", "mlkvplan/registration.php");
 	//Zum Plan
 	Button("fback", "mlkvplan/mlkVPlan.php");
 

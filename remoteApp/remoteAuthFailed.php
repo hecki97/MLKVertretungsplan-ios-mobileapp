@@ -11,7 +11,7 @@
         <header>
           <nav class="navigation-bar dark fixed-top">
             <nav class="navigation-bar-content">
-                <a class="element"><span class="icon-home"></span> RemoteApp<sup><?php echo $lang; ?></sup></a>
+                <a class="element"><span class="icon-home"></span> RemoteApp<sup><?=$lang; ?></sup></a>
          
                 <span class="element-divider"></span>
                 <button class="element brand no-phone" onclick="window.location.reload();"><span class="icon-spin"></span></button>
@@ -20,7 +20,7 @@
                 <a href="./remoteInfo.php" class="element brand place-right no-phone"><span class="icon-cog"></span></a>
                 <span class="element-divider place-right"></span>
                 <a class="element place-right no-phone">
-                  <?php echo $version; ?>
+                  <?=$version; ?>
                 </a>
                 <span class="element-divider place-right"></span>
             </nav>
@@ -28,10 +28,10 @@
         </header>
 
         <div class="container" style="text-align: center;">
-            <h1><?php echo $string['remoteApp']['remoteauthfailed']['ueberschrift']; ?></h1>
-            <h2><?php echo $string['remoteApp']['remoteauthfailed']['unterueberschrift']; ?></h2>
+            <h1><?=$string['remoteApp']['remoteauthfailed']['ueberschrift']; ?></h1>
+            <h2><?=$string['remoteApp']['remoteauthfailed']['unterueberschrift']; ?></h2>
             <form action="remoteLogin.php">
-                <input type="submit" name="zumLogin" value="<?php echo $string['global']['menu.login']; ?>"><br />
+                <input type="submit" name="zumLogin" value="<?=$string['global']['menu.login']; ?>"><br />
             </form>
         </div>
     </body>

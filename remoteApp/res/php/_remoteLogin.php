@@ -1,13 +1,9 @@
 <?php
 	$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+	$host = $_SERVER['SERVER_NAME'];
 	include("$root/mlkvplan/res/php/_loadLangFiles.php");
 	include("$root/mlkvplan/res/php/_getVersionScript.php");
-
-	$verbindung = mysql_connect("localhost", "login" , "") or die("Verbindung zur Datenbank konnte nicht hergestellt werden"); 
-	mysql_select_db("mlkvplan") or die ("Datenbank konnte nicht ausgewählt werden");
-
-	$hostname = $_SERVER['HTTP_HOST'];
-	$path = dirname($_SERVER['PHP_SELF']);
+	include("$root/mlkvplan/res/php/_checkDataBase.php");
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	    if (!empty($_POST["username"]) && !empty($_POST["password"]))
@@ -24,7 +20,7 @@
 	      if($row->passwort == $passwort) 
 	      { 
 	        $_SESSION["remoteUsername"] = $username; 
-	        header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/remoteUpload.php');
+	        header("Location: http://$host/mlkvplan/remoteApp/remoteUpload.php");
 	      } 
 	      else 
 	      { 

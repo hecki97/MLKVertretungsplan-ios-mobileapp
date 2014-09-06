@@ -12,7 +12,7 @@
 	<header>
     	<nav class="navigation-bar dark fixed-top">
       		<nav class="navigation-bar-content">
-	          	<a href="http://<?php echo $host; ?>/mlkvplan/remoteApp/res/php/_remoteLogout.php" class="element"><span class="icon-arrow-left-5"></span> RemoteApp<sup><?php echo $lang; ?></sup></a>
+	          	<a href="http://<?=$host; ?>/mlkvplan/remoteApp/res/php/_remoteLogout.php" class="element"><span class="icon-arrow-left-5"></span> RemoteApp<sup><?=$lang; ?></sup></a>
 	   
 		        <span class="element-divider"></span>
 		        <button class="element brand" onclick="window.location.reload();"><span class="icon-spin"></span></button>
@@ -21,16 +21,24 @@
 		        <a href="./remoteInfo.php" class="element brand place-right"><span class="icon-cog"></span></a>
 		        <span class="element-divider place-right"></span>
 		        <a class="element place-right">
-		            <?php echo $version; ?>
+		            <?=$version; ?>
 		        </a>
 		        <span class="element-divider place-right"></span>
       		</nav>
    		</nav>
 	</header>
-		<h1>Diese Seite ist derzeit nicht verfügbar!</h1>
-		<h2>Das tut uns Leid<sup>TM</sup></h2>
+		<nav class="vertical-menu">
+		    <ul>
+		        <li class="title"><h1><?=$string['info']['info']; ?></h1></li>
+		        <li><a href="https://github.com/hecki97/MLKVertretungsplan-ios-mobileapp"><h2><?=$string['info']['source.code']; ?></h2></a></li><br/>
+		        <li><h2><?=$string['info']['website']; ?></h2><h3><a href="http://www.mlk-vk.de">www.mlk-vk.de</a></h3></li><br/>
+		        <li><h2><?=$string['info']['powered.by']; ?> </h2><h3><a href="http://metroui.org.ua">Metro UI CSS 2.0</a></h3><br></li>
+		        <li><a><?=$string['info']['c']; ?></a></li>
+		        <li><a><?=$string['info']['version']; ?> <?php echo $version; ?></a></li>
+		    </ul>
+		</nav>
 		<form action="remoteLogin.php">
-			<input type="submit" name="fback" value="<?php echo $string['global']['button.submit.plan']; ?>" />
+			<input type="submit" name="fback" value="<?=$string['global']['button.submit.plan']; ?>" />
 		</form>
 	</body>
 </html>

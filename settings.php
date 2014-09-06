@@ -58,7 +58,7 @@
                 return confirm("<?=$string['einstellungen']['javascript.alert.registrierung.nicht.aktiviert']; ?>");
             }
           </script>
-          <input type="submit" <?=$show_confirm_genKey; ?> name="uarandom" value="Einladungscode generieren!">
+          <input type="submit" <?=$show_confirm_genKey; ?> name="uarandom" value="<?=$string['einstellungen']['einladungscode.gen']; ?>">
         </form><br><br>
 
           <!-- Registrierung -->

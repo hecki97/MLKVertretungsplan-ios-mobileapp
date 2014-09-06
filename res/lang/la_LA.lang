@@ -2,19 +2,23 @@
 	"global": {
 		"mysql.connect.error": "???",
 		"mysql.select.db.error": "???",
+		"javascript.alert.login.failed": "???",
+		"javascript.alert.felder": "???",
 		"menu.login": "???",
 		"button.submit.plan": "???",
-		"button.submit.auswahl": "???"
+		"button.submit.auswahl": "???",
+		"button.submit.register": "???",
+		"button.submit.version.aendern": "???"
 	},
 	"index": {
 		"ueberschrift": "???",
-		"cookie.ueberschrift": "???",
+		"lebendsdauer.cookie": "???",
 		"warnung": "???",
-		"lifetime": "???",
+		"lebendsdauer": "???",
 		"stunden": "???",
-		"button.submit": "???",
+		"button.submit.speichern": "???",
 		"javascript.alert.auswahl": "???",
-		"javascript.alert.lifetime": "???"
+		"javascript.alert.lebendszeit": "???"
 	},
 	"mlkvplan": {
 		"ueberschrift": "???",
@@ -25,7 +29,8 @@
 		"modul2.aktuell": "???",
 		"modul2.nicht.aktuell": "???",
 		"modul2.flash": "???",
-		"version": "???"
+		"version": "???",
+		"letztes.update": "???"	
 	},
 	"login": {
 		"ueberschrift": "???",
@@ -48,43 +53,68 @@
 		"javascript.alert.speicherfehler": "???",
 		"javascript.alert.bereits.vorhanden": "???"
 	},
-	"onlineeditor": {
-		"welcome": "???",
+	"online.editor": {
+		"willkommen": "???",
 		"alert.key": "???",
 		"upload": "???",
-		"settings": "???",
+		"einstellungen": "???",
 		"javascript.confirm.logout": "???",
 		"button.submit.click": "???",
 		"button.submit.logout": "???"
 	},
-	"moduldisabled": {
+	"einstellungen": {
+		"ueberschrift": "???",
+		"einladungscode.ueberschrift": "???",
+		"warnung": "???",
+		"einladungscode.gen": "???",
+		"javascript.alert.registrierung.nicht.aktiviert": "???",
+		"javascript.alert.auswahl": "???",
+		"registrierung.de/aktivieren": "???",
+		"button.aktivieren": "???",
+		"button.deaktivieren": "???",
+		"aktiviert": "???",
+		"deaktiviert": "???",
+		"aktuell": "???",
+		"button.submit.speichern": "???",
+		"button.submit.zurueck": "???"
+	},
+	"upload": {
+		"ueberschrift": "???",
+		"modul1": "???",
+		"modul1.upload": "???",
+		"modul2": "???",
+		"modul2.upload": "???",
+		"max.filesize": "???",
+		"warnung1": "???",
+		"warnung2": "???",
+		"upload": "???",
+		"button.submit.upload": "???",
+		"button.submit.reset": "???",
+		"button.upload.computer": "???",
+		"button.upload.url": "???"
+	},
+	"modul.disabled": {
 		"modul.deaktiviert": "???",
 		"sorry": "???"
 	},
 	"authfailed": {
 		"auth.failed": "???",
-		"please.relogin": "???"
+		"relogin": "???"
+	}"info": {
+		"info": "???",
+		"website": "???",
+		"source.code": "???",
+		"powered.by": "???",
+		"c": "???",
+		"version": "???"
 	},
-	"remoteApp": {
+	"remote.app": {
 		"index": {
 			"ueberschrift": "???",
 			"unterueberschrift": "???",
 			"appname": "???",
 			"button.submit.download": "???",
 			"benoetigt": "???"
-		},
-		"remoteauthfailed": {
-			"ueberschrift": "???",
-			"unterueberschrift": "???"
-		},
-		"login": {
-			"alert.login.failed": "???",
-			"alert.felder": "???"
-		}
-	},
-	"mobileApp": {
-		"index": {
-
 		}
 	}
 }

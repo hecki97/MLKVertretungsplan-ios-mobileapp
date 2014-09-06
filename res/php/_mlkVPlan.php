@@ -1,6 +1,5 @@
 <?php 
 	$root = realpath($_SERVER["DOCUMENT_ROOT"]);
-
 	include("$root/mlkvplan/res/php/_checkDataBase.php");
 	include("$root/mlkvplan/res/php/_loadLangFiles.php");
 	include("$root/mlkvplan/res/php/_getVersionScript.php");

@@ -1,5 +1,6 @@
 <?php
 	$host = $_SERVER['SERVER_NAME'];
+    include("$root/mlkvplan/res/php/_loadLangFiles.php");
 
 	if(!isset($_COOKIE["mobile_version"]))
     {

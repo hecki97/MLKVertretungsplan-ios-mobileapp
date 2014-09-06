@@ -23,9 +23,9 @@
 	}
 
 	if($row->aktiviert == "true")
-		$echo_registrierung = "aktiviert";
+		$echo_registrierung = $string['einstellungen']['aktiviert'];
 	else
-		$echo_registrierung = "deaktiviert";
+		$echo_registrierung = $string['einstellungen']['deaktiviert'];
 
 // Zum Online Editor
 	Button("fback", "mlkvplan/onlineEditor.php");

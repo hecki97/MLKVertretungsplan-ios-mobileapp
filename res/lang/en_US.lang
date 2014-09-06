@@ -1,89 +1,121 @@
 {
 	"global": {
-		"mysql.connect.error": "???",
-		"mysql.select.db.error": "???",
+		"mysql.connect.error":  "connection to the database could not be established", 
+		"mysql.select.db.error": "Database could not be selected",
+		"javascript.alert.login.failed": "Please check username and/or password!",
+		"javascript.alert.felder": "Please fill out all fields!",
 		"menu.login": "Login!",
-		"button.submit.plan": "???",
-		"button.submit.auswahl": "???"
+		"button.submit.plan": "Back to the plan",
+		"button.submit.auswahl": "Back to the Selection!",
+		"button.submit.register": "Register",
+		"button.submit.version.aendern": "Change version"
 	},
 	"index": {
-		"ueberschrift": "Select version:",
-		"cookie.ueberschrift": "Lifetime of the cookie:",
-		"warnung": "Caution! This website uses cookies to store the choice you've made!",
-		"lifetime": "lifetime",
-		"stunden": "Hour(s)",
-		"button.submit": "Save!",
-		"alert.auswahl": "Please make a selection!",
-		"alert.lifetime": "Please enter a number > 0 and <= 999!"
+		"ueberschrift": "Select Version", 
+		"lebendsdauer.cookie": "lifetime of the cookie:", 
+		"warnung": "Caution! This website uses cookies to store the choice you made!",
+		"lebendsdauer": "lifetime",
+		"stunden": "hour(s)",
+		"button.submit.speichern": "Save!",
+		"javascript.alert.auswahl": "Please make a selection!",
+		"javascript.alert.lebendszeit": "Please enter a number > 0 and <= 999!"
 	},
 	"mlkvplan": {
-		"ueberschrift": "???",
-		"timestamp": "???",
-		"modul1.aktuell": "???",
-		"modul1.nicht.aktuell": "???",
-		"modul1.flash": "???",
-		"modul2.aktuell": "???",
-		"modul2.nicht.aktuell": "???",
-		"modul2.flash": "???",
-		"version": "???"
+		"ueberschrift": "MLK-representation plan online",
+		"timestamp": "Timestamp could not be checked!",
+		"modul1.aktuell": "Module1 is up to date!",
+		"modul1.nicht.aktuell": "Module1 is not up to date!",
+		"modul1.flash": "Module1 is always up to date!",
+		"modul2.aktuell": "Module 2 is up to date!",
+		"modul2.nicht.aktuell": "Module 2 is not up to date!",
+		"modul2.flash": "Modul2 is always up to date!",
+		"version": "Current Version",
+		"letztes.update": "Last Update: " 
 	},
 	"login": {
-		"ueberschrift": "???",
-		"username": "???",
-		"password": "???",
-		"button.submit.anmelden": "???",
-		"button.submit.registrieren": "???"
+		"ueberschrift": "Login:",
+		"username": "Username",
+		"password": "Password:",
+		"button.submit.anmelden": "Log in!",
+		"button.submit.registrieren": "Create an account!" 
 	},
-	"register": {
-		"registrierung": "???",
-		"daten": "???",
-		"username": "???",
-		"password": "???",
-		"password.wdh": "???",
-		"einladungscode": "???",
-		"alert.succes": "???",
-		"alert.succes.2": "???",
-		"javascript.alert.einladungscode": "???",
-		"javascript.alert.speicherfehler": "???",
-		"javascript.alert.bereits.vorhanden": "???"
+	"registration": {
+		"registrierung": "Create an account:",
+		"daten": "enter credentials",
+		"username": "Username",
+		"password": "Password:",
+		"password.wdh": "Password (rep):",
+		"einladungscode": "referral code",
+		"alert.succes": "username",
+		"alert.succes.2": "was created.",
+		"javascript.alert.felder": ". Error. Please fill in all the form fields!",
+		"javascript.alert.einladungscode": "The invitation code you entered is incorrect!",
+		"javascript.alert.speicherfehler": "Error while trying to save the username. Please try again!",
+		"javascript.alert.bereits.vorhanden": "Username already exists. Please try again."
 	},
-	"onlineeditor": {
-		"welcome": "???",
-		"alert.key": "???",
-		"upload": "???",
-		"settings": "???",
-		"javascript.confirm.logout": "???",
-		"button.submit.click": "???",
-		"button.submit.logout": "???"
+	"online.editor": {
+		"willkommen": "Welcome,",
+		"alert.key": "Please immediately update the invitation code!",
+		"upload": "representation plan update:",
+		"einstellungen": "Settings",
+		"javascript.confirm.logout": "Do you really want to logout?",
+		"button.submit.click": "Click here!",
+		"button.submit.logout": "Logout"
 	},
-	"moduldisabled": {
-		"modul.deaktiviert": "???",
-		"sorry": "???"
+	"einstellungen": {
+		"ueberschrift": "Settings",
+		"einladungscode.ueberschrift": "Invitation Code",
+		"warnung": "Caution, this code is no longer displayed when the page is left!",
+		"einladungscode.gen": "Generate Invitation Code!",
+		"javascript.alert.registrierung.nicht.aktiviert": "Attention! Registration is not activated!",
+		"javascript.alert.auswahl": "Please make a selection!",
+		"registrierung.de/aktivieren": "Registration De/Activate",
+		"button.aktivieren": "Activate",
+		"button.deaktivieren": "Deactivate",
+		"aktiviert": "enabled",
+		"deaktiviert": "disabled",
+		"aktuell": "Current:",
+		"button.submit.speichern": "Save",
+		"button.submit.zurueck": "To the overview!"
+	},
+	"upload": {
+		"ueberschrift": "MLKVPlan html uploader:",
+		"modul1": "Module1",
+		"modul1.upload": "Here 'modul1.html' Upload!",
+		"modul2": "Module 2",
+		"modul2.upload": "Here 'modul2.html' Upload!",
+		"max.filesize": "Max file size 250KB!",
+		"warnung1": "Only 2 files are uploaded at a time.",
+		"warnung2": "files from your computer take precedence over URL files.",
+		"upload": "Please wait while your file is being uploaded ...",
+		"button.submit.upload": "Upload Files now!",
+		"button.submit.reset": "Reset fields!",
+		"button.upload.computer": "Upload from Computer",
+		"button.upload.url": "Upload from URL"
+	},
+	"modul.disabled": {
+		"modul.deaktiviert": "This module has been disabled!",
+		"sorry": "We are sorry"
 	},
 	"authfailed": {
-		"auth.failed": "???",
-		"please.relogin": "???"
+		"auth.failed": "You currently do not have permission to access this page!",
+		"relogin": "Please log in again!" 
 	},
-	"remoteApp": {
-		"index": {
-			"ueberschrift": "???",
-			"unterueberschrift": "???",
-			"appname": "???",
-			"button.submit.download": "???",
-			"benoetigt": "???"
-		},
-		"remoteauthfailed": {
-			"ueberschrift": "???",
-			"unterueberschrift": "???"
-		},
-		"login": {
-			"alert.login.failed": "???",
-			"alert.felder": "???"
-		}
+	"info": {
+		"info": "Info", 
+		"website": "MLK site:",
+		"source.code": "Source Code (Github)",
+		"powered.by": "Powered by", 
+		"c": "© 2014 - hecki97", 
+		"version": "Version:" 
 	},
-	"mobileApp": {
+	"remote.app": {
 		"index": {
-
-		}
+			"ueberschrift": "For mobile access!",
+			"unterueberschrift": "Always and everywhere!",
+			"appname": "MLK representation plan RemoteApp",
+			"button.submit.download": "Download!",
+			"benoetigt": "Requires"
+		} 
 	}
 }

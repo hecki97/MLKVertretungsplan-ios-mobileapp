@@ -1,12 +1,10 @@
 <?php
-     session_start();
-
-     $hostname = $_SERVER['HTTP_HOST'];
-     $path = dirname($_SERVER['PHP_SELF']);
+    session_start();
+	$host = $_SERVER['SERVER_NAME'];
 
     if(!isset($_SESSION["remoteUsername"])) 
    { 
-        header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/remoteAuthFailed.php');
+        header('Location: http://$host/mlkvplan/remoteApp/remoteAuthFailed.php');
         exit; 
    } 
 ?>

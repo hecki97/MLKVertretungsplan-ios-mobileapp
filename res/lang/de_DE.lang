@@ -6,7 +6,9 @@
 		"javascript.alert.felder": "Bitte alle Felder ausfüllen!",
 		"menu.login": "Zum Login!",
 		"button.submit.plan": "Zum Plan!",
-		"button.submit.auswahl": "Zur Auswahl!"
+		"button.submit.auswahl": "Zur Auswahl!",
+		"button.submit.register": "Registrieren",
+		"button.submit.version.aendern": "Version ändern"
 	},
 	"index": {
 		"ueberschrift": "Version auswählen:",
@@ -64,11 +66,14 @@
 		"ueberschrift": "Einstellungen:",
 		"einladungscode.ueberschrift": "Einladungscode:",
 		"warnung": "Achtung dieser Code wird nicht mehr angezeigt, wenn die Seite verlassen wird!",
+		"einladungscode.gen": "Einladungscode generieren!",
 		"javascript.alert.registrierung.nicht.aktiviert": "Achtung! Die Registrierung ist nicht aktiviert!",
 		"javascript.alert.auswahl": "Bitte eine Auswahl treffen!",
 		"registrierung.de/aktivieren": "Registrierung De/Aktivieren:",
 		"button.aktivieren": "Aktivieren",
 		"button.deaktivieren": "Deaktivieren",
+		"aktiviert": "aktiviert",
+		"deaktiviert": "deaktiviert",
 		"aktuell": "Aktuell:",
 		"button.submit.speichern": "Speichern",
 		"button.submit.zurueck": "Zur Übersicht!"
@@ -96,22 +101,21 @@
 		"auth.failed": "Sie besitzen derzeit keine Rechte auf diese Seite zuzugreifen!",
 		"relogin": "Bitte loggen Sie sich erneut ein!"
 	},
-	"remoteApp": {
+	"info": {
+		"info": "Info",
+		"website": "MLK-Website:",
+		"source.code": "Source Code(Github)",
+		"powered.by": "Powered by:",
+		"c": "© 2014 - hecki97",
+		"version": "Version:"
+	},
+	"remote.app": {
 		"index": {
 			"ueberschrift": "Für mobilen Zugriff!",
 			"unterueberschrift": "Immer und überall!",
 			"appname": "MLK Vertretungsplan RemoteApp",
 			"button.submit.download": "Download!",
 			"benoetigt": "Benötigt"
-		},
-		"remoteauthfailed": {
-			"ueberschrift": "Sie besitzen derzeit keine Rechte auf diese Seite zuzugreifen!",
-			"unterueberschrift": "Bitte loggen Sie sich erneut ein!"
-		}
-	},
-	"mobileApp": {
-		"index": {
-
 		}
 	}
 }
