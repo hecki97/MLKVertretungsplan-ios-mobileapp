@@ -100,7 +100,8 @@
 	"authfailed": {
 		"auth.failed": "???",
 		"relogin": "???"
-	}"info": {
+	},
+	"info": {
 		"info": "???",
 		"website": "???",
 		"source.code": "???",
