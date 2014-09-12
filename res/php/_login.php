@@ -1,15 +1,14 @@
 <?php
-	$root = realpath($_SERVER["DOCUMENT_ROOT"]);
 	$host = $_SERVER['SERVER_NAME'];
-	include("$root/mlkvplan/res/php/_checkDataBase.php");
-	include("$root/mlkvplan/res/php/_loadLangFiles.php");
-	include("$root/mlkvplan/res/php/_getVersionScript.php");
-	include("$root/mlkvplan/res/php/_buttonScript.php");
+	include(dirname(__FILE__)."/_checkDataBase.php");
+	include(dirname(__FILE__)."/_loadLangFiles.php");
+	include(dirname(__FILE__)."/_getVersionScript.php");
+	include(dirname(__FILE__)."/_buttonScript.php");
 
 	//Registrieren
 	Button("register", "mlkvplan/registration.php");
 	//Zum Plan
-	Button("fback", "mlkvplan/mlkVPlan.php");
+	Button("fback", "mlkvplan/mlkvplan.php");
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	    if (!empty($_POST["username"]) && !empty($_POST["password"]))

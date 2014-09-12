@@ -1,8 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<?php $root = realpath($_SERVER["DOCUMENT_ROOT"]); ?>
 <?php $host = $_SERVER['SERVER_NAME']; ?>
-<?php include("$root/mlkvplan/mobile/res/html/mobileHtmlHead.html"); ?>
-<?php include("$root/mlkvplan/mobile/res/php/_mobile_modul.php"); ?>
+<?php include(dirname(__FILE__)."/res/html/mobileHtmlHead.html"); ?>
+<?php include(dirname(__FILE__)."/res/php/_mobile_modul.php"); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Modul mobile</title>

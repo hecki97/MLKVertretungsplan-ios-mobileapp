@@ -1,10 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<?php $root = realpath($_SERVER["DOCUMENT_ROOT"]); ?>
-<?php include("$root/mlkvplan/mobile/res/php/_mobile_info.php"); ?>
-<?php include("$root/mlkvplan/mobile/res/php/_mobile_checkCookie.php"); ?>
+<?php include(dirname(__FILE__)."/res/php/_mobile_info.php"); ?>
+<?php include(dirname(__FILE__)."/res/php/_mobile_checkCookie.php"); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <?php include("$root/mlkvplan/mobile/res/html/mobileHtmlHead.html"); ?>
+        <?php include(dirname(__FILE__)."/res/html/mobileHtmlHead.html"); ?>
         <title>MLK-Vertretungsplan mobile</title>
     </head>
     <body class="metro" style="text-align: center;">

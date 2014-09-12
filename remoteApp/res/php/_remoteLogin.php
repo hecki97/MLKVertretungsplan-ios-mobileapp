@@ -1,9 +1,8 @@
 <?php
-	$root = realpath($_SERVER["DOCUMENT_ROOT"]);
 	$host = $_SERVER['SERVER_NAME'];
-	include("$root/mlkvplan/res/php/_loadLangFiles.php");
-	include("$root/mlkvplan/res/php/_getVersionScript.php");
-	include("$root/mlkvplan/res/php/_checkDataBase.php");
+	include(dirname(__FILE__)."/../../../res/php/_loadLangFiles.php");
+	include(dirname(__FILE__)."/../../../res/php/_getVersionScript.php");
+	include(dirname(__FILE__)."/../../../res/php/_checkDataBase.php");
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	    if (!empty($_POST["username"]) && !empty($_POST["password"]))
@@ -13,7 +12,7 @@
 	      $username = $_POST["username"]; 
 	      $passwort = md5($_POST["password"]); 
 
-	      $abfrage = "SELECT username, passwort FROM login WHERE username LIKE '$username' LIMIT 1"; 
+	      $abfrage = "SELECT username, passwort FROM mlkvplan_login WHERE username LIKE '$username' LIMIT 1"; 
 	      $ergebnis = mysql_query($abfrage); 
 	      $row = mysql_fetch_object($ergebnis); 
 

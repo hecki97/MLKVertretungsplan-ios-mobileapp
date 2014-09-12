@@ -1,8 +1,7 @@
 <?php 
-	$root = realpath($_SERVER["DOCUMENT_ROOT"]);
-	include("$root/mlkvplan/res/php/_checkDataBase.php");
-	include("$root/mlkvplan/res/php/_loadLangFiles.php");
-	include("$root/mlkvplan/res/php/_getVersionScript.php");
+	include(dirname(__FILE__)."/_checkDataBase.php");
+	include(dirname(__FILE__)."/_loadLangFiles.php");
+	include(dirname(__FILE__)."/_getVersionScript.php");
 	
 	$host = $_SERVER['SERVER_NAME'];
 	$ID2 = "ID2=d24a5dd7-48c6-4b27-8f79-464a62af12bf";

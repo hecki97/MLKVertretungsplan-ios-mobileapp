@@ -1,11 +1,9 @@
 <?php
-	$root = realpath($_SERVER["DOCUMENT_ROOT"]);
-
-	include("$root/mlkvplan/res/php/_auth.php");
-	include("$root/mlkvplan/res/php/_loadLangFiles.php");
-	include("$root/mlkvplan/res/php/_checkDataBase.php");
-	include("$root/mlkvplan/res/php/_getVersionScript.php");
-	include("$root/mlkvplan/res/php/_buttonScript.php");
+	include(dirname(__FILE__)."/_auth.php");
+	include(dirname(__FILE__)."/_loadLangFiles.php");
+	include(dirname(__FILE__)."/_checkDataBase.php");
+	include(dirname(__FILE__)."/_getVersionScript.php");
+	include(dirname(__FILE__)."/_buttonScript.php");
 
 	$host = $_SERVER['SERVER_NAME'];
 	

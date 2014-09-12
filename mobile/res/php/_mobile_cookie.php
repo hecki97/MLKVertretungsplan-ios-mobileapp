@@ -1,6 +1,6 @@
 <?php
-	$host = $_SERVER['SERVER_NAME'];
-    include("$root/mlkvplan/res/php/_loadLangFiles.php");
+    $host = $_SERVER['SERVER_NAME'];
+    include(dirname(__FILE__)."../../../../res/php/_loadLangFiles.php");
 
 	if(!isset($_COOKIE["mobile_version"]))
     {

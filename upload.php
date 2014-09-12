@@ -1,8 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<?php $root = realpath($_SERVER["DOCUMENT_ROOT"]); ?>
 <?php $host = $_SERVER['SERVER_NAME']; ?>
-<?php include("$root/mlkvplan/res/html/htmlHead.html"); ?>
-<?php include("$root/mlkvplan/res/php/_upload.php"); ?>
+<?php include(dirname(__FILE__)."/res/html/htmlHead.html"); ?>
+<?php include(dirname(__FILE__)."/res/php/_upload.php"); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

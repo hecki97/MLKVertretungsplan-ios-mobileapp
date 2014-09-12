@@ -1,6 +1,6 @@
 <?php
-	include("$root/mlkvplan/res/php/_getVersionScript.php");
-	include("$root/mlkvplan/mobile/res/php/_mobile_checkCookie.php");
+	include(dirname(__FILE__)."../../../../res/php/_getVersionScript.php");
+	include(dirname(__FILE__)."/_mobile_checkCookie.php");
 
 	$ID2 = "ID2=d24a5dd7-48c6-4b27-8f79-464a62af12bf";
 	$http = "https://light.dsbcontrol.de/DSBlightWebsite/(S(wns2f3dhy5w21zzxuzomq1ph))/Homepage/PreProgram.aspx?";

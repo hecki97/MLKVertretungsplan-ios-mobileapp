@@ -1,8 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<?php $root = realpath($_SERVER["DOCUMENT_ROOT"]); ?>
 <?php $host = $_SERVER['SERVER_NAME']; ?>
-<?php include("$root/mlkvplan/res/html/htmlHead.html"); ?>
-<?php include("$root/mlkvplan/res/php/_login.php"); ?>
+<?php include(dirname(__FILE__)."/res/html/htmlHead.html"); ?>
+<?php include(dirname(__FILE__)."/res/php/_login.php"); ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
  <head>
     <title>Login</title>
@@ -11,7 +10,7 @@
   <header>
     <nav class="navigation-bar dark fixed-top">
       <nav class="navigation-bar-content">
-          <a href="http://<?=$host; ?>/mlkvplan/mlkVPlan.php" class="element"><span class="icon-arrow-left-5"></span> MLK-Vertretungsplan online<sup><?=$lang; ?></sup></a>
+          <a href="http://<?=$host; ?>/mlkvplan/mlkvplan.php" class="element"><span class="icon-arrow-left-5"></span> MLK-Vertretungsplan online<sup><?=$lang; ?></sup></a>
    
           <span class="element-divider"></span>
           <button class="element brand no-phone no-tablet" onclick="window.location.reload();"><span class="icon-spin"></span></button>

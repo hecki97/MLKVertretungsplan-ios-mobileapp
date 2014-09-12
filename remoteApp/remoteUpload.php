@@ -1,8 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<?php $root = realpath($_SERVER["DOCUMENT_ROOT"]); ?>
 <?php $host = $_SERVER['SERVER_NAME']; ?>
-<?php include("$root/mlkvplan/remoteApp/res/html/htmlHead.html"); ?>
-<?php include("$root/mlkvplan/remoteApp/res/php/_remoteUpload.php"); ?>
+<?php include(dirname(__FILE__)."/res/html/htmlHead.html"); ?>
+<?php include(dirname(__FILE__)."/res/php/_remoteUpload.php"); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>MLK-Vertretungsplan RemoteApp</title>
@@ -70,7 +69,7 @@
    		</nav>
 	</header>
 	<div class="head">
-		<form action="./upload.php" method="post" enctype="multipart/form-data" name="upload_files_form">
+		<form action="./remoteUpload.php" method="post" enctype="multipart/form-data" name="upload_files_form">
 			<h1><?=$string['upload']['ueberschrift']; ?></h1>
 			<table cellpadding="25" align="center">
 				<tr>

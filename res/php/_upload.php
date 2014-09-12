@@ -1,9 +1,8 @@
 <?php
-	$root = realpath($_SERVER["DOCUMENT_ROOT"]);
-	include("$root/mlkvplan/res/php/_auth.php");
-	include("$root/mlkvplan/res/php/_loadLangFiles.php");
-	include("$root/mlkvplan/res/php/_checkDataBase.php");
-	include("$root/mlkvplan/res/php/_getVersionScript.php");
+	include(dirname(__FILE__)."/_auth.php");
+	include(dirname(__FILE__)."/_loadLangFiles.php");
+	include(dirname(__FILE__)."/_checkDataBase.php");
+	include(dirname(__FILE__)."/_getVersionScript.php");
 
 	$abfrage = "SELECT modul1, modul2 FROM datum"; 
 	$ergebnis = mysql_query($abfrage); 
@@ -12,7 +11,7 @@
 	// KEY VARIABLES
 	$valid_exts = array("text/html", "html"); // array of valid file extensions
 	$max_file_size = 250; // file size in kb
-	$upload_dir = "$root/mlkvplan/res/upload/"; // directory to upload to with trailing slash
+	$upload_dir = dirname(__FILE__)."/../upload/"; // directory to upload to with trailing slash
 	//
 
 	function check_url($url){
@@ -104,8 +103,7 @@
 
 									if(move_uploaded_file($file_tmp[$id],$upload_dir.$filename)){
 										// file has been uploaded, success!	
-										$uploaded[$id] = "File #".($id+1).": <strong>".$filename."</strong> at ".(round($filesizes[$id]/1024,"2"))." KB was successfully uploaded.<br/>
-										<a href=\"./".$upload_dir.$filename."\" target=\"_blank\"><img src=\"".$upload_dir.$filename."\" class=\"preview_img\" border=\"0\" /></a>";
+										$uploaded[$id] = "File #".($id+1).": <strong>".$filename."</strong> at ".(round($filesizes[$id]/1024,"2"))." KB was successfully uploaded.";
 									}
 									else {
 										// Unable to upload.

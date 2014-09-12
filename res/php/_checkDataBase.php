@@ -1,6 +1,5 @@
 <?php
-	$root = realpath($_SERVER["DOCUMENT_ROOT"]);
-	include_once("$root/mlkvplan/res/php/_loadLangFiles.php");
+	include_once(dirname(__FILE__)."/_loadLangFiles.php");
 
 	@$verbindung = mysql_connect("localhost", "login" , "") or die($string['global']['mysql.connect.error']); 
 	@mysql_select_db("mlkvplan", $verbindung) or die ($string['global']['mysql.select.db.error']);
