@@ -14,8 +14,10 @@
     	</div>
     	<div id="content">
     		<h3><?=$string['remote.app']['index']['appname']; ?></h3>
-    		<input type="submit" name="auswahl" value="<?=$string['remote.app']['index']['button.submit.download']; ?> [1.0]" /><br>
-    		<h6>[<?=$string['remote.app']['index']['benoetigt']; ?> <a href="http://get.adobe.com/de/air/" target="_blank">AdobeAir</a>]</h6>
+    		<form action="https://dl.dropboxusercontent.com/u/107727443/mlkvplan_assets/RemoteApp.air" method="post">
+                <input type="submit" name="auswahl" value="<?=$string['remote.app']['index']['button.submit.download']; ?> [1.0]" /><br>
+    		</form>
+            <h6>[<?=$string['remote.app']['index']['benoetigt']; ?> <a href="http://get.adobe.com/de/air/" target="_blank">AdobeAir</a>]</h6>
     	</div>
 		<div>
         	<iframe class="remoteLogin" name="remoteLogin" src="./remoteLogin.php"></iframe>
