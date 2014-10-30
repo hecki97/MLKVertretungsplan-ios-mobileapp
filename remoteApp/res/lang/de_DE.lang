@@ -1,0 +1,11 @@
+{
+	"labels": {
+		"l.index": "Für mobilen Zugriff!",
+		"l.index.2": "Immer und überall!",
+		"l.appname": "MLK Vertretungsplan RemoteApp",
+		"l.requires": "Benötigt"
+	},
+	"buttons": {
+		"b.download": "Download!"
+	}
+}

@@ -5,133 +5,73 @@
 	},
 	"javascript.alert": {
 		"j.login.failed": "Bitte Benutzername und/oder Passwort überprüfen!",
-		"j.felder": "Bitte alle Felder ausfüllen!"
+		"j.fields": "Bitte alle Felder ausfüllen!"
+		"j.invitation.code": "Der eingegebene Einladungscode ist nicht korrekt!",
+		"j.error": "Fehler beim Speichern des Benutzernames. Bitte erneut versuchen!",
+		"j.already.exists": "Benutzername schon vorhanden. Bitte erneut versuchen!",
+		"j.registration.not.activated": "Achtung! Die Registrierung ist nicht aktiviert!",
+		"j.selection": "Bitte eine Auswahl treffen!",
+		"j.confirm.logout": "Wollen Sie sich wirklich ausloggen?",
 	},
 	"links": {
 		"a.menu.login": "Zum Login!"
 	},
 	"buttons": {
-		"button.plan": "Zum Plan!",
-		"button.auswahl": "Zur Auswahl!",
-		"button.register": "Registrieren"
+		"b.selection": "Zur Auswahl!",
+		"b.register": "Registrieren!",
+		"b.save": "Speichern!",
+		"b.login": "Anmelden!",
+		"b.click": "Klick hier!",
+		"b.logout": "Ausloggen!"
+		"b.activate": "Aktivieren",
+		"b.deactivate": "Deaktivieren",
+		"b.upload": "Dateien jetzt hochladen!",
+		"b.reset": "Felder zurücksetzen!",
+		"b.upload.computer": "Vom Computer hochladen",
+		"b.upload.url": "Von URL hochladen"
 	},
-	"global": {
-		"mysql.connect.error": "Verbindung zur Datenbank konnte nicht hergestellt werden",
-		"mysql.select.db.error": "Datenbank konnte nicht ausgewählt werden",
-		"javascript.alert.login.failed": "Bitte Benutzername und/oder Passwort überprüfen!",
-		"javascript.alert.felder": "Bitte alle Felder ausfüllen!",
-		"menu.login": "Zum Login!",
-		"button.submit.plan": "Zum Plan!",
-		"button.submit.auswahl": "Zur Auswahl!",
-		"button.submit.register": "Registrieren",
-		"button.submit.version.aendern": "Version ändern"
-	},
-	"index": {
-		"ueberschrift": "Version auswählen:",
-		"lebendsdauer.cookie": "Lebensdauer des Cookies:",
-		"warnung": "Achtung! Diese Webseite nutzt Cookies, um die von Ihnen getroffene Wahl zu speichern!",
-		"lebendsdauer": "Lebensdauer:",
-		"stunden": "Stunde(n)",
-		"button.submit.speichern": "Speichern!",
-		"javascript.alert.auswahl": "Bitte eine Auswahl treffen!",
-		"javascript.alert.lebendszeit": "Bitte eine Zahl > 0 und <= 999 eingeben!"
-	},
-	"mlkvplan": {
-		"ueberschrift": "MLK-Vertretungsplan Online",
-		"timestamp": "Timestamp konnte nicht geprueft werden!",
-		"modul1.aktuell": "Modul1 ist aktuell!",
-		"modul1.nicht.aktuell": "Modul1 ist nicht aktuell!",
-		"modul1.flash": "Modul1 ist immer aktuell!",
-		"modul2.aktuell": "Modul2 ist aktuell!",
-		"modul2.nicht.aktuell": "Modul2 ist nicht aktuell!",
-		"modul2.flash": "Modul2 ist immer aktuell!",
-		"version": "Aktuelle Version:",
-		"letztes.update": "Letztes Update"	
-	},
-	"login": {
-		"ueberschrift": "Login Informationen eingeben:",
-		"username": "Benutzername:",
-		"password": "Passwort:",
-		"button.submit.anmelden": "Anmelden!",
-		"button.submit.registrieren": "Account erstellen!"
-	},
-	"register": {
-		"registrierung": "Account erstellen:",
-		"daten": "Anmeldeinformationen eingeben:",
-		"username": "Benutzername:",
-		"password": "Passwort:",
-		"password.wdh": "Passwort(wdh):",
-		"einladungscode": "Einladungscode:",
-		"alert.succes": "Benutzername ",
-		"alert.succes.2": " wurde erstellt.",
-		"javascript.alert.felder": "Eingabefehler. Bitte alle Felder korekt ausfüllen.",
-		"javascript.alert.einladungscode": "Der eingegebene Einladungscode ist nicht korrekt!",
-		"javascript.alert.speicherfehler": "Fehler beim Speichern des Benutzernames. Bitte erneut versuchen!",
-		"javascript.alert.bereits.vorhanden": "Benutzername schon vorhanden. Bitte erneut versuchen!"
-	},
-	"online.editor": {
-		"willkommen": "Willkommen, ",
-		"alert.key": "Bitte sofort den Einladungscode updaten!",
-		"upload": "Vertretungsplan aktualisieren:",
-		"einstellungen": "Einstellungen:",
-		"javascript.confirm.logout": "Wollen Sie sich wirklich ausloggen?",
-		"button.submit.click": "Klick hier!",
-		"button.submit.logout": "Ausloggen!"
-	},
-	"einstellungen": {
-		"ueberschrift": "Einstellungen:",
-		"einladungscode.ueberschrift": "Einladungscode:",
-		"warnung": "Achtung dieser Code wird nicht mehr angezeigt, wenn die Seite verlassen wird!",
-		"einladungscode.gen": "Einladungscode generieren!",
-		"javascript.alert.registrierung.nicht.aktiviert": "Achtung! Die Registrierung ist nicht aktiviert!",
-		"javascript.alert.auswahl": "Bitte eine Auswahl treffen!",
-		"registrierung.de/aktivieren": "Registrierung De/Aktivieren:",
-		"button.aktivieren": "Aktivieren",
-		"button.deaktivieren": "Deaktivieren",
-		"aktiviert": "aktiviert",
-		"deaktiviert": "deaktiviert",
-		"aktuell": "Aktuell:",
-		"button.submit.speichern": "Speichern",
-		"button.submit.zurueck": "Zur Übersicht!"
-	},
-	"upload": {
-		"ueberschrift": "MLKVPlan-html-Uploader:",
-		"modul1": "Modul1:",
-		"modul1.upload": "Hier 'modul1.html' hochladen!",
-		"modul2": "Modul2:",
-		"modul2.upload": "Hier 'modul2.html' hochladen!",
-		"max.filesize": "Max. Dateigröße 250KB!",
-		"warnung1": "Es können nur 2 Dateien gleichzeitig hochgeladen werden.",
-		"warnung2": "Dateien von Ihrem Computer haben Vorrang vor URL-Dateien.",
-		"upload": "Bitte warten Sie während ihre Dateien hochgeladen werden...",
-		"button.submit.upload": "Dateien jetzt hochladen!",
-		"button.submit.reset": "Felder zurücksetzen!",
-		"button.upload.computer": "Vom Computer hochladen",
-		"button.upload.url": "Von URL hochladen"
-	},
-	"modul.disabled": {
-		"modul.deaktiviert": "Dieses Modul wurde deaktiviert!",
-		"sorry": "Das tut uns leid"
-	},
-	"authfailed": {
-		"auth.failed": "Sie besitzen derzeit keine Rechte auf diese Seite zuzugreifen!",
-		"relogin": "Bitte loggen Sie sich erneut ein!"
-	},
-	"info": {
-		"info": "Info",
-		"website": "MLK-Website:",
-		"source.code": "Source Code(Github)",
-		"powered.by": "Powered by:",
-		"c": "© 2014 - hecki97",
-		"version": "Version:"
-	},
-	"remote.app": {
-		"index": {
-			"ueberschrift": "Für mobilen Zugriff!",
-			"unterueberschrift": "Immer und überall!",
-			"appname": "MLK Vertretungsplan RemoteApp",
-			"button.submit.download": "Download!",
-			"benoetigt": "Benötigt"
-		}
+	"labels": {
+		"l.index": "MLK-Vertretungsplan Online",
+		"l.timestamp": "Timestamp konnte nicht geprueft werden!",
+		"l.modul.up.to.date": " ist aktuell!",
+		"l.modul.not.up.to.date": " ist nicht aktuell!",
+		"l.modul.flash": " ist immer aktuell!",
+		"l.last.update": "Letztes Update: "
+		"l.login": "Login:",
+		"l.username": "Benutzername:",
+		"l.password": "Passwort:",
+		"l.registration": "Account erstellen:",
+		"l.data": "Anmeldeinformationen eingeben:",
+		"l.password.rp": "Passwort(wdh):",
+		"l.invitation.code": "Einladungscode:",
+		"l.registration.succes": "Benutzername ",
+		"l.registration.succes.2": " wurde erstellt.",
+		"l.online.editor": "Willkommen, ",
+		"l.alert.key": "Bitte sofort den Einladungscode updaten!",
+		"l.upload": "Vertretungsplan aktualisieren:",
+		"l.settings": "Einstellungen:",
+		"l.invitation.code.warning": "Achtung dieser Code wird nicht mehr angezeigt, wenn die Seite verlassen wird!",
+		"l.invitation.code.gen": "Einladungscode generieren!",
+		"l.registration.de/activate": "Registrierung De/Aktivieren:",
+		"l.activated": "aktiviert",
+		"l.deactivated": "deaktiviert",
+		"l.current": "Aktuell:",
+		"l.upload": "MLKVPlan-html-Uploader:",
+		"l.modul1": "Modul1:",
+		"l.modul1.upload": "Hier 'modul1.html' hochladen!",
+		"l.modul2": "Modul2:",
+		"l.modul2.upload": "Hier 'modul2.html' hochladen!",
+		"l.max.filesize": "Max. Dateigröße 250KB!",
+		"l.warning1": "Es können nur 2 Dateien gleichzeitig hochgeladen werden.",
+		"l.warning2": "Dateien von Ihrem Computer haben Vorrang vor URL-Dateien.",
+		"l.alert.upload": "Bitte warten Sie während ihre Dateien hochgeladen werden...",
+		"l.modul.deactivated": "Dieses Modul wurde deaktiviert!",
+		"l.sorry": "Das tut uns leid"
+		"l.info": "Info",
+		"l.website": "MLK-Website:",
+		"l.source.code": "Source Code(Github)",
+		"l.powered.by": "Powered by:",
+		"l.c": "© 2014 - hecki97",
+		"l.version": "Version:"
 	}
 }
