@@ -1,4 +1,20 @@
 {
+	"mysql": {
+		"m.connect.error": "Verbindung zur Datenbank konnte nicht hergestellt werden",
+		"m.select.db.error": "Datenbank konnte nicht ausgewählt werden"
+	},
+	"javascript.alert": {
+		"j.login.failed": "Bitte Benutzername und/oder Passwort überprüfen!",
+		"j.felder": "Bitte alle Felder ausfüllen!"
+	},
+	"links": {
+		"a.menu.login": "Zum Login!"
+	},
+	"buttons": {
+		"button.plan": "Zum Plan!",
+		"button.auswahl": "Zur Auswahl!",
+		"button.register": "Registrieren"
+	},
 	"global": {
 		"mysql.connect.error": "Verbindung zur Datenbank konnte nicht hergestellt werden",
 		"mysql.select.db.error": "Datenbank konnte nicht ausgewählt werden",
