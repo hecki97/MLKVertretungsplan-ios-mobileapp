@@ -31,9 +31,9 @@
       if (isset($_GET['do']) && $_GET['do'] == "html")
       {
         if(strtotime($row) != strtotime(date("d/m/y")))
-          return "<span style ='color:#B40404;'>".$string['mlkvplan'][$modul.'.nicht.aktuell']."</span> <h4>(".$string['mlkvplan']['letztes.update'].$row.")"."</h4>";
+          return "<span style ='color:#B40404;'>".$modul.$string['labels']['l.modul.not.up.to.date']."</span> <h4>(".$string['labels']['l.last.update'].$row.")"."</h4>";
         else
-          return "<span style ='color:#007236;'>".$string['mlkvplan'][$modul.'.aktuell']."</span> <h4>(".$string['mlkvplan']['letztes.update'].$row.")"."</h4>";
+          return "<span style ='color:#007236;'>".$modul.$string['labels']['l.modul.up.to.date']."</span> <h4>(".$string['labels']['l.last.update'].$row.")"."</h4>";
       }
       else
         return "";

@@ -5,24 +5,24 @@
 	},
 	"javascript.alert": {
 		"j.login.failed": "Bitte Benutzername und/oder Passwort überprüfen!",
-		"j.fields": "Bitte alle Felder ausfüllen!"
+		"j.fields": "Bitte alle Felder ausfüllen!",
 		"j.invitation.code": "Der eingegebene Einladungscode ist nicht korrekt!",
 		"j.error": "Fehler beim Speichern des Benutzernames. Bitte erneut versuchen!",
 		"j.already.exists": "Benutzername schon vorhanden. Bitte erneut versuchen!",
 		"j.registration.not.activated": "Achtung! Die Registrierung ist nicht aktiviert!",
 		"j.selection": "Bitte eine Auswahl treffen!",
-		"j.confirm.logout": "Wollen Sie sich wirklich ausloggen?",
+		"j.confirm.logout": "Wollen Sie sich wirklich ausloggen?"
 	},
 	"links": {
 		"a.menu.login": "Zum Login!"
 	},
 	"buttons": {
 		"b.selection": "Zur Auswahl!",
-		"b.register": "Registrieren!",
+		"b.registration": "Registrieren!",
 		"b.save": "Speichern!",
 		"b.login": "Anmelden!",
 		"b.click": "Klick hier!",
-		"b.logout": "Ausloggen!"
+		"b.logout": "Ausloggen!",
 		"b.activate": "Aktivieren",
 		"b.deactivate": "Deaktivieren",
 		"b.upload": "Dateien jetzt hochladen!",
@@ -31,12 +31,12 @@
 		"b.upload.url": "Von URL hochladen"
 	},
 	"labels": {
-		"l.index": "MLK-Vertretungsplan Online",
+		"l.mlkvplan": "MLK-Vertretungsplan Online",
 		"l.timestamp": "Timestamp konnte nicht geprueft werden!",
 		"l.modul.up.to.date": " ist aktuell!",
 		"l.modul.not.up.to.date": " ist nicht aktuell!",
 		"l.modul.flash": " ist immer aktuell!",
-		"l.last.update": "Letztes Update: "
+		"l.last.update": "Letztes Update: ",
 		"l.login": "Login:",
 		"l.username": "Benutzername:",
 		"l.password": "Passwort:",
@@ -66,7 +66,7 @@
 		"l.warning2": "Dateien von Ihrem Computer haben Vorrang vor URL-Dateien.",
 		"l.alert.upload": "Bitte warten Sie während ihre Dateien hochgeladen werden...",
 		"l.modul.deactivated": "Dieses Modul wurde deaktiviert!",
-		"l.sorry": "Das tut uns leid"
+		"l.sorry": "Das tut uns leid",
 		"l.info": "Info",
 		"l.website": "MLK-Website:",
 		"l.source.code": "Source Code(Github)",

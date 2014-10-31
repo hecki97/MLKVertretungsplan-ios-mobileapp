@@ -16,7 +16,7 @@
   <header>
     <nav class="navigation-bar dark fixed-top">
       <nav class="navigation-bar-content">
-          <button href="./mlkvplan.php" class="element"><span class="icon-home"></span> MLK-Vertretungsplan online<sup><?=$lang; ?></sup></button>
+          <button href="./mlkvplan.php" class="element"><span class="icon-home"></span> <?=$string['labels']['l.mlkvplan']; ?><sup><?=$lang; ?></sup></button>
    
           <span class="element-divider"></span>
           <button class="element brand no-phone no-tablet" onclick="window.location.reload();"><span class="icon-spin"></span></button>
@@ -26,22 +26,22 @@
           <span class="element-divider place-right"></span>
           <a class="element place-right no-phone no-tablet"><?=$version; ?></a>
           <span class="element-divider place-right"></span>
-          <a href="./login.php" class="element place-right no-phone no-tablet"><span class="icon-key"></span> <?=$string['global']['menu.login']; ?></a>
+          <a href="./login.php" class="element place-right no-phone no-tablet"><span class="icon-key"></span> <?=$string['links']['a.menu.login']; ?></a>
           <span class="element-divider place-right"></span>
       </nav>
     </nav>
   </header>
 
   <div class="container">
-    <h1><?=$string['mlkvplan']['ueberschrift']; ?><sup><?=$version_sup; ?></sup></h1>
+    <h1><?=$string['labels']['l.mlkvplan']; ?><sup><?=$version_sup; ?></sup></h1>
     
     <table width="100%">
     <!-- 1. Zeile -->
       <tr>
       <!-- Check Datum Modul1 -->
-        <th><h2><?=CheckDatum("$row->modul1", "modul1"); ?></h2></th>
+        <th><h2><?=CheckDatum("$row->modul1", "Modul1"); ?></h2></th>
       <!-- Check Datum Modul2 -->
-        <th><h2><?=CheckDatum("$row->modul2", "modul2"); ?></h2></th>
+        <th><h2><?=CheckDatum("$row->modul2", "Modul2"); ?></h2></th>
       </tr>
     <!-- 2. Zeile -->         
       <tr>
