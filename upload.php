@@ -6,7 +6,6 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Upload</title>
-		<link type="text/css" href="http://<?=$host; ?>/mlkvplan/res/css/stylesheet.css" rel="stylesheet" />
 		<script src="jquery-1.7.2.min.js" type="text/javascript"></script>
 		<style type="text/css">
 			#content {
@@ -18,7 +17,6 @@
 				text-align: center;
 			}
 		</style>
-
 		<script type="text/javascript">
 			$(document).ready(function(){
 				var clickedClass = "selected";
@@ -45,7 +43,7 @@
 				if(uploadDiv.style.display == 'none'){
 					// the div isnt being displayed yet, so lets change the display then write the content
 					uploadDiv.style.display = 'block';
-					uploadDiv.innerHTML = 'Please wait while your files are being uploaded...<br/><div id="loading_image"></div>';
+					uploadDiv.innerHTML = '<?=$string["labels"]["l.uploading"]; ?>';
 				}
 			}
 		</script>
@@ -55,7 +53,7 @@
 		<header>
 	    <nav class="navigation-bar dark fixed-top">
 	      <nav class="navigation-bar-content">
-	        <a href="http://<?=$host; ?>/mlkvplan/onlineEditor.php" class="element"><span class="icon-arrow-left-5"></span> Online-Editor<sup><?=$lang; ?></sup></a>
+	        <a href="./onlineEditor.php" class="element"><span class="icon-arrow-left-5"></span> <?=$string['links']['a.online.editor']; ?><sup><?=$lang; ?></sup></a>
 	       
 	        <span class="element-divider"></span>
 	        <button class="element brand no-phone no-tablet" onclick="window.location.reload();"><span class="icon-spin"></span></button>
@@ -63,31 +61,27 @@
 
 	        <a href="./info.php" class="element brand place-right no-phone no-tablet"><span class="icon-cog"></span></a>
 	        <span class="element-divider place-right"></span>
-	        <a class="element place-right no-phone no-tablet">
-	          <?=$version; ?>
-	        </a>
+	        <a class="element place-right no-phone no-tablet"><?=$version; ?></a>
 	        <span class="element-divider place-right"></span>
-	        <a class="element place-right no-phone no-tablet">
-	        <span class="icon-unlocked"></span> <?=$_SESSION["username"]; ?>
-	        </a>
+	        <a class="element place-right no-phone no-tablet"><span class="icon-unlocked"></span> <?=$_SESSION["username"]; ?></a>
 	        <span class="element-divider place-right"></span>
 	      </nav>
 	    </nav>
 	  </header>
 		<div class="head">
 		<form action="./upload.php" method="post" enctype="multipart/form-data" name="upload_files_form">
-			<h1><?=$string['upload']['ueberschrift']; ?></h1>
+			<h1><?=$string['labels']['l.upload']; ?></h1>
 			<table cellpadding="25" align="center">
 				<tr>
 					<td>
-						<h1><?=$string['upload']['modul1']; ?></h1>
-						<h3><?=$string['upload']['modul1.upload']; ?></h3>
-                  		<p><?=$string['upload']['max.filesize']; ?></p>
+						<h1><?=$string['labels']['l.modul1']; ?></h1>
+						<h3><?=$string['labels']['l.modul1.upload']; ?></h3>
+                  		<p><?=$string['labels']['l.max.filesize']; ?></p>
 						<div id="upload_files">
 							<div class="upload_file" id="upload_file_1">
 					    		<div class="select_upload_type">
-					        		<button id="1_computer_button" name="upload_type_computer" type="button" onclick="hideElement('1_upload_url'); showElement('1_upload_computer')"><?=$string['upload']['button.upload.computer']; ?></button>
-					            	<button id="1_url_button" name="upload_type_url" type="button" onclick="hideElement('1_upload_computer'); showElement('1_upload_url')"><?=$string['upload']['button.upload.url']; ?></button>
+					        		<button id="1_computer_button" name="upload_type_computer" type="button" onclick="hideElement('1_upload_url'); showElement('1_upload_computer')"><?=$string['buttons']['b.upload.computer']; ?></button>
+					            	<button id="1_url_button" name="upload_type_url" type="button" onclick="hideElement('1_upload_computer'); showElement('1_upload_url')"><?=$string['buttons']['b.upload.url']; ?></button>
 					        	</div>
 					        <div class="upload">
 					        	<div id="1_upload_computer">
@@ -100,13 +94,13 @@
 					    </div>
 					</td>
 					<td>
-						<h1><?=$string['upload']['modul2']; ?></h1>
-						<h3><?=$string['upload']['modul2.upload']; ?></h3>
-                  		<p><?=$string['upload']['max.filesize']; ?></p>
+						<h1><?=$string['labels']['l.modul2']; ?></h1>
+						<h3><?=$string['labels']['l.modul2.upload']; ?></h3>
+                  		<p><?=$string['labels']['l.max.filesize']; ?></p>
 						<div class="upload_file" id="upload_file_2">
 					    	<div class="select_upload_type">
-					        	<button id="2_computer_button" name="upload_type_computer" type="button" onclick="hideElement('2_upload_url'); showElement('2_upload_computer')"><?=$string['upload']['button.upload.computer']; ?></button>
-					            <button id="2_url_button" name="upload_type_url" type="button" onclick="hideElement('2_upload_computer'); showElement('2_upload_url')"><?=$string['upload']['button.upload.url']; ?></button>
+					        	<button id="2_computer_button" name="upload_type_computer" type="button" onclick="hideElement('2_upload_url'); showElement('2_upload_computer')"><?=$string['buttons']['b.upload.computer']; ?></button>
+					            <button id="2_url_button" name="upload_type_url" type="button" onclick="hideElement('2_upload_computer'); showElement('2_upload_url')"><?=$string['buttons']['b.upload.url']; ?></button>
 					        </div>
 					        <div class="upload">
 					        	<div id="2_upload_computer">
@@ -120,23 +114,18 @@
 					</td>
 				</tr>
 				</table>
-				<p style="font-size:11px"><strong><?=$string['upload']['warnung1']; ?></strong><br/>
-				    <?=$string['upload']['warnung2']; ?></p>
+				<p style="font-size:11px"><strong><?=$string['labels']['l.warning1']; ?></strong><br/>
+				    <?=$string['labels']['l.warning2']; ?></p>
 				<table align="center">
 				<tr>
-					<td>
-						<input type="submit" name="submit" value="<?=$string['upload']['button.submit.upload']; ?>" class="upload_submit" onclick="showUploadDiv()" />
-					</td>
-					<td>
-						<input type="reset" name="reset" value="<?=$string['upload']['button.submit.reset']; ?>" class="upload_reset" />
-					</td>
+					<td><input type="submit" name="submit" value="<?=$string['buttons']['b.upload']; ?>" class="upload_submit" onclick="showUploadDiv()" /></td>
+					<td><input type="reset" name="reset" value="<?=$string['buttons']['b.reset']; ?>" class="upload_reset" /></td>
 				</tr>
 				</table>
-
 				<div id="uploading" style="display:none"></div>
+				<?=$upload_result;?>
 			</form>
 			</p>
-				<?=$upload_result;?>
 			</div>
 		</div>
 	</body>

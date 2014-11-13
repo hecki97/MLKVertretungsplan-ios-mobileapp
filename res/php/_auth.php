@@ -4,7 +4,7 @@
 
     if(!isset($_SESSION["username"])) 
    { 
-        header("Location: http://$host/mlkvplan/authFailed.php");
+        header("Location: http://$host/mlkvplan/login.php");
         exit;
    } 
 ?>

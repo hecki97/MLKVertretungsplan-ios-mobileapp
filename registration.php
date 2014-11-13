@@ -9,7 +9,7 @@
   <header>
     <nav class="navigation-bar dark fixed-top">
       <nav class="navigation-bar-content">
-          <a href="http://<?=$host; ?>/mlkvplan/mlkvplan.php" class="element"><span class="icon-arrow-left-5"></span> MLK-Vertretungsplan online<sup><?=$lang; ?></sup></a>
+          <a href="./index.php" class="element"><span class="icon-arrow-left-5"></span> <?=$string['labels']['l.mlkvplan']; ?><sup><?=$lang; ?></sup></a>
    
           <span class="element-divider"></span>
           <button class="element brand no-phone no-tablet" onclick="window.location.reload();"><span class="icon-spin"></span></button>
@@ -17,112 +17,42 @@
 
           <a href="./info.php" class="element brand place-right no-phone no-tablet"><span class="icon-cog"></span></a>
           <span class="element-divider place-right"></span>
-          <a class="element place-right no-phone no-tablet">
-            <?=$version; ?>
-          </a>
+          <a class="element place-right no-phone no-tablet"><?=$version; ?></a>
           <span class="element-divider place-right"></span>
-          <a href="./login.php" class="element place-right no-phone no-tablet">
-            <span class="icon-key"></span> <?=$string['global']['menu.login']; ?>
-          </a>
+          <a href="./login.php" class="element place-right no-phone no-tablet"><span class="icon-key"></span> <?=$string['links']['a.menu.login']; ?></a>
           <span class="element-divider place-right"></span>
       </nav>
     </nav>
   </header>
 
 <div class="container" style="text-align: center;">
-  <h1><?=$string['register']['registrierung']; ?></h1>
+  <h1><?=$string['labels']['l.registration']; ?></h1>
     <form action="registration.php" method="post">
-      <h3><?=$string['register']['daten']; ?></h3>
+      <h3><?=$string['labels']['l.data']; ?></h3>
       
       <table cellpadding="2" align="center">
         <tr>
-          <th>
-            <span style ='font-size:15px'><?=$string['register']['username']; ?></span>
-          </th>
-          <th>
-            <span style ='font-size:15px'><input type="text" name="username" /></span>
-          </th>
+          <th><?=$string['labels']['l.username']; ?></th>
+          <th><input type="text" name="username" /></th>
         </tr>
         <tr>
-          <th>
-            <span style ='font-size:15px'><?=$string['register']['password']; ?></span>
-          </th>
-          <th>
-            <span style ='font-size:15px'><input type="password" name="passwort" /></span>
-          </th>
+          <th><?=$string['labels']['l.password']; ?></th>
+          <th><input type="password" name="passwort" /></th>
         </tr>
         <tr>
-          <th>
-            <span style ='font-size:15px'><?=$string['register']['password.wdh']; ?></span>
-          </th>
-          <th>
-            <span style ='font-size:15px'><input type="password" name="passwort2" /></span>
-          </th>
+          <th><?=$string['labels']['l.password.rp']; ?></th>
+          <th><input type="password" name="passwort2" /></th>
         </tr>
         <tr>
-          <th>
-            <span style ='font-size:15px'><?=$string['register']['einladungscode']; ?></span>
-          </th>
-          <th>
-            <span style ='font-size:15px'><input type="text" name="einladungscode" /></span>
-          </th>
+          <th><?=$string['labels']['l.invitation.code']; ?></th>
+          <th><input type="text" name="einladungscode" /></th>
         </tr>
       </table>
-      <br><input type="submit" name="uregister" value="<?=$string['global']['button.submit.register']; ?>">
-      <br><br><input type="submit" name="plan" value="<?=$string['global']['button.submit.plan']; ?>">
-             
-      <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') : ?>
-      <ul>
-        <?php $username = $_POST["username"]; ?>
-        <?php $passwort = $_POST["passwort"]; ?>
-        <?php $passwort2 = $_POST["passwort2"]; ?>
-        <?php $einladungscode = $_POST["einladungscode"]; ?>
-
-        <?php if($passwort != $passwort2 || $username == "" || $passwort == "" || $einladungscode == "") : ?>
-        <ul>
-          <script type="text/javascript">alert("<?=$string['register']['javascript.alert.felder']; ?>");</script> 
-          <?php exit; ?>
-        </ul>
-        <?php endif; ?> 
-        <?php $passwort = md5($passwort); ?>
-
-        <?php $result = mysql_query("SELECT id FROM login WHERE username LIKE '$username'"); ?>
-        <?php $menge = mysql_num_rows($result); ?>
-
-        <?php if($menge == 0) : ?> 
-        <ul>
-          <?php $einladungscode = trim($einladungscode); ?>
-          <?php $abfrage_key = "SELECT * FROM `key`"; ?>
-          <?php $ergebnis_key = mysql_query($abfrage_key); ?>
-          <?php $row_key = mysql_fetch_object($ergebnis_key); ?>
-          <?php if (md5($einladungscode)==$row_key->md5) : ?>
-          <ul>
-            <?php $eintrag = "INSERT INTO login (username, passwort) VALUES ('$username', '$passwort')"; ?>
-            <?php $eintragen = mysql_query($eintrag); ?>
-          </ul>
-          <?php else : ?>
-          <ul>
-            <script type="text/javascript">alert("<?=$string['register']['javascript.alert.einladungscode']; ?>");</script>
-          </ul>
-          <?php endif; ?>
-          <?php if(@$eintragen == true) : ?>
-          <ul>
-            <?=$string['register']['alert.succes']; ?><b><?=$username; ?></b><?=$string['register']['alert.succes.2']; ?> <a href="./login.php"><?=$string['global']['menu.login']; ?></a> 
-          </ul>
-          <?php else : ?> 
-          <ul>
-            <script type="text/javascript">alert("<?=$string['register']['javascript.alert.speicherfehler']; ?>");</script>
-          </ul>
-          <?php endif; ?>
-        </ul>
-        <?php else : ?> 
-        <ul> 
-          <script type="text/javascript">alert("<?=$string['register']['javascript.alert.bereits.vorhanden']; ?>");</script>
-        </ul>
-        <?php endif; ?>
-      </ul>
-      <?php endif; ?>
-    </form>
+      <br><form action="registration.php" method="post" style="display: inline;">
+        <input type="submit" name="registration" value="<?=$string['buttons']['b.registration']; ?>">
+        <br/><?=@$return ?>
+      </form>
+      <form action="./index.php" style="display: inline;"><input type="submit" name="login" value="<?=$string['buttons']['b.index']; ?>"></form>
   </div>
 </body>
 </html>

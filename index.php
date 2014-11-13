@@ -46,9 +46,9 @@
     <!-- 2. Zeile -->         
       <tr>
       <!-- Modul1 -->
-        <td width="50%" height="800" style="border-color:#000000; border-width:2px; border-style:solid;"><iframe src=<?=$path_modul1; ?> name="Vertretungsplan-Modul" scrolling="no" noresize frameborder=0  width="100%" height="100%" style="overflow: hidden;"></iframe></td>
+        <td width="25%" height="800" style="border-color:#000000; border-width:2px; border-style:solid;"><iframe src=<?=$path_modul1; ?> name="Vertretungsplan-Modul" scrolling="no" noresize frameborder=0  width="100%" height="100%" style="overflow: hidden;"></iframe></td>
       <!-- Modul2 -->
-        <td width="50%" height="800" style="border-color:#000000; border-width:2px; border-style:solid; border-left-style:none;"><iframe src=<?=$path_modul2; ?> name="Vertretungsplan-Modul 2" scrolling="no" noresize frameborder=0  width="100%" height="100%" style="overflow: hidden;"></iframe></td>
+        <td width="25%" height="800" style="border-color:#000000; border-width:2px; border-style:solid; border-left-style:none;"><iframe src=<?=$path_modul2; ?> name="Vertretungsplan-Modul 2" scrolling="no" noresize frameborder=0  width="100%" height="100%" style="overflow: hidden;"></iframe></td>
       </tr>
     <!-- 3. Zeile -->
       <tr>

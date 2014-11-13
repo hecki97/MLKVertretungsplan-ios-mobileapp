@@ -51,6 +51,8 @@
 	}
 
 	function run_upload_form(){
+		include(dirname(__FILE__)."/_loadLangFiles.php");
+
 		global $valid_exts;
 		global $max_file_size;
 		global $upload_dir;
@@ -103,17 +105,17 @@
 
 									if(move_uploaded_file($file_tmp[$id],$upload_dir.$filename)){
 										// file has been uploaded, success!	
-										$uploaded[$id] = "File #".($id+1).": <strong>".$filename."</strong> at ".(round($filesizes[$id]/1024,"2"))." KB was successfully uploaded.";
+										$uploaded[$id] = $string['labels']['l.file'].($id+1).": <strong>".$filename."</strong>@".(round($filesizes[$id]/1024,"2")).$string['labels']['l.upload.succes'];
 									}
 									else {
 										// Unable to upload.
-										$errors[$id] = "File #".($id+1).": <strong>".$filename."</strong> was unabled to be uploaded.";
+										$errors[$id] = $string['labels']['l.file'].($id+1).": <strong>".$filename."</strong>".$string['labels']['l.upload.error'];
 									}
 								} else {
-									$errors[$id] = "File #".($id+1).": <strong>".$filename."</strong> was over the max allowed file size. Max allowed size is ".$max_file_size." KB, detected file size was: ".(round($filesizes[$id]/1024,"2"))." KB.";
+									$errors[$id] = $string['labels']['l.file'].($id+1).": <strong>".$filename."</strong>".$string['labels']['l.upload.error.max.filesize'].$max_file_size.$string['labels']['l.upload.error.max.filesize2'].(round($filesizes[$id]/1024,"2"))." KB.";
 								}
 							} else {
-								$errors[$id] = "File #".($id+1).": <strong>".$filename."</strong> was not a valid file type. Only image files are allowed. Detected file type: ".$filetypes[$id].".";	
+								$errors[$id] = $string['labels']['l.file'].($id+1).": <strong>".$filename."</strong>".$string['labels']['l.upload.error.file.type'].$filetypes[$id].".";	
 							}
 						}
 					}
@@ -151,22 +153,21 @@
 											}
 
 											// upload from url successfully
-											$uploaded[$id] = "File #".($id+1).": <strong>".$filename."</strong> at ".$filesize." KB was successfully uploaded.<br/>
-											<a href=\"./".$upload_dir . $filename."\" target=\"_blank\"><img src=\"".$upload_dir . $filename."\" class=\"preview_img\" border=\"0\" /></a>";
+											$uploaded[$id] = $string['labels']['l.file'].($id+1).": <strong>".$filename."</strong>@".$filesize.$string['labels']['l.upload.succes'];
 										}
 									} else {
-										$errors[$id] = "File #".($id+1).": <strong>".$filename."</strong> was over the max allowed file size. Max allowed size is ".$max_file_size." KB, detected file size was: ".$filesize." KB.";
+										$errors[$id] = $string['labels']['l.file'].($id+1).": <strong>".$filename."</strong>".$string['labels']['l.upload.error.max.filesize'].$max_file_size.$string['labels']['l.upload.error.max.filesize.2'].$filesize." KB.";
 									}
 								} else {
-									$errors[$id] = "File #".($id+1).": <strong>".$filename."</strong> was not a valid file type. Only image files are allowed. Detected file type: (".$filetype.").";	
+									$errors[$id] = $string['labels']['l.file'].($id+1).": <strong>".$filename."</strong>".$string['labels']['l.upload.error.file.type']."(".$filetype.").";	
 								}
 							}
 							else {
 								// Unable to upload.
-								$errors[$id] = "File #".($id+1).": ".$filename." was unable to be read.";
+								$errors[$id] = $string['labels']['l.file'].($id+1).": ".$filename.$string['labels']['l.upload.error.reading'];
 							}
 						} else {
-							$errors[$id] = "File #".($id+1).": ".$filename." was an invalid URL.";
+							$errors[$id] = $string['labels']['l.file'].($id+1).": '".$filename."'".$string['labels']['l.upload.error.url'];
 						}
 					}
 				}
@@ -184,13 +185,13 @@
 					}
 					return $return;
 				} else {
-					return 'No files have been selected to upload. Please try again.';	
+					return $string['labels']['l.upload.error.no.files'];	
 				}
 			} else {
-				return 'The uploading directory is not writable. Be sure to CHMOD to 777.';	
+				return $string['labels']['l.upload.error.upload.dir'];	
 			}
 		} else {
-			return 'Could not located the uploading directory: "'.$upload_dir.'."';	
+			return $string['labels']['l.upload.error.locate.upload.dir'].' "'.$upload_dir.'".';	
 		}
 	}
 

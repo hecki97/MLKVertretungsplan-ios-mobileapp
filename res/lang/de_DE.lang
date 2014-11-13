@@ -5,6 +5,7 @@
 	},
 	"javascript.alert": {
 		"j.login.failed": "Bitte Benutzername und/oder Passwort überprüfen!",
+		"j.registration.error.password": "Die Passwörter stimmen nicht überein!",
 		"j.fields": "Bitte alle Felder ausfüllen!",
 		"j.invitation.code": "Der eingegebene Einladungscode ist nicht korrekt!",
 		"j.error": "Fehler beim Speichern des Benutzernames. Bitte erneut versuchen!",
@@ -14,10 +15,13 @@
 		"j.confirm.logout": "Wollen Sie sich wirklich ausloggen?"
 	},
 	"links": {
-		"a.menu.login": "Zum Login!"
+		"a.menu.login": "Zum Login!",
+		"a.online.editor": "Online-Editor",
+		"a.menu.logout": "Logout"
 	},
 	"buttons": {
 		"b.selection": "Zur Auswahl!",
+		"b.index": "Zum Plan!",
 		"b.registration": "Registrieren!",
 		"b.save": "Speichern!",
 		"b.login": "Anmelden!",
@@ -25,6 +29,7 @@
 		"b.logout": "Ausloggen!",
 		"b.activate": "Aktivieren",
 		"b.deactivate": "Deaktivieren",
+		"b.gen": "Einladungscode generieren!",
 		"b.upload": "Dateien jetzt hochladen!",
 		"b.reset": "Felder zurücksetzen!",
 		"b.upload.computer": "Vom Computer hochladen",
@@ -46,12 +51,12 @@
 		"l.invitation.code": "Einladungscode:",
 		"l.registration.succes": "Benutzername ",
 		"l.registration.succes.2": " wurde erstellt.",
-		"l.online.editor": "Willkommen, ",
+		"l.online.editor": "MLK Vertretungsplan Online-Editor",
+		"l.welcome": "Willkommen, ",
 		"l.alert.key": "Bitte sofort den Einladungscode updaten!",
 		"l.upload": "Vertretungsplan aktualisieren:",
 		"l.settings": "Einstellungen:",
 		"l.invitation.code.warning": "Achtung dieser Code wird nicht mehr angezeigt, wenn die Seite verlassen wird!",
-		"l.invitation.code.gen": "Einladungscode generieren!",
 		"l.registration.de/activate": "Registrierung De/Aktivieren:",
 		"l.activated": "aktiviert",
 		"l.deactivated": "deaktiviert",
@@ -65,13 +70,25 @@
 		"l.warning1": "Es können nur 2 Dateien gleichzeitig hochgeladen werden.",
 		"l.warning2": "Dateien von Ihrem Computer haben Vorrang vor URL-Dateien.",
 		"l.alert.upload": "Bitte warten Sie während ihre Dateien hochgeladen werden...",
-		"l.modul.deactivated": "Dieses Modul wurde deaktiviert!",
+		"l.modul.deactivated": "Dieses Modul wurde vorübergehend deaktiviert!",
 		"l.sorry": "Das tut uns leid",
 		"l.info": "Info",
 		"l.website": "MLK-Website:",
 		"l.source.code": "Source Code(Github)",
 		"l.powered.by": "Powered by:",
 		"l.c": "© 2014 - hecki97",
-		"l.version": "Version:"
+		"l.version": "Version:",
+		"l.uploading": "Bitte warten Sie, während ihre Dateien hochgeladen werden...",
+		"l.file": "Datei #",
+		"l.upload.succes": " KB wurde erfolgreich hochgeladen.",
+		"l.upload.error": " konnte nicht hochgeladen werden.",
+		"l.upload.error.max.filesize": " ist größer als die max. erlaubte Dateigröße. Die max. zulässige Dateigröße ist ",
+		"l.upload.error.max.filesize.2": "KB, erkannte Dateigröße:",
+		"l.upload.error.file.type": " ist kein gültiger Dateityp. Nur html-dateien sind erlaubt. Erkannter Dateityp: ",
+		"l.upload.error.reading": " konnte nicht gelesen werden.",
+		"l.upload.error.url": " war eine ungültige URL.",
+		"l.upload.error.no.files": "Es wurden keine Dateien zum hochladen ausgewählt. Bitte versuchen Sie es erneut.",
+		"l.upload.error.upload.dir": "Das Upload-Verzeichnis ist nicht beschreibbar. Achten Sie darauf CHMOD auf 777 gesetzt zu haben.",
+		"l.upload.error.locate.upload.dir": "Das Upload-Verzeichnis wurde nicht gefunden: "
 	}
 }
