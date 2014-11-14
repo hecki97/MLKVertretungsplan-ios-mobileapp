@@ -31,7 +31,7 @@
 						    	return confirm("<?=$string['javascript.alert']['j.confirm.logout']; ?>");
 							}
 						</script>
-						<button onclick="return show_confirm_logout();" class="element"><span class="icon-switch"></span> <?=$string['links']['a.menu.logout']; ?><sup><?=$lang; ?></sup></button>
+						<button onclick="return show_confirm_logout();" class="element"><span class="icon-switch"></span> <?=$string['links']['a.menu.logout']; ?></button>
 					</form>
 		          <span class="element-divider"></span>
 		          <button class="element brand no-phone no-tablet" onclick="window.location.reload();"><span class="icon-spin"></span></button>
@@ -61,11 +61,11 @@
 				</form>
 
 				<?=$string['labels']['l.upload']; ?>
-					<form action='onlineEditor.php'>
+					<form action='./upload.php'>
 				    	<input type="submit" name="fupload" value="<?=$string['buttons']['b.click']; ?>">
 				    </form><br>
 				<?=$string['labels']['l.settings']; ?>
-					<form>
+					<form action="./settings.php">
 				    	<input type="submit" name="fsettings" value="<?=$string['buttons']['b.click']; ?>">
 				    </form><br>
 			<!-- Datum + Uhrzeit -->

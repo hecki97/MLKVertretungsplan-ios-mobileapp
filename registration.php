@@ -52,7 +52,6 @@
         <input type="submit" name="registration" value="<?=$string['buttons']['b.registration']; ?>">
         <br/><?=@$return ?>
       </form>
-      <form action="./index.php" style="display: inline;"><input type="submit" name="login" value="<?=$string['buttons']['b.index']; ?>"></form>
   </div>
 </body>
 </html>

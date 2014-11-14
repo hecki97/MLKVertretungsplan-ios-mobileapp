@@ -3,12 +3,6 @@
 	include(dirname(__FILE__)."/_checkDataBase.php");
 	include(dirname(__FILE__)."/_loadLangFiles.php");
 	include(dirname(__FILE__)."/_getVersionScript.php");
-	include(dirname(__FILE__)."/_buttonScript.php");
-
-	//Registrieren
-	Button("register", "mlkvplan/registration.php");
-	//Zum Plan
-	Button("fback", "mlkvplan/mlkvplan.php");
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	    if (!empty($_POST["username"]) && !empty($_POST["password"]))
@@ -29,12 +23,12 @@
 	      } 
 	      else 
 	      { 
-	        ?><script type="text/javascript">alert("<?php echo $string['global']['javascript.alert.login.failed']; ?>");</script><?php
+	        ?><script type="text/javascript">alert("<?=$string['javascript.alert']['j.login.failed']; ?>");</script><?php
 	      }
 	    }
 	    else
 	    {
-	      ?><script type="text/javascript">alert("<?php echo $string['global']['javascript.alert.felder']; ?>");</script><?php
+	      ?><script type="text/javascript">alert("<?=$string['javascript.alert']['j.fields']; ?>");</script><?php
 	    }
 	}
 ?>

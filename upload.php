@@ -74,7 +74,7 @@
 			<table cellpadding="25" align="center">
 				<tr>
 					<td>
-						<h1><?=$string['labels']['l.modul1']; ?></h1>
+						<h1><?=$string['labels']['l.modul1']; ?>:</h1>
 						<h3><?=$string['labels']['l.modul1.upload']; ?></h3>
                   		<p><?=$string['labels']['l.max.filesize']; ?></p>
 						<div id="upload_files">
@@ -94,7 +94,7 @@
 					    </div>
 					</td>
 					<td>
-						<h1><?=$string['labels']['l.modul2']; ?></h1>
+						<h1><?=$string['labels']['l.modul2']; ?>:</h1>
 						<h3><?=$string['labels']['l.modul2.upload']; ?></h3>
                   		<p><?=$string['labels']['l.max.filesize']; ?></p>
 						<div class="upload_file" id="upload_file_2">
