@@ -27,12 +27,14 @@
         </header>
 		    <table>
 		        <tr class="title"><h1><?=$string['labels']['l.info']; ?></h1></tr>
-		        <tr><h2><a href="https://github.com/hecki97/MLKVertretungsplan-online"><?=$string['labels']['l.source.code']; ?></a></h2></tr><br/>
-		        <tr><h2><?=$string['labels']['l.website']; ?></h2><h3><a href="http://www.mlk-vk.de">www.mlk-vk.de</a></h3></tr><br/>
-		        <tr><h2><?=$string['labels']['l.powered.by']; ?> </h2><h3><a href="http://metroui.org.ua">Metro UI CSS 2.0</a></h3><br></tr>
+		        <tr><h2><a href="https://gitrub.com/hecki97/MLKVertretungsplan-online"><?=$string['labels']['l.source.code']; ?></a></h2></tr>
+		        <br/>
+		        <tr><h2><?=$string['labels']['l.website']; ?></h2><h3><a href="http://www.mlk-vk.de">www.mlk-vk.de</a></h3></tr>
+		       	<br/>
+		        <tr><h2><?=$string['labels']['l.powered.by']; ?> </h2><h3><a href="http://metroui.org.ua">Metro UI CSS 2.0</a></h3></tr>
+		        <br/>
 		        <tr><h4><?=$string['labels']['l.c']; ?></h4></tr>
 		        <tr><h4><?=$string['labels']['l.version']; ?> <?=$version; ?></h4></tr>
 		    </table>
-		</nav>
 	</body>
 </html>

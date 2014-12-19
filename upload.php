@@ -1,9 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<?php $host = $_SERVER['SERVER_NAME']; ?>
-<?php include(dirname(__FILE__)."/res/html/htmlHead.html"); ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <?php include(dirname(__FILE__)."/res/php/_upload.php"); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
+		<?php include(dirname(__FILE__)."/res/html/htmlHead.html"); ?>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Upload</title>
 		<script src="jquery-1.7.2.min.js" type="text/javascript"></script>
@@ -83,6 +82,7 @@
 					        		<button id="1_computer_button" name="upload_type_computer" type="button" onclick="hideElement('1_upload_url'); showElement('1_upload_computer')"><?=$string['buttons']['b.upload.computer']; ?></button>
 					            	<button id="1_url_button" name="upload_type_url" type="button" onclick="hideElement('1_upload_computer'); showElement('1_upload_url')"><?=$string['buttons']['b.upload.url']; ?></button>
 					        	</div>
+					        </div>
 					        <div class="upload">
 					        	<div id="1_upload_computer">
 					            	<input type="file" name="files_hdd[]" size="30" class="upload_input" />
@@ -91,7 +91,7 @@
 					            	<input type="text" name="files_url[]" size="30" class="upload_input" maxlength="100" value="http://" onfocus="if(this.value == 'http://') this.value = '';" id="1_input_url" />
 					            </div>
 					        </div>
-					    </div>
+						</div>
 					</td>
 					<td>
 						<h1><?=$string['labels']['l.modul2']; ?>:</h1>
@@ -125,8 +125,6 @@
 				<div id="uploading" style="display:none"></div>
 				<?=$upload_result;?>
 			</form>
-			</p>
-			</div>
 		</div>
 	</body>
 </html>

@@ -66,7 +66,7 @@
 		"l.modul1.upload": "Upload 'modul1.html' here!",
 		"l.modul2": "Module2",
 		"l.modul2.upload": "Upload 'modul2.html' here!",
-		"l.max.filesize": "Max. file size 250KB!",
+		"l.max.filesize": "Max. file size 500KB!",
 		"l.warning1": "It can only 2 files to upload at once.",
 		"l.warning2": "files from your computer take precedence over URL files.",
 		"l.alert.upload": "Please wait while your file is being uploaded...",

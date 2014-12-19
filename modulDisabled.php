@@ -25,7 +25,7 @@
             </nav>
           </nav>
         </header>
-
+        
 		<div class="container" style="text-align: center;">
 			<h1><?=$string['labels']['l.modul.deactivated']; ?></h1>
 			<h2><?=$string['labels']['l.sorry']; ?><sup>TM</sup></h2>

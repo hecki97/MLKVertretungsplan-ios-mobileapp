@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<?php include(dirname(__FILE__)."/res/html/htmlHead.html"); ?>
 <?php include(dirname(__FILE__)."/res/php/_onlineEditor.php"); ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
 	<head>
+		<?php include(dirname(__FILE__)."/res/html/htmlHead.html"); ?>
 		<title>Online-Editor</title>
 		<script type="text/javascript">
 			function UR_Start() 
@@ -55,25 +55,22 @@
 						<?=$string['labels']['l.welcome'].$_SESSION["username"]; ?>
 
 						<?php if($row->md5 == md5('000')) : ?>
-							<br><span style = 'color:#FFBF00'><?=$string['online.editor']['alert.key']; ?></span>
+							<br><span style = 'color:#FFBF00'><?=$string['labels']['l.alert.key']; ?></span>
 						<?php endif; ?>
 					</h2>
 				</form>
 
-				<?=$string['labels']['l.upload']; ?>
-					<form action='./upload.php'>
-				    	<input type="submit" name="fupload" value="<?=$string['buttons']['b.click']; ?>">
-				    </form><br>
-				<?=$string['labels']['l.settings']; ?>
-					<form action="./settings.php">
-				    	<input type="submit" name="fsettings" value="<?=$string['buttons']['b.click']; ?>">
-				    </form><br>
-			<!-- Datum + Uhrzeit -->
-				<p>
-					<br/><h2><font id="ur" size="30"></font></h2>
-					<h2><?=date('d F Y'); ?></h2>
-				</p>
-
+			<?=$string['labels']['l.upload']; ?>
+				<form action='./upload.php'>
+			    	<input type="submit" name="fupload" value="<?=$string['buttons']['b.click']; ?>">
+			    </form><br>
+			<?=$string['labels']['l.settings']; ?>
+				<form action="./settings.php">
+			    	<input type="submit" name="fsettings" value="<?=$string['buttons']['b.click']; ?>">
+			    </form><br>
+		<!-- Datum + Uhrzeit -->
+			<br/><h2><font id="ur" size="30"></font></h2>
+			<h2><?=date('d F Y'); ?></h2>
 		</div>
 	</body>
 </html>

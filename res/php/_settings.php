@@ -4,17 +4,14 @@
 	include(dirname(__FILE__)."/_checkDataBase.php");
 	include(dirname(__FILE__)."/_getVersionScript.php");
 	
-	$abfrage = "SELECT * FROM `registrierung`";
-	$ergebnis = mysql_query($abfrage);
-	$row = mysql_fetch_object($ergebnis);
+	$row = LoadFromDB($db['t.registration'], true);
 
 //Generiert einen neuen key
 	if(isset($_REQUEST["random"]))
 	{
-	    $randKey = uniqid();
-	    $gen_key = substr($randKey, 0, -1);
+	    $gen_key = substr(uniqid(), 0, -1);
 	    $key = md5($gen_key);
-        $eintragen = mysql_query("UPDATE `key` SET md5 = '$key' WHERE 1");
+        $eintragen = mysql_query("UPDATE `".$db['t.key']."` SET md5 = '$key' WHERE 1");
 	}
 
 	if($row->aktiviert == "true")
@@ -25,9 +22,9 @@
 	if(isset($_REQUEST['auswahl']))
 	{
 		if(@$_POST['check'] == "True")
-            $eintragen = mysql_query("UPDATE `registrierung` SET aktiviert = 'true' WHERE 1");
+            $eintragen = mysql_query("UPDATE `".$db['t.registration']."` SET aktiviert = 'true' WHERE 1");
 		if(@$_POST['check'] == "False")
-            $eintragen = mysql_query("UPDATE `registrierung` SET aktiviert = 'false' WHERE 1");
+            $eintragen = mysql_query("UPDATE `".$db['t.registration']."` SET aktiviert = 'false' WHERE 1");
 
         ?><script type="text/javascript">
 		window.onload = function()

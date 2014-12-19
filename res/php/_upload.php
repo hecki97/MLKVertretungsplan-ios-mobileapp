@@ -3,14 +3,11 @@
 	include(dirname(__FILE__)."/_loadLangFiles.php");
 	include(dirname(__FILE__)."/_checkDataBase.php");
 	include(dirname(__FILE__)."/_getVersionScript.php");
-
-	$abfrage = "SELECT modul1, modul2 FROM datum"; 
-	$ergebnis = mysql_query($abfrage); 
-	$row = mysql_fetch_object($ergebnis);
+	$row = LoadFromDB($db['t.date'], true);
 
 	// KEY VARIABLES
 	$valid_exts = array("text/html", "html"); // array of valid file extensions
-	$max_file_size = 250; // file size in kb
+	$max_file_size = 500; // file size in kb
 	$upload_dir = dirname(__FILE__)."/../upload/"; // directory to upload to with trailing slash
 	//
 

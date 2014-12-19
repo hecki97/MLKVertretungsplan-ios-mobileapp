@@ -66,7 +66,7 @@
 		"l.modul1.upload": "Hier 'modul1.html' hochladen!",
 		"l.modul2": "Modul2",
 		"l.modul2.upload": "Hier 'modul2.html' hochladen!",
-		"l.max.filesize": "Max. Dateigröße 250KB!",
+		"l.max.filesize": "Max. Dateigröße 500KB!",
 		"l.warning1": "Es können nur 2 Dateien gleichzeitig hochgeladen werden.",
 		"l.warning2": "Dateien von Ihrem Computer haben Vorrang vor URL-Dateien.",
 		"l.alert.upload": "Bitte warten Sie während ihre Dateien hochgeladen werden...",

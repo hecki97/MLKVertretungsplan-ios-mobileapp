@@ -1,11 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<?php include(dirname(__FILE__)."/res/html/htmlHead.html"); ?>
 <?php include(dirname(__FILE__)."/res/php/_registration.php"); ?>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
-<head>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <?php include(dirname(__FILE__)."/res/html/htmlHead.html"); ?>
     <title>Registrierung</title>
-</head>
-<body class="metro">
+  </head>
+  <body class="metro">
   <header>
     <nav class="navigation-bar dark fixed-top">
       <nav class="navigation-bar-content">
@@ -25,7 +25,7 @@
     </nav>
   </header>
 
-<div class="container" style="text-align: center;">
+  <div class="container" style="text-align: center;">
   <h1><?=$string['labels']['l.registration']; ?></h1>
     <form action="registration.php" method="post">
       <h3><?=$string['labels']['l.data']; ?></h3>
@@ -48,10 +48,8 @@
           <th><input type="text" name="einladungscode" /></th>
         </tr>
       </table>
-      <br><form action="registration.php" method="post" style="display: inline;">
-        <input type="submit" name="registration" value="<?=$string['buttons']['b.registration']; ?>">
-        <br/><?=@$return ?>
-      </form>
+      <br><input type="submit" name="registration" value="<?=$string['buttons']['b.registration']; ?>"><br/><?=@$return ?>
+    </form>
   </div>
 </body>
 </html>

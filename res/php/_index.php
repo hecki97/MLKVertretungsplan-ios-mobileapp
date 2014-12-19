@@ -1,20 +1,18 @@
 <?php 
-	include(dirname(__FILE__)."/_checkDataBase.php");
+	include(dirname(__FILE__)."/_loadLangFiles.php");
+  include(dirname(__FILE__)."/_checkDataBase.php");
 	include(dirname(__FILE__)."/_getVersionScript.php");
 	
+  $row = LoadFromDB($db['t.date'], true);
 	$host = $_SERVER['SERVER_NAME'];
 	$ID2 = "ID2=d24a5dd7-48c6-4b27-8f79-464a62af12bf";
 	$http = "https://light.dsbcontrol.de/DSBlightWebsite/(S(wns2f3dhy5w21zzxuzomq1ph))/Homepage/PreProgram.aspx?";
 
-	$abfrage = "SELECT * FROM `datum`";
-	$ergebnis = mysql_query($abfrage);
-	$row = mysql_fetch_object($ergebnis);
-
 // Check Version
     if(isset($_GET['do']) && $_GET['do'] == "html")
     {
-      $path_modul1 = "http://$host/mlkvplan/res/upload/modul1.html";
-      $path_modul2 = "http://$host/mlkvplan/res/upload/modul2.html";
+      $path_modul1 = "http://".$host."/mlkvplan/res/upload/modul1.html";
+      $path_modul2 = "http://".$host."/mlkvplan/res/upload/modul2.html";
       $version_sup = "html";
     }
     else
@@ -24,17 +22,29 @@
       $version_sup = "flash";
     }
 
-    function CheckDatum($row, $modul)
+    function CheckDatum($case)
     {
-      include(dirname(__FILE__)."/_loadLangFiles.php");
+      global $row, $string;
 
       if (isset($_GET['do']) && $_GET['do'] == "html")
       {
-        if(strtotime($row) != strtotime(date("d/m/y")))
-          return "<span style ='color:#B40404;'>".$modul.$string['labels']['l.modul.not.up.to.date']."</span> <h4>(".$string['labels']['l.last.update'].$row.")"."</h4>";
-        else
-          return "<span style ='color:#007236;'>".$modul.$string['labels']['l.modul.up.to.date']."</span> <h4>(".$string['labels']['l.last.update'].$row.")"."</h4>";
-      }
+         switch ($case) {
+          case 'modul1':
+          if(strtotime($row->modul1) < strtotime(date("d-m-y")))
+            $return = "<h2><span style ='color:#B40404; text-shadow: 2px 2px #000;'>Modul1".$string['labels']['l.modul.not.up.to.date']."</span> </h2><h4>(".$string['labels']['l.last.update'].$row->modul1.")"."</h4>";
+          else
+            $return = "<h2><span style ='color:#007236;'>Modul1".$string['labels']['l.modul.up.to.date']."</span> </h2><h4>(".$string['labels']['l.last.update'].$row->modul1.")"."</h4>";
+          break;
+        
+          case 'modul2':
+           if(strtotime($row->modul2) < strtotime(date("d-m-y")))
+            $return = "<h2><span style ='color:#B40404; text-shadow: 2px 2px #000;'>Modul2".$string['labels']['l.modul.not.up.to.date']."</span> </h2><h4>(".$string['labels']['l.last.update'].$row->modul2.")"."</h4>";
+          else
+            $return = "<h2><span style ='color:#007236;'>Modul2".$string['labels']['l.modul.up.to.date']."</span> </h2><h4>(".$string['labels']['l.last.update'].$row->modul2.")"."</h4>";
+          break;
+        }
+        return $return;
+       }
       else
         return "";
     }

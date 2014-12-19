@@ -4,7 +4,5 @@
 	include(dirname(__FILE__)."/_loadLangFiles.php");
 	include(dirname(__FILE__)."/_getVersionScript.php");
 
-	$abfrage = "SELECT * FROM `key`";
-	$ergebnis = mysql_query($abfrage);
-	$row = mysql_fetch_object($ergebnis);
+	$row = LoadFromDB($db['t.key'], true);
 ?>
